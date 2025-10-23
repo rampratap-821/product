@@ -112,7 +112,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="bg-white shadow-lg border-b border-gray-200">
+        <nav className="bg-white shadow-lg border-b border-gray-200 ">
             {/* Main Navbar */}
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex items-center justify-between py-3 md:py-4">

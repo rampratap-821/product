@@ -18,7 +18,7 @@ const Navbar1 = () => {
   }, [])
 
   return (
-    <div className='text-white p-2 text-sm md:text-xl flex flex-col md:flex-row gap-4 md:gap-10 justify-between items-center px-4 md:px-20 gradient-card bg-gradient-to-r from-teal-400 via-red-500 to-pink-500'>
+    <div className=' text-white p-2 text-sm md:text-xl flex flex-col md:flex-row gap-4 md:gap-10 justify-between items-center px-4 md:px-20 gradient-card bg-gradient-to-r from-teal-400 via-red-500 to-pink-500'>
       <div className='w-full md:w-auto text-center'>
         <h1 className='text-lg md:text-xl font-medium truncate'>{messages[index]}</h1>
       </div>

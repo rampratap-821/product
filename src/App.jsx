@@ -10,12 +10,14 @@ import Contact from './Page/Contact'
 import Navbar1 from './Component/Navbar1'
 import Navbar from './Component/Navbar'
 import Navbar3 from './Component/Navbar3'
+import Direction from './Component/Direction'
 const App = () => {
   return (
     <Router >
       <Navbar1/>
       <Navbar/>
       <Navbar3/>
+      <Direction/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/about' element={<About/>}></Route>
