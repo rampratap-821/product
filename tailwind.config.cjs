@@ -24,6 +24,7 @@ module.exports = {
         slideRight: 'slideRight 1s ease-out forwards',
         slideUp: 'slideUp 1s ease-out forwards',
       },
+      
     },
   },
   plugins: [],

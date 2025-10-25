@@ -23,7 +23,7 @@ const Get_Glowing = () => {
                     Cosmetic.map((item) =>
                         <div className=''>
                             <div className='relative  '>
-                                <img src={item.url} className='rounded-2xl w-[200px] sm:w-[470px] h-[200px] sm:h-[435px] ">' />
+                                <img src={item.url} className='rounded-2xl w-[200px] sm:w-[470px] h-[200px] sm:h-[435px] object-cover ">' />
 
                                 <div className='absolute text-black font-bold bottom-0 sm:m-10 m-3 bg-white sm:p-2   sm:px-5 px-1 rounded hover:bg-pink-700 hover:text-white  duration-1000'>
                                     <ul>

@@ -1,15 +1,19 @@
+import ram from '../assets/Icons/family.jpeg'
+import lipistic from '../assets/Icons/lipistic.png'
+
+
 export const Cosmetic =  [
     {
       "id": 1,
       "title": "Makeup Collection",
-      "url": "https://images.unsplash.com/photo-1596462502278-27bfdc403348",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN7ORaIb86mSaGTyouLwH3JWUlJYm4lUEhcg&s",
       "source": "unsplash",
       "category": "makeup_collection"
     },
     {
       "id": 2,
-      "title": "Lipstick and Cosmetics",
-      "url": "https://images.unsplash.com/photo-1586495777744-4413f21062fa",
+      "title": "My family",
+      "url":ram,
       "source": "unsplash",
       "category": "lipstick"
     },
@@ -69,5 +73,55 @@ export const Cosmetic =  [
       "source": "pexels",
       "category": "makeup_items"
     }
+  ]
+ 
+
+
+
+
+ export const Cosmetic2 =  [
+    {
+      "id": 1,
+      "title": "Makeup Collection",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN7ORaIb86mSaGTyouLwH3JWUlJYm4lUEhcg&s",
+      "source": "unsplash",
+      "category": "makeup_collection"
+    },
+    {
+      "id": 2,
+      "title": "My family",
+      "url":ram,
+      "source": "unsplash",
+      "category": "lipstick"
+    },
+    {
+      "id": 3,
+      "title": "Beauty Products",
+      "url": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b",
+      "source": "unsplash",
+      "category": "beauty_products"
+    },
+    {
+      "id": 4,
+      "title": "Makeup Items",
+      "url": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796",
+      "source": "unsplash",
+      "category": "makeup_items"
+    },
+    {
+      "id": 5,
+      "title": "Cosmetic Background",
+      "url": "https://images.unsplash.com/photo-1591073113125-e46713c829ed",
+      "source": "unsplash",
+      "category": "background"
+    },
+    {
+      "id": 6,
+      "title": "Brushes and Makeup",
+      "url": "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg",
+      "source": "pexels",
+      "category": "brushes"
+    },
+   
   ]
  
