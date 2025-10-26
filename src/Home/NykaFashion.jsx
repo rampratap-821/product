@@ -41,7 +41,7 @@ const NykaaFashion = () => {
         prevArrow: <PrevArrow />,
     };
     return (
-        <div className='w-[100%  mx-auto bg-gradient-to-br from-pink-50 to-rose-300  py-5 mt-5'>
+        <div className='w-[100%  mx-auto py-5 mt-5'>
             <div className='w-[95%]  mx-auto  mt-10'>
                 <h1 className='text-center text-5xl text-pink-500 font-bold ' style={{ fontFamily: 'Dancing Script, cursive' }}>NYKAA LUX</h1>
                 <h1 className='text-center text-2xl text-gray-500 font-semibold'>THE BEST OF LUXURY</h1>

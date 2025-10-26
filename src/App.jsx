@@ -15,7 +15,6 @@ import Footer from './Component/Footer'
 import Footer2 from './Component/Footer2'
 import Footer3 from './Component/Footer3'
 import Footer4 from './Component/Footer4'
-import Footer5 from './Component/Footer5'
 const App = () => {
   return (
     <Router >

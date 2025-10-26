@@ -44,9 +44,9 @@ const Get_Glowing = () => {
   };
 
   return (
-    <div className="w-full mx-auto mt-5">
+    <div className="w-full mx-auto mb-5">
       <div className="w-[95%] mx-auto mt-10">
-        <h1 className="text-2xl text-slate-700 font-semibold border-b border-gray-200 pb-5">
+        <h1 className="text-4xl text-slate-700 font-bold border-b border-gray-200 pb-5 text-pink-400">
           In the Spotlight
         </h1>
        
