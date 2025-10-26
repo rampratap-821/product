@@ -18,7 +18,7 @@ import Footer4 from './Component/Footer4'
 const App = () => {
   return (
     <Router >
-      <Navbar1/>
+      {/* <Navbar1/> */}
       <Navbar/>
       {/* <Navbar3/> */}
       <Direction/>
