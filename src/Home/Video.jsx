@@ -3,7 +3,7 @@ import pala from "../assets/Icons/images2.jpeg";
 
 const Video = () => {
   return (
-    <div className="grid sm:grid-cols-2 grid-cols-1 mx-auto w-[97%] gap-4 bg-blue-50   ">
+    <div className="grid sm:grid-cols-2 grid-cols-1 mx-auto w-[97%] gap-4   ">
       
       <div className="">
         <video

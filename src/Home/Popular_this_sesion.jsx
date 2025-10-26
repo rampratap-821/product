@@ -15,7 +15,7 @@ const This_Season = () => {
             <div className='w-[95%]  mx-auto  mt-10'>
                 <h1 className=' text-3xl text-black font-bold ' >Popular This Season</h1>
 
-                <div className=' grid grid-cols-6'>
+                <div className=' grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3  lg:grid-cols-4 gap-1'>
 
                         {
                             Cosmetic2.map((item) =>

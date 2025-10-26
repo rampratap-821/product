@@ -6,7 +6,7 @@ import { BsFillPatchQuestionFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
 const Navbar1 = () => {
-  const messages = ["Hello Rampratap 👋", "Kaise ho?","Nice"];
+  const messages = ["Ram ", "Kaise","Nice"];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -17,8 +17,8 @@ const Navbar1 = () => {
   }, []);
 
   return (
-    <div className='w-full fixed top-0 z-50 bg-gradient-to-r from-blue-900 via-teal-900 to-indigo-900 text-white py-2 px-4'>
-      <div className='max-w-[1170px] mx-auto flex flex-wrap items-center justify-between gap-4'>
+    <div className='w-full fixed top-0 z-50 bg-gradient-to-r from-blue-900 via-teal-900 to-indigo-900 text-white sm:py-2 py-1  sm:px-4 px-2'>
+      <div className='max-w-[1170px] mx-auto flex flex-wrap items-center justify-between gap-2'>
         
         <div className='whitespace-nowrap text-xl sm:text-2xl font-bold text-yellow-400' style={{fontFamily:"-moz-initial"}}>
           {messages[index]}
