@@ -1,8 +1,8 @@
 
 
 import React from 'react'
-import banner1 from"../assets/Icons/banner1.jpeg"
-import banner2 from"../assets/Icons/banner2.jpeg"
+import banner1 from"../assets/Icons/Banner1.jpeg"
+import banner2 from"../assets/Icons/Banner2.jpeg"
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { useState } from 'react';
 import { RxDot, RxDotFilled } from 'react-icons/rx';
