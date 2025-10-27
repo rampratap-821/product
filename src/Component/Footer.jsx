@@ -12,7 +12,7 @@ import { BsTelephoneXFill } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div className='w-[100%]  text-white bg-black sm:py-[70px] py-[35px] px-[20px] '>
+    <div className='w-[100%]  text-white bg-black sm:py-[70px] py-[35px] px-[25px] '>
       <div className='max-w-[1170px] mx-auto'>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-5'>
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
 
           <div>
-          <Lottie animationData={perfume} loop={true} className="w-[150px] mx-auto " />
+          <Lottie animationData={perfume} loop={true} className="w-[150px] lg:mx-auto  " />
           </div>
 
 

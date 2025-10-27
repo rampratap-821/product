@@ -7,7 +7,7 @@ const Video = () => {
       
       <div className="">
         <video
-          className="w-full sm:h-[475px] h-[300px]  sm:rounded-2xl rounded-2xl object-cover  px-2"
+          className="w-full sm:h-[300px] h-[150px]  sm:rounded-2xl rounded-2xl object-cover  px-2"
           src="https://v.ftcdn.net/17/26/71/66/700_F_1726716641_1zBZqfuBgeJLpxM9jSQzlBLnFKw3cayi_ST.mp4"
           autoPlay
           muted
@@ -20,7 +20,7 @@ const Video = () => {
         <img
           src={pala}
           alt="Cosmetic"
-          className="w-full sm:h-[475px] h-[300px]  sm:rounded-2xl rounded-2xl object-cover sm:py-0 px-2"
+          className="w-full sm:h-[300px] h-[150px]  sm:rounded-2xl rounded-2xl object-cover sm:py-0 px-2"
         />
       </div>
     </div>

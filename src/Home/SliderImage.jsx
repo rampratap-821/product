@@ -1,117 +1,100 @@
-// // import React from 'react'
-// // import img1 from '../SliderImage/1.jpg'
-// // import img2 from '../SliderImage/2.jpg'
-// // import img3 from '../SliderImage/3.jpg'
-// // import img4 from '../SliderImage/4.jpg'
-
-// // const Slide = [img1,img2,img3,img4]
-// // const SliderImage = () => {
-// //     return (
-// //         <div>
-// //         {
-// //             Slide.map((item)=>
-// //             <div>
-// //                 <img src={item.Slide}/>
-// //             </div>
-// //             )
-// //         }
-// //         </div>
-// //     )
-// // }
-
-// // export default SliderImage
 
 
+import React from 'react'
+import banner1 from"../assets/Icons/banner1.jpeg"
+import banner2 from"../assets/Icons/banner2.jpeg"
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { useState } from 'react';
+import { RxDot, RxDotFilled } from 'react-icons/rx';
+const dataSlider = [
+  {
+    id: "1",
+    imageUrl: banner1,
+    button: {
+      text: "Shop Now",
+      cssClasses: "text-white",
+    },
+    body: {
+      cssClasses: "text-white",
+      mainText: "Perfume Tips Tricks One",
+      subText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
+    },
+  },
+  {
+    id: "2",
+    imageUrl: banner2,
+    button: {
+      text: "Shop Now",
+      cssClasses: "text-white",
+    },
+    body: {
+      cssClasses: "text-white",
+      
+      mainText: "Perfume Tips Tricks Two",
+      subText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
+    },
+  },
+  {
+    id: "3",
+    imageUrl:
+      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+    button: {
+      text: "Shop Now",
+      cssClasses: "text-white",
+    },
+    body: {
+      cssClasses: "text-white",
+      
+      mainText: "Perfume Tips Tricks Three",
+      subText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
+    },
+  },
+];
 
 
+const SliderImage = () => {
+  const[currentIndex,setCurrentIndex] = useState(0)
 
-// import React, { useState, useEffect } from "react";
-// import img1 from "../SliderImage/1.jpg"; 
-// import img2 from "../SliderImage/2.jpg";
-// import img3 from "../SliderImage/3.jpg";
-// import img4 from "../SliderImage/4.jpg";
+  const nextSlider = ()=>{
+    const isFirstSlider = currentIndex === 0
+    const newIndex = isFirstSlider? dataSlider.length-1:currentIndex-1;
+    setCurrentIndex(newIndex)
+  }
+  const previousSlider = ()=>{
+  const isLastSlider = currentIndex === dataSlider.length-1
+  const newIndex = isLastSlider? 0: currentIndex+1;
+  setCurrentIndex(newIndex)
+  }
+  return (
+    <div className='w-full h-[500px] relative text-white'>
+     <img src={dataSlider[currentIndex].imageUrl} className='w-full h-full object-cover rounded-2xl sm:p-2 md:p-2 lg:p-0 p-2' />
 
-// const Slide = [img1, img2, img3, img4];
+      <div className=' absolute p-2 text-xl translate-y-1/2 rounded-full  top-1/3 bg-black translate-x-0 left-2'>
+        <BsChevronCompactLeft onClick={nextSlider}/>
+      </div>
 
-// const SliderImage = () => {
-//   const [currentIndex, setCurrentIndex] = useState(0);
+      <div className=' absolute p-2 text-xl translate-y-1/2 rounded-full  top-1/3 bg-black translate-x-0 right-2'>
+        <BsChevronCompactRight onClick={previousSlider}/>
+      </div>
+      <div className='absolute translate-x-0 left-1/2 flex bottom-4'>
+        {dataSlider.map((slider,index)=>
+        <div key={slider.id} className='text-4xl cursor-pointer'>
+          {index===currentIndex?
+          (
+          <RxDotFilled></RxDotFilled>
+          ):
+          (
+          <RxDot></RxDot>
+          )}
+        </div>
+        )}
+      </div>
 
-//   useEffect(() => {
-//     const timer = setInterval(() => {
-//       setCurrentIndex((prev) => (prev + 1) % Slide.length);
-//     }, 3000);
-//     return () => clearInterval(timer);
-//   }, []);
+    </div>
+  )
+}
 
-//   const prevSlide = () => {
-//     setCurrentIndex((prev) => (prev - 1 + Slide.length) % Slide.length);
-//   };
-
-//   const nextSlide = () => {
-//     setCurrentIndex((prev) => (prev + 1) % Slide.length);
-//   };
-
-//   return (
-//     <div className="relative w-full  mx-auto  overflow-hidden shadow-lg">
-//       <img
-//         src={Slide[currentIndex]}
-//         alt={`slide-${currentIndex}`}
-//         className="w-full h-[550px] object-cover transition-all duration-1000"
-        
-//       />
-
-//       <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-//         <h2 className="text-white text-3xl font-bold drop-shadow-lg">
-//           Welcome to Amit Enterprises
-//         </h2>
-//       </div>
-
-//       <button
-//         onClick={prevSlide}
-//         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/60 transition-all duration-300"
-//       >
-//         <svg
-//           xmlns="http://www.w3.org/2000/svg"
-//           fill="none"
-//           viewBox="0 0 24 24"
-//           strokeWidth={2}
-//           stroke="currentColor"
-//           className="w-6 h-6"
-//         >
-//           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-//         </svg>
-//       </button>
-
-//       <button
-//         onClick={nextSlide}
-//         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/60 transition-all duration-300"
-//       >
-//         <svg
-//           xmlns="http://www.w3.org/2000/svg"
-//           fill="none"
-//           viewBox="0 0 24 24"
-//           strokeWidth={2}
-//           stroke="currentColor"
-//           className="w-6 h-6"
-//         >
-//           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-//         </svg>
-//       </button>
-
-//       <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-//         {Slide.map((_, i) => (
-//           <button
-//             key={i}
-//             onClick={() => setCurrentIndex(i)}
-//             className={`w-3 h-3 rounded-full ${
-//               i === currentIndex ? "bg-orange-700" : "bg-gray-400"
-//             }`}
-//           ></button>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SliderImage;
-
+export default SliderImage;

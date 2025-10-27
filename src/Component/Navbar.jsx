@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full bg-white shadow-md border-b border-gray-200 pt-2 z-40">
+      <nav className="fixed w-full bg-black text-white shadow-md border-b border-gray-200 pt-2 z-40">
         <div className="px-4 md:px-6">
           <div className="flex items-center justify-between py-3 md:py-4">
             {/* Logo */}
@@ -58,15 +58,15 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <ul className="hidden lg:flex items-center space-x-8">
               <li>
-                <Link to="/" className="text-gray-700 hover:text-pink-600 transition-colors font-medium">Home</Link>
+                <Link to="/" className="hover:text-pink-600 transition-colors font-medium">Home</Link>
               </li>
 
               <li>
-                <Link to="/about" className="text-gray-700 hover:text-pink-600 transition-colors font-medium">About</Link>
+                <Link to="/about" className=" hover:text-pink-600 transition-colors font-medium">About</Link>
               </li>
 
               <li>
-                <Link to="/products" className="text-gray-700 hover:text-pink-600 transition-colors font-medium">Product</Link>
+                <Link to="/products" className="hover:text-pink-600 transition-colors font-medium">Product</Link>
               </li>
 
 
@@ -77,7 +77,7 @@ const Navbar = () => {
                 onMouseEnter={() => setActiveDropdown('brands')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition font-medium">
+                <button className="flex items-center gap-1  hover:text-pink-600 transition font-medium">
                   Brands
                   <svg className={`w-3 h-3 transition-transform ${activeDropdown === 'brands' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
@@ -112,7 +112,7 @@ const Navbar = () => {
                 onMouseEnter={() => setActiveDropdown('luxe')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 text-gray-700 hover:text-amber-600 transition font-medium">
+                <button className="flex items-center gap-1  hover:text-amber-600 transition font-medium">
                   Luxe
                   <svg className={`w-3 h-3 transition-transform ${activeDropdown === 'luxe' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
@@ -162,7 +162,7 @@ const Navbar = () => {
               </button>
 
               {/* Cart */}
-              <button onClick={toggleCart} className="relative p-2 text-gray-700 hover:text-pink-600 transition">
+              <button onClick={toggleCart} className="relative p-2  hover:text-pink-600 transition">
                 <RiShoppingBasketFill className="text-2xl" />
                 <span className="absolute -top-1 -right-1 bg-pink-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
               </button>
@@ -283,9 +283,9 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.4 }}
-              className="fixed top-0 right-0 w-80 sm:w-96 h-full bg-white shadow-2xl z-50  "
+              className="fixed top-0 right-0 w-80 sm:w-96 h-full bg-black text-white shadow-2xl z-50  "
             >
-              <div className="flex justify-between  border-b border-gray-200 pb-3 p-2">
+              <div className="flex justify-between  border-b border-gray-200 pb-3 p-2 pl-10">
                 <h2 className="text-xl font-bold text-pink-600">My account</h2>
                 <RiCloseLine className="text-2xl cursor-pointer" onClick={toggleCart} />
               </div>
@@ -296,32 +296,32 @@ const Navbar = () => {
                 </div>
 
                 <div >
-                  <h1 className="text-black  font-bold">Welcome User </h1>
-                  <h1 className="text-gray-500  font-bold">Ram65628@gmail.com </h1>
+                  <h1 className="text-pink-500  font-bold">Welcome User </h1>
+                  <h1 className="  font-bold">Ram65628@gmail.com </h1>
                 </div>
               </div>
 
-              <div className='flex gap-3  text-gray-400 m-5' style={{ alignItems: "center" }}>
+              <div className='flex gap-3 m-5' style={{ alignItems: "center" }}>
                 <CgProfile className='text-xl'></CgProfile>
                 <Link className='font-bold text-xl'>Profile</Link>
               </div>
 
-              <div className='flex gap-3  text-gray-400 m-5' style={{ alignItems: "center" }}>
+              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
                 <FaRegHeart className='text-xl'></FaRegHeart>
                 <Link className='font-bold text-xl'>Whislist</Link>
               </div>
 
-              <div className='flex gap-3  text-gray-400 m-5' style={{ alignItems: "center" }}>
+              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
                 <FaMapMarkerAlt className='text-xl'></FaMapMarkerAlt>
                 <Link className='font-bold text-xl'>Order Tracking</Link>
               </div>
 
-              <div className='flex gap-3  text-gray-400 m-5' style={{ alignItems: "center" }}>
+              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
                 <IoMdSettings className='text-xl'></IoMdSettings>
                 <Link className='font-bold text-xl'>About</Link>
               </div>
 
-              <div className='flex gap-3  text-gray-400 m-5' style={{ alignItems: "center" }}>
+              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
                 < FaRegMoneyBillAlt className='text-xl'></FaRegMoneyBillAlt>
                 <Link className='font-bold text-xl'>My account</Link>
               </div>
