@@ -6,6 +6,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
+import Modals from '../Component/Modals'
 
 import {
   RiShoppingBasketFill,
@@ -20,6 +21,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isCartOpen, setIsCartOpen] = useState(false);
+   const[showModal,setShowModal] = useState(false)
 
   const dropdowns = {
     brands: {
@@ -157,10 +159,7 @@ const Navbar = () => {
               </div>
 
               {/* Sign in */}
-              <button className="hidden sm:flex bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                <RiUserLine className="mr-1" /> Sign in
-              </button>
-
+              <button onClick={() => setShowModal(true)} className='bg-pink-500 px-2 py-1 rounded'>Signup</button>
               {/* Cart */}
               <button onClick={toggleCart} className="relative p-2  hover:text-pink-600 transition">
                 <RiShoppingBasketFill className="text-2xl" />
@@ -318,7 +317,7 @@ const Navbar = () => {
 
               <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
                 <IoMdSettings className='text-xl'></IoMdSettings>
-                <Link className='font-bold text-xl'>About</Link>
+                <Link className='font-bold text-xl' to="/about">About</Link>
               </div>
 
               <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
@@ -336,8 +335,27 @@ const Navbar = () => {
           </>
         )}
       </AnimatePresence>
+
+
+{
+        showModal && (
+          
+          <Modals onClose={()=>setShowModal(false)} >
+          </Modals>
+        )
+      }
+
+
+
+
     </>
   );
 };
 
 export default Navbar;
+
+
+
+
+
+
