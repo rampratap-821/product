@@ -6,7 +6,7 @@ import { FaMobileAlt } from "react-icons/fa";
 
 const OurStory = () => {
     return (
-        <div className='bg-pink-300 w-full py-[20px] sm:py-[50px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2   gap-10 px-10'>
+        <div className='bg-pink-300 w-full py-[20px] sm:py-[50px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2   gap-5 px-2 sm:px-5'>
 
             <div className='h-full'>
                 <div className='px-10  bg-white py-10 rounded-2xl h-full'>
@@ -43,7 +43,7 @@ const OurStory = () => {
                 </div>
 
                 <div className='grid grid-cols-1'>
-                    <div className='bg-white mb-5  border-l-8 border-pink-900 py-10 rounded-2xl shadow-lg group hover:scale-105 transition duration-1000 flex pl-10 items-center gap-4'>
+                    <div className='bg-white mb-5  border-l-8 border-pink-900 py-10 rounded-2xl shadow-lg group hover:scale-105 transition duration-1000 flex pl-10 items-center gap-4 px-2'>
                         <div>
                             <h1 className='text-2xl bg-pink-800 p-5 rounded-2xl group-hover:scale-105 transition duration-1000'><MdFoundation></MdFoundation></h1>
                         </div>

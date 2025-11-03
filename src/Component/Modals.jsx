@@ -16,7 +16,7 @@ const Modals = (props) => {
             onClick={handleClick}
         >
             <div
-                className="relative w-[400px] py-5"
+                className="relative  w-[300px] sm:w-[400px] md:w-[400px] lg:w-[400px] py-5"
                 onClick={(event) => event.stopPropagation()}
             >
                 {/* LOGIN BOX */}

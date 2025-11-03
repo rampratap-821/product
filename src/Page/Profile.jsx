@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { FaCamera, FaEye, FaTractor } from "react-icons/fa";
+import { FaBell, FaCamera, FaEdit, FaEye, FaLockOpen, FaPlus, FaShoppingBasket, FaShoppingCart, FaTractor } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { SiShopify } from "react-icons/si";
 import { FaHeart } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
-import { FaCcAmazonPay, FaMoneyBill1 } from "react-icons/fa6";
+import { FaCcAmazonPay, FaMoneyBill1, } from "react-icons/fa6";
 import { AiFillSecurityScan } from "react-icons/ai";
 import { IoSettings } from "react-icons/io5";
 import { IoLogOutSharp } from "react-icons/io5";
@@ -13,13 +13,17 @@ import { MdEmojiEmotions } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { TbTruckDelivery } from "react-icons/tb";
 import { CiShop } from "react-icons/ci";
-
+import { MdShoppingCart } from "react-icons/md";
+import { IoMdShareAlt } from "react-icons/io";
+import { FcCloseUpMode } from "react-icons/fc";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+import { IoSettingsSharp } from "react-icons/io5";
 
 const Profile = () => {
     const [show, setShow] = useState(1)
 
     return (
-        <div className='py-20 px-10'>
+        <div className='py-20 px-1'>
 
             <div className='text-center'>
                 <h1 className='text-6xl text-pink-700 font-bold py-5'>My Profile</h1>
@@ -31,7 +35,7 @@ const Profile = () => {
 
 
 
-            <div className='grid grid-cols-1  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 mt-10 px-2 h-full'>
+            <div className='grid grid-cols-1  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3 mt-10 px-2 h-full'>
 
 
 
@@ -54,44 +58,44 @@ const Profile = () => {
                         <p>⭐⭐⭐⭐⭐(4.4)</p>
                     </div>
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition  opacity-0.1 mb-2 '>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition  opacity-0.1 mb-2 '>
                         < CgProfile className=' font-bold text-gray-600 group-hover:text-white '></CgProfile>
                         <h1 className=' font-bold text-gray-600 group-hover:text-white '><button onClick={() => setShow(1)}> Profile info </button></h1>
                     </div>
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition  opacity-0.1 mb-2'>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition  opacity-0.1 mb-2'>
                         <  SiShopify className=' font-bold text-gray-600 group-hover:text-white '></ SiShopify>
                         <h1 className=' font-bold text-gray-600 group-hover:text-white '><button onClick={() => setShow(2)}> My Order </button></h1>
                     </div>
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition  opacity-0.1 mb-2'>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition  opacity-0.1 mb-2'>
                         <  FaHeart className=' font-bold text-gray-600 group-hover:text-white '></ FaHeart>
                         <h1 className=' font-bold text-gray-600 group-hover:text-white '><button onClick={() => setShow(3)}> Whislist </button></h1>
                     </div>
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition opacity-0.1 mb-2'>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition opacity-0.1 mb-2'>
                         <  FaHome className=' font-bold text-gray-600 group-hover:text-white '></ FaHome>
-                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button>  </button>Address</h1>
+                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button onClick={() => setShow(4)}>Address </button></h1>
                     </div>
 
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition opacity-0.1 mb-2'>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition opacity-0.1 mb-2'>
                         < FaCcAmazonPay className=' font-bold text-gray-600 group-hover:text-white '></ FaCcAmazonPay>
-                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button>Payment Method </button></h1>
+                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button onClick={() => setShow(5)}>Payment Method </button></h1>
                     </div>
 
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition  opacity-0.1 mb-2'>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition  opacity-0.1 mb-2'>
                         < AiFillSecurityScan className=' font-bold text-gray-600 group-hover:text-white '></ AiFillSecurityScan>
-                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button> Security </button></h1>
+                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button onClick={() => setShow(6)}> Security </button></h1>
                     </div>
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition  opacity-0.1 mb-2'>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition  opacity-0.1 mb-2'>
                         < IoSettings className=' font-bold text-gray-600 group-hover:text-white '></IoSettings>
-                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button>Setting </button></h1>
+                        <h1 className=' font-bold text-gray-600 group-hover:text-white '><button onClick={() => setShow(7)}>Setting </button></h1>
                     </div>
 
-                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded p-2 group transition  opacity-0.1 mb-2'>
+                    <div className='flex items-center gap-2  hover:bg-pink-800 bg-pink-200 rounded-2xl p-2 group transition  opacity-0.1 mb-2'>
                         < IoLogOutSharp className=' font-bold text-red-600 group-hover:text-white '></IoLogOutSharp>
                         <h1 className=' font-bold text-red-600 group-hover:text-white '><button>Logout </button></h1>
                     </div>
@@ -103,7 +107,7 @@ const Profile = () => {
 
 
 
-                <div className='lg:col-span-2 bg-yellow-100 rounded-2xl  shadow-md'>
+                <div className='lg:col-span-2  rounded-2xl  '>
                     {
                         show === 1 ?
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 w-full gap-2  pb-10">
@@ -149,8 +153,8 @@ const Profile = () => {
                                     <h1 className=' text-green-900 ' style={{ fontSize: 14 }}>Total order 3</h1>
                                 </div>
 
-                                <div className='grid grid:cols-1 gap-5'>
-                                    <div className=' py-5 mx-5 px-5  rounded-2xl hover:shadow-lg  border border-pink-400 bg-pink-100 '>
+                                <div className='grid grid:cols-1 gap-5 px-5'>
+                                    <div className=' py-5 px-5  rounded-2xl hover:shadow-lg  border border-pink-400 bg-pink-100 '>
                                         <div className='flex justify-between '>
                                             <h1 className='' style={{ fontSize: 17 }}>Order #1</h1>
                                             <h1 className='bg-green-200 px-2 rounded-2xl border border-green-400'>Delivered</h1>
@@ -162,7 +166,7 @@ const Profile = () => {
                                         </div>
                                         <h1 className='text-green-900 font-bold pt-2' style={{ fontSize: 15 }}>Products :</h1>
 
-                                        <div className='flex space-x-5 pt-1'>
+                                        <div className='flex space-x-5 pt-2 flex-wrap'>
 
                                             <div className='flex items-center gap-2  border border-pink-400 rounded px-5 '>
                                                 <h1 className='text-xl'>💄</h1>
@@ -204,7 +208,7 @@ const Profile = () => {
                                         </div>
                                     </div>
 
-                                    <div className=' py-5 mx-5 px-5  rounded-2xl hover:shadow-lg  border border-pink-400 bg-pink-100  '>
+                                    <div className=' py-5 px-5  rounded-2xl hover:shadow-lg  border border-pink-400 bg-pink-100  '>
                                         <div className='flex justify-between '>
                                             <h1 className='' style={{ fontSize: 17 }}>Order #1</h1>
                                             <h1 className='bg-green-200 px-2 rounded-2xl border border-green-400'>Delivered</h1>
@@ -216,7 +220,7 @@ const Profile = () => {
                                         </div>
                                         <h1 className='text-green-900 font-bold pt-2' style={{ fontSize: 15 }}>Products :</h1>
 
-                                        <div className='flex space-x-5 pt-1'>
+                                        <div className='flex space-x-4 flex-wrap pt-1'>
 
                                             <div className='flex items-center gap-2  border border-pink-400 rounded px-5 '>
                                                 <h1 className='text-xl'>💄</h1>
@@ -258,7 +262,7 @@ const Profile = () => {
                                         </div>
                                     </div>
 
-                                    <div className=' py-5 mx-5 px-5  rounded-2xl hover:shadow-lg  border border-pink-400 bg-pink-100 '>
+                                    <div className=' py-5  px-5  rounded-2xl hover:shadow-lg  border border-pink-400 bg-pink-100 '>
                                         <div className='flex justify-between '>
                                             <h1 className='' style={{ fontSize: 17 }}>Order #1</h1>
                                             <h1 className='bg-green-200 px-2 rounded-2xl border border-green-400'>Delivered</h1>
@@ -324,19 +328,283 @@ const Profile = () => {
 
                     {
                         show === 3 ?
-                            <div className='py-7'>
+                            <div className='py-7 bg-white px-4 rounded-2xl'>
                                 <div className='flex justify-between pb-2 px-5 items-center  '>
                                     <h1 className=' font-bold text-2xl font-bold' >My Order</h1>
                                     <h1 className=' text-green-900 text-xl ' >Total order 3</h1>
                                 </div>
 
-                                <div>
-                                    <div className='py-5 bg-green-200'>
-                                         <h1>💄</h1>
-                                         <h1>lipistic</h1>
+
+                                <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-3 gap-4 px-4'>
+
+                                    <div className='py-5 bg-white px-4  shadow-sm hover:shadow-lg   hover:shadow-pink-400 shadow-pink-400 rounded-2xl'>
+                                        <div className='text-center [&>*]:py-1'>
+                                            <h1 className='text-2xl'>💄</h1>
+                                            <h1 className='text-pink-500 text-bold '>Radiant Glow Serum</h1>
+                                            <h1 className='text-green-500 '>🌿 Face & Skin Care</h1>
+                                        </div>
+                                        <div className='flex justify-between py-2 px-4'>
+                                            <h1>₹89</h1>
+                                            <h1>⭐(45)</h1>
+                                        </div>
+                                        <div className='flex  justify-between py-2 px-4'>
+                                            <h1>❤️</h1>
+                                            <div className='flex items-center gap-2 border border-pink-500 hover:bg-pink-900 py-1 px-3 rounded-2xl hover:text-white '>
+                                                <MdShoppingCart></MdShoppingCart>
+                                                <h1 className='font-bold'>Add cart</h1>
+                                            </div>
+                                            <h1>< IoMdShareAlt></IoMdShareAlt></h1>
+                                        </div>
+                                    </div>
+
+                                    <div className='py-5 bg-white px-4  shadow-sm hover:shadow-lg   hover:shadow-pink-400 shadow-pink-400 rounded-2xl'>
+                                        <div className='text-center [&>*]:py-1'>
+                                            <h1 className='text-2xl flex justify-center' >< FcCloseUpMode></FcCloseUpMode></h1>
+                                            <h1 className='text-pink-500 text-bold '>Radiant Glow Serum</h1>
+                                            <h1 className='text-green-500 '>🌿 Face & Skin Care</h1>
+                                        </div>
+                                        <div className='flex justify-between py-2 px-4'>
+                                            <h1>₹89</h1>
+                                            <h1>⭐(45)</h1>
+                                        </div>
+                                        <div className='flex  justify-between py-2 px-4'>
+                                            <h1>❤️</h1>
+                                            <div className='flex items-center gap-2 border border-pink-500 hover:bg-pink-900 py-1 px-3 rounded-2xl hover:text-white '>
+                                                <MdShoppingCart></MdShoppingCart>
+                                                <h1 className='font-bold'>Add cart</h1>
+                                            </div>
+                                            <h1>< IoMdShareAlt></IoMdShareAlt></h1>
+                                        </div>
+                                    </div>
+
+                                    <div className='py-5 bg-white px-4  shadow-sm hover:shadow-lg   hover:shadow-pink-400 shadow-pink-400 rounded-2xl'>
+                                        <div className='text-center [&>*]:py-1'>
+                                            <h1 className='text-2xl'>💄</h1>
+                                            <h1 className='text-pink-500 text-bold '>Radiant Glow Serum</h1>
+                                            <h1 className='text-green-500 '>🌿 Face & Skin Care</h1>
+                                        </div>
+                                        <div className='flex justify-between py-2 px-4'>
+                                            <h1>₹89</h1>
+                                            <h1>⭐(45)</h1>
+                                        </div>
+                                        <div className='flex  justify-between py-2 px-4'>
+                                            <h1>❤️</h1>
+                                            <div className='flex items-center gap-2 border border-pink-500 hover:bg-pink-900 py-1 px-3 rounded-2xl hover:text-white '>
+                                                <MdShoppingCart></MdShoppingCart>
+                                                <h1 className='font-bold'>Add cart</h1>
+                                            </div>
+                                            <h1>< IoMdShareAlt></IoMdShareAlt></h1>
+                                        </div>
+                                    </div>
+
+
+                                    <div className='py-5 bg-white px-4  shadow-sm hover:shadow-lg   hover:shadow-pink-400 shadow-pink-400 rounded-2xl'>
+                                        <div className='text-center [&>*]:py-1'>
+                                            <h1 className='text-2xl'>💄</h1>
+                                            <h1 className='text-pink-500 text-bold '>Radiant Glow Serum</h1>
+                                            <h1 className='text-green-500 '>🌿 Face & Skin Care</h1>
+                                        </div>
+                                        <div className='flex justify-between py-2 px-4'>
+                                            <h1>₹89</h1>
+                                            <h1>⭐(45)</h1>
+                                        </div>
+                                        <div className='flex  justify-between py-2 px-4'>
+                                            <h1>❤️</h1>
+                                            <div className='flex items-center gap-2 border border-pink-500 hover:bg-pink-900 py-1 px-3 rounded-2xl hover:text-white '>
+                                                <MdShoppingCart></MdShoppingCart>
+                                                <h1 className='font-bold'>Add cart</h1>
+                                            </div>
+                                            <h1>< IoMdShareAlt></IoMdShareAlt></h1>
+                                        </div>
+                                    </div>
+
+
+                                    <div className='py-5 bg-white px-4  shadow-sm hover:shadow-lg   hover:shadow-pink-400 shadow-pink-400 rounded-2xl'>
+                                        <div className='text-center [&>*]:py-1'>
+                                            <h1 className='text-2xl'>💄</h1>
+                                            <h1 className='text-pink-500 text-bold '>Radiant Glow Serum</h1>
+                                            <h1 className='text-green-500 '>🌿 Face & Skin Care</h1>
+                                        </div>
+                                        <div className='flex justify-between py-2 px-4'>
+                                            <h1>₹89</h1>
+                                            <h1>⭐(45)</h1>
+                                        </div>
+                                        <div className='flex  justify-between py-2 px-4'>
+                                            <h1>❤️</h1>
+                                            <div className='flex items-center gap-2 border border-pink-500 hover:bg-pink-900 py-1 px-3 rounded-2xl hover:text-white '>
+                                                <MdShoppingCart></MdShoppingCart>
+                                                <h1 className='font-bold'>Add cart</h1>
+                                            </div>
+                                            <h1>< IoMdShareAlt></IoMdShareAlt></h1>
+                                        </div>
+                                    </div>
+
+
+                                    <div className='py-5 bg-white px-4  shadow-sm hover:shadow-lg   hover:shadow-pink-400 shadow-pink-400 rounded-2xl'>
+                                        <div className='text-center [&>*]:py-1'>
+                                            <h1 className='text-2xl'>💄</h1>
+                                            <h1 className='text-pink-500 text-bold '>Radiant Glow Serum</h1>
+                                            <h1 className='text-green-500 '>🌿 Face & Skin Care</h1>
+                                        </div>
+                                        <div className='flex justify-between py-2 px-4'>
+                                            <h1>₹89</h1>
+                                            <h1>⭐(45)</h1>
+                                        </div>
+                                        <div className='flex  justify-between py-2 px-4'>
+                                            <h1>❤️</h1>
+                                            <div className='flex items-center gap-2 border border-pink-500 hover:bg-pink-900 py-1 px-3 rounded-2xl hover:text-white '>
+                                                <MdShoppingCart></MdShoppingCart>
+                                                <h1 className='font-bold'>Add cart</h1>
+                                            </div>
+                                            <h1> </h1>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+                            </div>
+                            :
+                            null
+                    }
+
+
+
+
+                    {
+                        show === 4 ?
+                            <div className='py-5 px-4 bg-pink-300 bg-white  rounded-2xl'>
+
+                                <div className='flex justify-between py-7'>
+                                    <h1 className="text-2xl font-bold text-pink-600"> My Address</h1>
+                                    <div className='flex items-center gap-2 bg-green-700 py-2 px-4 rounded-2xl hover:bg-green-800 hover:text-white'>
+                                        <FaPlus></FaPlus>
+                                        <h1>Add new address</h1>
                                     </div>
                                 </div>
 
+                                <div className='grid grid-cols-2  sm:grid-cols-2 gap-5'>
+                                    <div className='py-5 px-4 bg-pink-100 rounded-2xl shadow-lg'>
+                                        <div className='flex justify-between'>
+                                            <div className='flex items-center gap-2'>
+                                                <FaHome className='text-xl'></FaHome>
+                                                <div>
+                                                    <h1 className='font-bold'>Home</h1>
+                                                    <h1 className='bg-green-800 py-1 px-2 rounded-2xl'>Default</h1>
+                                                </div>
+                                            </div>
+                                            <div className='flex'>
+                                                <h1 className='text-xl'> <FaEdit></FaEdit> </h1>
+                                                <h1 className='text-xl'>< RiDeleteBin5Fill></RiDeleteBin5Fill></h1>
+
+                                            </div>
+                                        </div>
+                                        <h1 className='text-center py-5 text-red-900'>123 Green Valley, Mumbai, Maharashtra 400001</h1>
+                                    </div>
+
+                                    <div className='py-5 px-4 bg-pink-100 rounded-2xl shadow-lg'>
+                                        <div className='flex justify-between'>
+                                            <div className='flex items-center gap-2'>
+                                                <FaHome className='text-xl'></FaHome>
+                                                <div>
+                                                    <h1 className='font-bold'>Home</h1>
+                                                    <h1 className='bg-green-800 py-1 px-2 rounded-2xl'>Default</h1>
+                                                </div>
+                                            </div>
+                                            <div className='flex'>
+                                                <h1 className='text-xl'> <FaEdit></FaEdit> </h1>
+                                                <h1 className='text-xl'>< RiDeleteBin5Fill></RiDeleteBin5Fill></h1>
+
+                                            </div>
+                                        </div>
+                                        <h1 className='text-center py-5 text-red-900'>123 Green Valley, Mumbai, Maharashtra 400001</h1>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            :
+                            null
+
+                    }
+
+
+
+                    {
+                        show === 5 ?
+                            <div className='py-7 px-4 bg-white rounded-2xl' >
+                                <div>
+                                    <div>< FaCcAmazonPay className='text-6xl'></FaCcAmazonPay></div>
+                                </div>
+
+                                <div className='text-center [&>*]:py-2'>
+                                    <h1 className='text-4xl text-pink-500 font-bold'>Payment Management</h1>
+                                    <h1>This section is coming soon with exciting features!Notify Me When Ready</h1>
+
+                                    <div className=' flex justify-center'>
+                                        <div className='flex items-center gap-2 bg-green-700 py-2 px-4 hover:bg-green-900 rounded-2xl'>
+                                            <FaBell className='flex justify-center'></FaBell>
+                                            <h1 className='font-bold'>Notification</h1>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            :
+                            null
+                    }
+
+
+                    {
+                        show === 6 ?
+                            <div className='py-7 px-4 bg-white rounded-2xl' >
+                                <div>
+                                    <div>< FaLockOpen className='text-6xl'></FaLockOpen></div>
+                                </div>
+
+                                <div className='text-center [&>*]:py-2'>
+                                    <h1 className='text-4xl text-pink-500 font-bold'>Security Management</h1>
+                                    <h1>This section is coming soon with exciting features!Notify Me When Ready</h1>
+
+                                    <div className=' flex justify-center'>
+                                        <div className='flex items-center gap-2 bg-green-700 py-2 px-4 hover:bg-green-900 rounded-2xl'>
+                                            <FaBell className='flex justify-center'></FaBell>
+                                            <h1 className='font-bold'>Notification</h1>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            :
+                            null
+                    }
+
+
+
+ {
+                        show === 7 ?
+                            <div className='py-7 px-4 bg-white rounded-2xl' >
+                                <div>
+                                    <div>< IoSettingsSharp className='text-6xl'></ IoSettingsSharp></div>
+                                </div>
+
+                                <div className='text-center [&>*]:py-2'>
+                                    <h1 className='text-4xl text-pink-500 font-bold'>Setting Management</h1>
+                                    <h1>This section is coming soon with exciting features!Notify Me When Ready</h1>
+
+                                    <div className=' flex justify-center'>
+                                        <div className='flex items-center gap-2 bg-green-700 py-2 px-4 hover:bg-green-900 rounded-2xl'>
+                                            <FaBell className='flex justify-center'></FaBell>
+                                            <h1 className='font-bold'>Notification</h1>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                             :
                             null

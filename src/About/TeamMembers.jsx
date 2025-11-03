@@ -70,7 +70,7 @@ import { ProfileData } from '../JsonData/About'
 
 const TeamMembers = () => {
     return (
-       <div className='w-[100%] px-10 py-[20px] sm:py-[50px]'>
+       <div className='w-[100%] px-2 sm:px-10 py-[20px] sm:py-[50px]'>
             <div className='  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5  '>
                 {
                     ProfileData.map((item) =>
