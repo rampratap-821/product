@@ -302,7 +302,7 @@ const Navbar = () => {
 
               <div className='flex gap-3 m-5' style={{ alignItems: "center" }}>
                 <CgProfile className='text-xl'></CgProfile>
-                <Link className='font-bold text-xl'>Profile</Link>
+                <Link to='profile' className='font-bold text-xl'>Profile</Link>
               </div>
 
               <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>

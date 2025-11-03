@@ -15,6 +15,7 @@ import Footer from './Component/Footer'
 import Footer2 from './Component/Footer2'
 import Footer3 from './Component/Footer3'
 import Footer4 from './Component/Footer4'
+import Profile from './Page/Profile'
 const App = () => {
   return (
     <Router >
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/blog' element={<Blog/>}></Route>
         <Route path='/team' element={<Team/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
+        <Route path='/profile' element={<Profile/>}></Route>
       </Routes>
       <Footer/>
       <Footer2/>
