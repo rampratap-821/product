@@ -322,7 +322,7 @@ const Navbar = () => {
 
               <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
                 < FaRegMoneyBillAlt className='text-xl'></FaRegMoneyBillAlt>
-                <Link className='font-bold text-xl'>My account</Link>
+                <Link  to = '/myaccount' className='font-bold text-xl'>My account</Link>
               </div>
 
               <div className='flex gap-3  text-red-400 m-5' style={{ alignItems: "center" }}>

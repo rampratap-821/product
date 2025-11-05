@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import { FaBell, FaCamera, FaEdit, FaEye, FaLockOpen, FaPlus, FaShoppingBasket, FaShoppingCart, FaTractor } from "react-icons/fa";
+import { FaBell, FaCamera, FaEdit, FaEye, FaLockOpen, FaPlus, FaSave, FaShoppingBasket, FaShoppingCart, FaTractor } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { SiShopify } from "react-icons/si";
 import { FaHeart } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
-import { FaCcAmazonPay, FaMoneyBill1, } from "react-icons/fa6";
+import { FaCcAmazonPay, FaMoneyBill1, FaPersonRifle, } from "react-icons/fa6";
 import { AiFillSecurityScan } from "react-icons/ai";
 import { IoSettings } from "react-icons/io5";
 import { IoLogOutSharp } from "react-icons/io5";
 import { FaLock } from "react-icons/fa";
-import { MdEmojiEmotions } from "react-icons/md";
+import { MdCancel, MdEmojiEmotions } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { TbTruckDelivery } from "react-icons/tb";
 import { CiShop } from "react-icons/ci";
@@ -18,9 +18,33 @@ import { IoMdShareAlt } from "react-icons/io";
 import { FcCloseUpMode } from "react-icons/fc";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IoSettingsSharp } from "react-icons/io5";
+import { Textarea } from 'flowbite-react';
+import { GiRotaryPhone } from "react-icons/gi";
+import { RiMailAddFill } from "react-icons/ri";
+import { SlCalender } from "react-icons/sl";
+
 
 const Profile = () => {
     const [show, setShow] = useState(1)
+    const [data, setData] = useState("")
+    const [data2, setData2] = useState("")
+    const [isEditing, setIsEditing] = useState(false);
+    const [tempName, setTempName] = useState("")
+    const [email, setEmail] = useState("")
+    const [email2, setEmail2] = useState("")
+
+    const handleEditSave = () => {
+        if (isEditing) {
+            setEmail(email2)
+            setData(tempName);
+        } else {
+
+            setTempName(data);
+            setEmail2(email)
+        }
+        setIsEditing(!isEditing);
+    };
+
 
     return (
         <div className='py-20 px-1'>
@@ -35,7 +59,7 @@ const Profile = () => {
 
 
 
-            <div className='grid grid-cols-1  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3 mt-10 px-2 h-full'>
+            <div className='grid grid-cols-1  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 mt-10 px-2 h-full '>
 
 
 
@@ -53,8 +77,8 @@ const Profile = () => {
                             </button>
                         </div>
 
-                        <h2 className='text-2xl font-bold text-pink-800 mt-2'>Rampratap</h2>
-                        <p className='text-gray-900  py-1'>ramgmail.com</p>
+                        <h2 className='text-2xl font-bold text-pink-800 mt-2'>{data || "Rampratap "}</h2>
+                        <p className='text-gray-900  py-1'>{email || "ramgmail.com"}</p>
                         <p>⭐⭐⭐⭐⭐(4.4)</p>
                     </div>
 
@@ -110,33 +134,161 @@ const Profile = () => {
                 <div className='lg:col-span-2  rounded-2xl  '>
                     {
                         show === 1 ?
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 w-full gap-2  pb-10">
+                            <div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 w-full gap-5  pb-5">
 
-                                <div className="bg-pink-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-                                    <FaLock className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
-                                    <h1 className="text-4xl font-bold">24</h1>
-                                    <h2 className="text-2xl font-bold">Total order</h2>
+                                    <div className="bg-pink-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
+                                        <FaLock className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
+                                        <h1 className="text-4xl font-bold">24</h1>
+                                        <h2 className="text-2xl font-bold">Total order</h2>
+                                    </div>
+
+                                    <div className="bg-green-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
+                                        <MdEmojiEmotions className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
+                                        <h1 className="text-4xl font-bold">12</h1>
+                                        <h2 className="text-2xl font-bold">Whislist</h2>
+                                    </div>
+
+                                    <div className="bg-pink-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
+                                        <FaLocationDot className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
+                                        <h1 className="text-4xl font-bold">1250</h1>
+                                        <h2 className="text-2xl font-bold">Loyalty points</h2>
+                                    </div>
+
+                                    <div className="bg-green-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
+                                        <TbTruckDelivery className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
+                                        <h1 className="text-4xl font-bold"> 100</h1>
+                                        <h2 className="text-2xl font-bold">Money saved</h2>
+                                    </div>
                                 </div>
 
-                                <div className="bg-green-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-                                    <MdEmojiEmotions className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
-                                    <h1 className="text-4xl font-bold">12</h1>
-                                    <h2 className="text-2xl font-bold">Whislist</h2>
+
+
+
+
+
+                                <div className='py-10 bg-pink-100 rounded-2xl shadow-lg'>
+
+                                    <div className='flex justify-between px-5'>
+                                        <h1 className='font-bold text-2xl text-pink-900'>Profile Information</h1>
+                                        <div>
+                                            {
+                                                isEditing !== true ?
+                                                    <div className='flex items-center gap-2 text-xl bg-green-700 py-1 px-8 rounded-2xl font-bold hover:text-white hover:bg-pink-800'
+                                                        onClick={handleEditSave}
+                                                    >
+                                                        <FaEdit></FaEdit>
+                                                        <button >Edit</button>
+                                                    </div>
+                                                    :
+                                                    <div className='flex gap-2 text-xl'>
+
+
+                                                        <div className='flex items-center gap-2 text-xl bg-green-700 py-1 px-2 sm:px-4 md:px-6 lg:px-8 rounded-2xl font-bold hover:text-white hover:bg-pink-800'
+                                                            onClick={handleEditSave}
+                                                        >
+                                                            <FaSave></FaSave>
+                                                            <button >Save</button>
+                                                        </div>
+
+
+                                                        <div className='flex items-center gap-2 text-xl bg-green-700 py-1  px-2 sm:px-4 md:px-6 lg:px-8 rounded-2xl font-bold hover:text-white hover:bg-pink-800'
+                                                            onClick={handleEditSave}
+                                                        >
+                                                            <MdCancel></MdCancel>
+                                                            <button >Cancel</button>
+                                                        </div>
+
+                                                    </div>
+                                            }
+                                        </div>
+                                    </div>
+
+
+                                    <div className='px-5 py-5'>
+
+                                        <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg      :grid-cols-2 gap-5'>
+                                            <div className='w-full '>
+                                                <h1 className='py-2'>Full Name</h1>
+                                                <div className='flex items-center gap-5 bg-white text-xl rounded-2xl w-full shadow-lg'>
+                                                    < CgProfile className=' ml-5 text-black'></ CgProfile >
+                                                    <input
+                                                        type='text'
+                                                        placeholder='Enter the full name'
+                                                        value={tempName}
+                                                        onChange={(e) => setTempName(e.target.value)}
+                                                        disabled={!isEditing}
+
+                                                        className='py-2 outline-none w-[90%] rounded-2xl' />
+                                                </div>
+                                            </div>
+
+                                            <div className='w-full'>
+                                                <h1 className='py-2'>Phone Number</h1>
+                                                <div className='flex items-center gap-5 bg-white text-xl rounded-2xl w-full shadow-lg'>
+                                                    < GiRotaryPhone className=' ml-5 text-black'></ GiRotaryPhone>
+                                                    <input
+                                                        type='text'
+                                                        placeholder='Enter the phone number'
+                                                        value={email2}
+                                                        onChange={(e) => setEmail2(e.target.value)}
+                                                        disabled={!isEditing}
+                                                        className='py-2 outline-none w-[90%] rounded-2xl' />
+                                                </div>
+                                            </div>
+
+                                            <div className='w-full '>
+                                                <h1 className='py-2'>Email Address</h1>
+                                                <div className='flex items-center gap-5 bg-white text-xl rounded-2xl w-full shadow-lg'>
+                                                    < RiMailAddFill className=' ml-5 text-black'></ RiMailAddFill>
+                                                    <input
+                                                        type='text'
+                                                        placeholder='Enter the email address'
+                                                        disabled={!isEditing}
+                                                        className='py-2 outline-none w-[90%] rounded-2xl' />
+                                                </div>
+                                            </div>
+
+                                            <div className='w-full'>
+                                                <h1 className='py-2'>Member Since</h1>
+                                                <div className='flex items-center gap-5 bg-white text-xl rounded-2xl w-full shadow-lg'>
+                                                    < SlCalender className=' ml-5 text-black'></ SlCalender>
+                                                    <input
+                                                        type='text'
+                                                        placeholder='Enter the month'
+                                                        disabled={!isEditing}
+                                                        className='py-2 outline-none w-[90%] rounded-2xl' />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div className='w-full '>
+                                            <h1 className='py-2'>Delivery Address</h1>
+                                            <div className='bg-white text-xl rounded-2xl w-full shadow-lg focus:border-blue-500 border-2xl py-4'>
+
+                                                <Textarea
+                                                    type='text'
+                                                    placeholder=' Text'
+                                                    disabled={!isEditing}
+                                                    className=' outline-none w-[90%] rounded-2xl border-none text-xl px-4' />
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+
                                 </div>
 
-                                <div className="bg-pink-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-                                    <FaLocationDot className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
-                                    <h1 className="text-4xl font-bold">1250</h1>
-                                    <h2 className="text-2xl font-bold">Loyalty points</h2>
-                                </div>
 
-                                <div className="bg-green-200 p-4 py-6 text-center rounded-2xl shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-                                    <TbTruckDelivery className="mx-auto text-2xl transform transition-transform duration-700 group-hover:scale-105" />
-                                    <h1 className="text-4xl font-bold"> 100</h1>
-                                    <h2 className="text-2xl font-bold">Money saved</h2>
-                                </div>
 
                             </div>
+
                             :
                             null
                     }
@@ -586,7 +738,7 @@ const Profile = () => {
 
 
 
- {
+                    {
                         show === 7 ?
                             <div className='py-7 px-4 bg-white rounded-2xl' >
                                 <div>

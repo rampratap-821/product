@@ -16,6 +16,7 @@ import Footer2 from './Component/Footer2'
 import Footer3 from './Component/Footer3'
 import Footer4 from './Component/Footer4'
 import Profile from './Page/Profile'
+import MyAccount from './Page/MyAccount'
 const App = () => {
   return (
     <Router >
@@ -32,6 +33,7 @@ const App = () => {
         <Route path='/team' element={<Team/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
+        <Route path='/myaccount' element={<MyAccount/>}></Route>
       </Routes>
       <Footer/>
       <Footer2/>
@@ -54,4 +56,18 @@ export default App
 
 
 
+
+
+
+// import InlineEditForm from "./Form";
+
+// function App() {
+//   return (
+//     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+//       <InlineEditForm />
+//     </div>
+//   );
+// }
+
+// export default App;
 
