@@ -6,7 +6,7 @@ import { FaMobileAlt } from "react-icons/fa";
 
 const OurStory = () => {
     return (
-        <div className='bg-pink-300 w-full py-[20px] sm:py-[50px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2   gap-5 px-2 sm:px-5'>
+        <div className=' w-full py-[20px] sm:py-[50px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2   gap-5 px-2 sm:px-5'>
 
             <div className='h-full'>
                 <div className='px-10  bg-white py-10 rounded-2xl h-full'>

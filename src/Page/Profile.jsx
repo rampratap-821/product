@@ -29,7 +29,7 @@ const Profile = () => {
     const [data, setData] = useState("")
     const [data2, setData2] = useState("")
     const [isEditing, setIsEditing] = useState(false);
-    const [tempName, setTempName] = useState("")
+    const [tempName, setTempName] = useState("Ramptatap")
     const [email, setEmail] = useState("")
     const [email2, setEmail2] = useState("")
 

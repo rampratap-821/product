@@ -28,7 +28,7 @@ const Modals = (props) => {
                         y: isRegister ? -10 : 0,
                     }}
                     transition={{ duration: 0.5 }}
-                    className="bg-white rounded-2xl p-8 relative z-10"
+                    className="bg-black rounded-2xl p-8 relative z-10"
                 >
                     <h2 className="text-pink-600 text-3xl font-bold mb-6 text-center">Login</h2>
                     <input
@@ -51,7 +51,7 @@ const Modals = (props) => {
                     </div>
 
                     <div className="text-center pt-4">
-                        <span>Don't have an account ?</span>
+                        <span className="text-teal-400">Don't have an account ?</span>
                         <span className="font-bold text-pink-500"><Link   onClick={() => setIsRegister(true)}>signup </Link></span>
 
                     </div>
@@ -76,7 +76,7 @@ const Modals = (props) => {
                         duration: 0.8,
                         ease: "easeInOut",
                     }}
-                    className={`absolute bg-white w-20 h-20 rounded-full cursor-pointer flex justify-center items-center text-pink-600 font-bold z-20`}
+                    className={`absolute bg-teal-400 w-20 h-20 rounded-full cursor-pointer flex justify-center items-center text-pink-600 font-bold z-20`}
                     style={{
                         position: "absolute",
                         right: isRegister ? "" : "",
@@ -93,7 +93,7 @@ const Modals = (props) => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.8 }}
                             transition={{ delay: 0.6, duration: 0.6 }}
-                            className="absolute inset-0 bg-white rounded-2xl p-8 z-30 text-center"
+                            className="absolute inset-0 bg-black rounded-2xl p-8 z-30 text-center"
                         >
                             <h2 className="text-pink-600 text-3xl font-bold mb-6">Signup</h2>
                             <input
@@ -117,7 +117,7 @@ const Modals = (props) => {
                                 </button>
                             </div>
                             <div className="text-center py-4 ">
-                                <span>Already have an account ?</span>
+                                <span className="text-teal-400">Already have an account ?</span>
                                 <span className="font-bold text-pink-500"><Link   onClick={() => setIsRegister(false)}>login </Link></span>
 
                             </div>

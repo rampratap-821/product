@@ -3,7 +3,7 @@ import { FcLikePlaceholder } from "react-icons/fc";
 
 const AboutTitle = () => {
     return (
-        <div className='bg-gradient-to-r from-pink-300 via-pink-400 to-pink-500 w-[100%] py-[20px] sm:py-[40] justify-center items-center flex  '>
+        <div className='bg-white w-[100%] py-[80px] sm:py-[40] justify-center items-center flex  '>
 
 
 

@@ -16,7 +16,7 @@ import {
 } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar = () => {
+const Navbar = ({card }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -51,11 +51,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full bg-black text-white shadow-md border-b border-gray-200 pt-2 z-40">
+      <nav className="fixed w-full bg-teal-400 text-white shadow-md border-b-2 border-white py-1 z-40  ">
         <div className="px-4 md:px-6">
           <div className="flex items-center justify-between py-3 md:py-4">
             {/* Logo */}
-            <Link to="/" className="text-2xl font-bold text-pink-600">Rampratap</Link>
+            <Link to="/" className="text-2xl font-bold text-pink-600">Cosmetic</Link>
 
             {/* Desktop Menu */}
             <ul className="hidden lg:flex items-center space-x-8">
@@ -163,7 +163,7 @@ const Navbar = () => {
               {/* Cart */}
               <button onClick={toggleCart} className="relative p-2  hover:text-pink-600 transition">
                 <RiShoppingBasketFill className="text-2xl" />
-                <span className="absolute -top-1 -right-1 bg-pink-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                <span className="absolute -top-1 -right-1 bg-pink-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">{card.length}</span>
               </button>
 
               {/* Mobile Menu Button */}
@@ -265,76 +265,87 @@ const Navbar = () => {
       </nav>
 
       {/* 🛒 CART SIDEBAR */}
-      <AnimatePresence>
-        {isCartOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={toggleCart}
-              className="fixed inset-0 bg-black z-40"
-            />
+      {/* 🛒 CART SIDEBAR */}
+<AnimatePresence>
+  {isCartOpen && (
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={toggleCart}
+        className="fixed inset-0 bg-black z-40"
+      />
 
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.4 }}
-              className="fixed top-0 right-0 w-80 sm:w-96 h-full bg-black text-white shadow-2xl z-50  "
-            >
-              <div className="flex justify-between  border-b border-gray-200 pb-3 p-2 pl-10">
-                <h2 className="text-xl font-bold text-pink-600">My account</h2>
-                <RiCloseLine className="text-2xl cursor-pointer" onClick={toggleCart} />
-              </div>
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ type: "tween", duration: 0.4 }}
+        className="fixed top-0 right-0 w-80 sm:w-96 h-full bg-black text-white shadow-2xl z-50"
+      >
+        <div className="flex justify-between border-b border-gray-200 pb-3 p-2 pl-10">
+          <h2 className="text-xl font-bold text-pink-600">My account</h2>
+          <RiCloseLine className="text-2xl cursor-pointer" onClick={toggleCart} />
+        </div>
 
-              <div className="  my-2 flex gap-5 border-b border-gray-200 " style={{ alignItems: "center" }}>
-                <div className='size-10 rounded-full bg-pink-400 flex justify-center ml-2' style={{ alignItems: "center" }}>
-                  <h1 className='font-bold text-pink-900'>R</h1>
-                </div>
+        <div className="my-2 flex gap-5 border-b border-gray-200" style={{ alignItems: "center" }}>
+          <div className="size-10 rounded-full bg-pink-400 flex justify-center ml-2" style={{ alignItems: "center" }}>
+            <h1 className="font-bold text-pink-900">R</h1>
+          </div>
 
-                <div >
-                  <h1 className="text-pink-500  font-bold">Welcome User </h1>
-                  <h1 className="  font-bold">Ram65628@gmail.com </h1>
-                </div>
-              </div>
+          <div>
+            <h1 className="text-pink-500 font-bold">Welcome User</h1>
+            <h1 className="font-bold">Ram65628@gmail.com</h1>
+          </div>
+        </div>
 
-              <div className='flex gap-3 m-5' style={{ alignItems: "center" }}>
-                <CgProfile className='text-xl'></CgProfile>
-                <Link to='profile' className='font-bold text-xl'>Profile</Link>
-              </div>
+        <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
+          <CgProfile className="text-xl" />
+          <Link to="profile" onClick={toggleCart} className="font-bold text-xl">
+            Profile
+          </Link>
+        </div>
 
-              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
-                <FaRegHeart className='text-xl'></FaRegHeart>
-                <Link className='font-bold text-xl'>Whislist</Link>
-              </div>
+        <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
+          <FaRegHeart className="text-xl" />
+          <Link onClick={toggleCart} to={"wishlist"} className="font-bold text-xl">
+            Wishlist
+          </Link>
+        </div>
 
-              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
-                <FaMapMarkerAlt className='text-xl'></FaMapMarkerAlt>
-                <Link className='font-bold text-xl'>Order Tracking</Link>
-              </div>
+        <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
+          <FaMapMarkerAlt className="text-xl" />
+          <Link onClick={toggleCart} className="font-bold text-xl">
+            Order Tracking
+          </Link>
+        </div>
 
-              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
-                <IoMdSettings className='text-xl'></IoMdSettings>
-                <Link className='font-bold text-xl' to="/about">About</Link>
-              </div>
+        <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
+          <IoMdSettings className="text-xl" />
+          <Link to="/about" onClick={toggleCart} className="font-bold text-xl">
+            About
+          </Link>
+        </div>
 
-              <div className='flex gap-3  m-5' style={{ alignItems: "center" }}>
-                < FaRegMoneyBillAlt className='text-xl'></FaRegMoneyBillAlt>
-                <Link  to = '/myaccount' className='font-bold text-xl'>My account</Link>
-              </div>
+        <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
+          <FaRegMoneyBillAlt className="text-xl" />
+          <Link to="/myaccount" onClick={toggleCart} className="font-bold text-xl">
+            My account
+          </Link>
+        </div>
 
-              <div className='flex gap-3  text-red-400 m-5' style={{ alignItems: "center" }}>
-                <  IoMdLogOut className='text-xl'></ IoMdLogOut>
-                <Link className='font-bold text-xl'>Logout</Link>
-              </div>
-
-
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+        <div className="flex gap-3 text-red-400 m-5" style={{ alignItems: "center" }}>
+          <IoMdLogOut className="text-xl" />
+          <Link onClick={toggleCart} className="font-bold text-xl">
+            Logout
+          </Link>
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
 
 
 {
@@ -353,7 +364,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 
 
 

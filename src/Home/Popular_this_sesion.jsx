@@ -1,51 +1,44 @@
+// 
 import React from 'react'
-import { Cosmetic2 } from '../JsonData/Home_Json'
+import { Cosmetic } from '../JsonData/Home_Json'
 import { Link } from 'react-router-dom'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { GrNext } from "react-icons/gr";
-import { GrPrevious } from "react-icons/gr";
-
 
 const This_Season = () => {
+  return (
+    <div className='w-full mx-auto py-5'>
+      <div className='w-[95%] mx-auto mt-5'>
+        <h1 className='text-center text-6xl py-4'>👁️</h1>
+        <h1 className='text-3xl text-black font-bold text-center pb-10 bg-gradient-to-r from-red-400 via-green-700 to-yellow-400 bg-clip-text text-transparent'>
+          FEATURED CATEGORY
+        </h1>
 
-    return (
-        <div className='w-[100%  mx-auto   py-5 '>
-            <div className='w-[95%]  mx-auto  mt-5'>
-                <h1 className=' text-3xl text-black font-bold text-center  pb-10' >Popular This Season</h1>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5'>
+          {Cosmetic.map((item) => (
+            <div
+              key={item.id}
+              className='relative text-center shadow-lg bg-white overflow-hidden  transition-all duration-300 hover:shadow-2xl group'
+            >
+              {/* 🖼️ Image Section */}
+              <div className='w-full h-[300px]'>
+                <img
+                  src={item.url}
+                  alt={item.category}
+                  className='w-full h-full object-cover transform group-hover:scale-110 duration-700'
+                />
+              </div>
 
-                <div className=' grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3  lg:grid-cols-4 gap-5'>
-
-                    {
-                        Cosmetic2.map((item) =>
-                            <div className='text-center text-white shadow-[10px] bg-white '>
-                                <div className='       '>
-                                    <img src={item.url} className=" object-cover w-full lg:h-[300px]  md:h-[250px] sm:h-[200px] h-[150px] hover:scale-75 duration-1000 " />
-
-                                </div>
-                                <div>
-                                    <h1 className='text-green-400 font-bold' style={{fontSize:13}}>{item.title}</h1>
-                                    <h1  style={{fontSize:13}}>⭐⭐⭐⭐⭐</h1>
-                                    <h1 className='text-green-400 font-bold' style={{fontSize:13}}>{item.price}</h1>
-
-                                </div>
-
-                                <div className='bg-black lg:py-4 md:py-3 sm:py-2 py-2 rounded'>
-                                    <Link className='font-bold  '>Add Card</Link>
-                                </div>
-
-                            </div>
-                        )
-                    }
-                </div>
-
-
-
-
+              {/* 🏷️ Overlay Text (Category Name) */}
+              <div className='absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-100'>
+                <Link className=' text-lg font-semibold mb-5 drop-shadow-lg bg-white py-1 px-4 text-green-600 hover:bg-pink-200 rounded'>
+                  {item.category}
+                </Link>
+              </div>
             </div>
+          ))}
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
-export default This_Season;
+export default This_Season

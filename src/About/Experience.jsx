@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Experience = () => {
   return (
-    <div className='py-10 bg-pink-300'>
+    <div className='py-10 '>
             <div className='text-center'>
                 <h1 className='text-6xl py-10' >🛒👜</h1>
                 <h1  className='text-6xl font-bold'>Ready to Experience the Difference?</h1>

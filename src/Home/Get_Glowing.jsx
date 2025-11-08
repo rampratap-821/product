@@ -128,7 +128,7 @@ const dataSlider = [
   {
     id: "1",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzVRQh-droytqcpxK_dMADiQfEc-HEwwHaMQ&s",
+      "https://images.unsplash.com/photo-1602928321679-560bb453f190?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzA3fHxwZXJmdW1lfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
     button: { text: "Shop Now", cssClasses: "text-white" },
     body: {
       cssClasses: "text-white",
@@ -140,7 +140,7 @@ const dataSlider = [
   {
     id: "2",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuFMSbl_3f78tX8XvUmm8Aa_cJ3nfAjMXEcw&s",
+      "https://plus.unsplash.com/premium_photo-1661380586936-af10aa12b232?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzE3fHxwZXJmdW1lfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
     button: { text: "Shop Now", cssClasses: "text-white" },
     body: {
       cssClasses: "text-white",
@@ -152,7 +152,7 @@ const dataSlider = [
   {
     id: "3",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm-bLgOG4FORXtidNlKGXfLS5Zkv1UMaTl9g&s",
+      "https://plus.unsplash.com/premium_photo-1664303418178-b8767b25f646?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzc3fHxwZXJmdW1lfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500j",
     button: { text: "Shop Now", cssClasses: "text-white" },
     body: {
       cssClasses: "text-white",

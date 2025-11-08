@@ -2,7 +2,7 @@ import React from 'react'
 
 const PartnerTheShin = () => {
     return (
-        <div className='w-[100%] bg-orange-400 sm:py[20px] py-10 px-10 '>
+        <div className='w-[100%] bg-teal-200 sm:py[20px] py-10 px-10 '>
             <div className='wm-w-[1170px] mx-auto'>
 
 

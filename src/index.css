@@ -6,10 +6,11 @@
 body {
   overflow-x: hidden;
   
-  margin: 0;
+  
+  /* margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #756b6f, #574f54, hsl(330, 2%, 23%));
-  background-attachment: fixed;
+  background: linear-gradient(135deg, #da87a8, #8edb9b, hsl(330, 2%, 23%));
+  background-attachment: fixed; */
 
 
   
