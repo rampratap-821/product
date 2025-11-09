@@ -138,66 +138,83 @@ export const Cosmetic2 = [
 
 export const HoverImageData = [
   {
-    id:1,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product32.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+    id: 1,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product32.jpg",
+    title: "Hydrating Glow Face Serum",
+    price: "$19.99",
+    description:
+      "This lightweight serum deeply hydrates your skin and gives it a natural, radiant glow. Perfect for daily use and suitable for all skin types.",
   },
-   {
-    id:2,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product35.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 2,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product35.jpg",
+    title: "Matte Finish Liquid Lipstick",
+    price: "$14.50",
+    description:
+      "Get long-lasting, bold color with a soft matte texture that keeps your lips smooth and moisturized all day. Smudge-proof and kiss-proof.",
   },
-   {
-    id:3,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product26.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 3,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product26.jpg",
+    title: "Organic Aloe Vera Face Cream",
+    price: "$22.00",
+    description:
+      "Made with pure aloe vera extract, this cream nourishes, heals, and refreshes your skin — leaving it soft, cool, and hydrated.",
   },
-   {
-    id:4,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product28.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 4,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product28.jpg",
+    title: "Vitamin C Brightening Face Wash",
+    price: "$11.75",
+    description:
+      "Infused with vitamin C and natural lemon extracts to remove dirt and dullness, giving your skin a bright, fresh, and healthy look.",
   },
-   {
-    id:5,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product30.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 5,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product30.jpg",
+    title: "Charcoal Detox Face Mask",
+    price: "$17.30",
+    description:
+      "This deep-cleansing mask draws out impurities, unclogs pores, and leaves your skin feeling clean, smooth, and refreshed.",
   },
-   {
-    id:6,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product31.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 6,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product31.jpg",
+    title: "Nourishing Hair Serum",
+    price: "$15.00",
+    description:
+      "A blend of argan oil and keratin that smooths frizz, adds shine, and protects hair from heat damage and pollution.",
   },
-   {
-    id:7,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product27.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 7,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product27.jpg",
+    title: "SPF 50+ Sunscreen Lotion",
+    price: "$13.99",
+    description:
+      "Lightweight and non-greasy protection from harmful UV rays. Keeps your skin safe and glowing under the sun.",
   },
-   {
-    id:8,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product33.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 8,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product33.jpg",
+    title: "Rose Water Toner",
+    price: "$10.99",
+    description:
+      "A refreshing facial mist made from natural rose petals. It tightens pores, balances pH, and gives your skin a fresh floral touch.",
   },
-   {
-    id:9,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product28.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 9,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product28.jpg",
+    title: "Herbal Kajal (Eye Liner)",
+    price: "$9.49",
+    description:
+      "Enriched with almond oil and camphor for naturally beautiful, bold eyes without irritation. Safe for everyday wear.",
   },
-   {
-    id:10,
-    image:"https://htmldemo.net/alista/alista/assets/img/product/product26.jpg",
-    title:"Le Klint Carronode padel..",
-    price:"$5678898"
+  {
+    id: 10,
+    image: "https://htmldemo.net/alista/alista/assets/img/product/product26.jpg",
+    title: "Whitening & Moisturizing Hand Cream",
+    price: "$12.25",
+    description:
+      "A silky, non-sticky formula that keeps hands soft, bright, and beautifully smooth even after washing.",
   },
-]
-
-
-
+];

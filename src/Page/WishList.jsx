@@ -9,8 +9,18 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaDeleteLeft, FaHeart, FaPersonRifle } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
-const WishList = ({ card,setcard }) => {
+
+
+const WishList = ({ card,setCard }) => {
     console.log("ram",card);
+
+    const handleDelete = (id)=>{
+      if(confirm("are you sure")) {
+        const handle = card.filter((item)=> item.id !== id)
+        setCard(handle)
+       }
+    
+    }
     
     return (
         <div className='w-full py-10 px-5'>
@@ -18,12 +28,12 @@ const WishList = ({ card,setcard }) => {
                 card.length !== 0 && (
                     <>
 
-                        <div className='flex justify-between items-center bg-pink-200 py-5 px-5 rounded-2xl'>
+                        <div className='flex justify-between items-center bg-pink-200 py-5 px-5 rounded-2xl flex-wrap'>
                             <div>
                                 <h1 className='text-4xl font-bold text-pink-800 pb-2 '>My Wishlist</h1>
                                 <h1>❤️{card.length}  items saved for late</h1>
                             </div>
-                            <div className='flex -tems-center gap-4 text-green-400 font-bold' >
+                            <div className='flex -tems-center gap-4 text-green-400 font-bold flex-wrap' >
                                 <div className='flex items-center  gap-2'>
                                     <IoCloud></IoCloud>
                                     <h1>27°C Cloudy</h1>
@@ -46,7 +56,7 @@ const WishList = ({ card,setcard }) => {
                         </div>
 
                         <div className=' pt-10 '>
-                            <div className='flex justify-between py-5 bg-red-200 px-5'>
+                            <div className='flex justify-between py-5 bg-red-200 px-10 pl-8 flex-wrap'>
                                 <div className='flex items-center gap-2 text-blue-800 font-bold w-[30%] '>
                                     <MdProductionQuantityLimits></MdProductionQuantityLimits>
                                     <h1>Product</h1>
@@ -86,12 +96,12 @@ const WishList = ({ card,setcard }) => {
                     </div>)
                     :
                  card.map((item)=>
-                <div className='bg-red-200 py-5 px-5 flex justify-between items-center' key={item.id } >
-                  <div className='flex items-center gap-5 w-[40%]'>
+                <div className='bg-red-200 py-5 px-5 flex justify-between items-center flex-wrap' key={item.id } >
+                  <div className='flex items-center gap-5 w-[30%] flex-wrap'>
                     <img src={item.image} style={{width:100,height:100}}/>
                     <div>
                         <h1>⭐⭐⭐⭐⭐</h1>
-                        <div className='flex items-center gap-1  font-bold'>
+                        <div className='flex items-center gap-1  font-bold '>
                             <FaPersonRifle></FaPersonRifle>
                             <h1>By Customer</h1>
                         </div>
@@ -99,14 +109,26 @@ const WishList = ({ card,setcard }) => {
                   </div>
                   <h1>{item.price}</h1>
                   <h1 className=''>in stock</h1>
-                  <div className='flex items-center'>
+                  <div className='flex items-center gap-2 text-xl'>
+                    <div className='bg-pink-800 px-2 py-1 flex items-center rounded text-white'>
                     <FaShoppingCart></FaShoppingCart>
                     <h1>Add to card</h1>
+                    </div>
+                    <div  className='bg-red-600 px-2 py-1 rounded text-xl' onClick={()=>handleDelete(item.id)}>
+                     <MdDelete  className=' text-2xl'></MdDelete>
+                     </div>
                   </div>
-                  <div>
-                    <MdDelete></MdDelete>
-                  </div>
+                  
                 </div>
+                )
+            }
+            {
+                card.length !== 0 && ( 
+                    <>
+                    <div className='mt-5  py-5 text-black text-center'>
+                       <button className=' text-xl  bg-red-800 px-8 py-2 font-bold rounded' onClick={()=>setCard("")}>All clear card</button>
+                    </div>
+                    </>
                 )
             }
         </div>
