@@ -51,7 +51,7 @@ const Navbar = ({card }) => {
 
   return (
     <>
-      <nav className="fixed w-full bg-teal-400 text-white shadow-md border-b-2 border-white py-1 z-40  ">
+      <nav className="fixed w-full bg-black text-white shadow-md border-b-2 border-white py-1 z-40  ">
         <div className="px-4 md:px-6">
           <div className="flex items-center justify-between py-3 md:py-4">
             {/* Logo */}

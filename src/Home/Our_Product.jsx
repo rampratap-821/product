@@ -8,6 +8,10 @@ import ProductModals from '../Component/ProductModals';
  
 
 const Our_Product = ({ card, setCard }) => {
+    const[category,setCatgory] = useState("")
+
+
+
 
     const [show,setShow] = useState(false)
     const addToCard = (id, price, title, image) => {
@@ -33,16 +37,17 @@ const Our_Product = ({ card, setCard }) => {
     }
 
 
- const addModals = (id, price, title, description) => {
-        const obj = {
-            id, price, title, description
-        }
-        setCard([...card, obj])
+ const addModals = (id) => {
+        const handle = HoverImageData.filter((item)=>item.id == id)
+       setCatgory(handle)
         setShow(true)
-
+  
 
 
     }
+
+
+
 
 
 
@@ -97,7 +102,7 @@ const Our_Product = ({ card, setCard }) => {
                                     </div>
 
                                     <div className='px-5 '>
-                                        <button className='bg-black px-2 py-1 hover:bg-yellow-80 ' onClick={()=>addModals(item.id, item.price, item.title,item.description)}><FaEyeSlash className='text-white text-2xl hover:text-red-500'></FaEyeSlash></button>
+                                        <button className='bg-black px-2 py-1 hover:bg-yellow-80 ' onClick={()=>addModals(item.id)}><FaEyeSlash className='text-white text-2xl hover:text-red-500'></FaEyeSlash></button>
                                     </div>
 
                                 </div>
@@ -112,7 +117,7 @@ const Our_Product = ({ card, setCard }) => {
 
            {
                show && (
-                <ProductModals onClose ={()=>setShow(false)} card ={card} setCard ={setCard} />
+                <ProductModals onClose ={()=>setShow(false)} category ={category} />
                )
            }
         </>
