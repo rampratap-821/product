@@ -6,8 +6,8 @@
 body {
   overflow-x: hidden;
   
-  
-  /* margin: 0;
+/*   
+  margin: 0;
   min-height: 100vh;
   background: linear-gradient(135deg, #da87a8, #8edb9b, hsl(330, 2%, 23%));
   background-attachment: fixed; */
@@ -17,3 +17,81 @@ body {
 }
 
 
+/* Add these animations to your global CSS file */
+
+/* Bounce animation for floating elements */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* Shimmer effect for text */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Pulse animation for active elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Float animation for product images */
+@keyframes float-rotate {
+  0%, 100% {
+    transform: translateY(0) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(12deg);
+  }
+}
+
+.animate-float-rotate {
+  animation: float-rotate 4s ease-in-out infinite;
+}
+
+/* Gradient border animation */
+@keyframes border-glow {
+  0%, 100% {
+    border-color: rgba(236, 72, 153, 0.3);
+  }
+  50% {
+    border-color: rgba(236, 72, 153, 0.8);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
+}

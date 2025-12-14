@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Navbar3 = () => {
   return (
     <>
-      <div className='flex justify-center gap-5 shadow-lg py-4 relative'>
+      <div className='flex justify-center gap-5 shadow-lg py-4 relative px-5'>
         {/* Each nav item with fixed border behavior */}
         <div className='group relative pb-1'>
           <ul>
@@ -87,23 +87,6 @@ const Navbar3 = () => {
           <div className='absolute bottom-0 left-0 w-full h-0 group-hover:h-1 bg-pink-500 transition-all duration-200'></div>
         </div>
 
-        <div className='group relative pb-1'>
-          <ul>
-            <li>
-              <Link className='block py-1'>Fragrance</Link>
-            </li>
-          </ul>
-          <div className='absolute bottom-0 left-0 w-full h-0 group-hover:h-1 bg-pink-500 transition-all duration-200'></div>
-        </div>
-
-        <div className='group relative pb-1'>
-          <ul>
-            <li>
-              <Link className='block py-1'>Lingerie & Accessories</Link>
-            </li>
-          </ul>
-          <div className='absolute bottom-0 left-0 w-full h-0 group-hover:h-1 bg-pink-500 transition-all duration-200'></div>
-        </div>
       </div>
       <hr />
     </>
