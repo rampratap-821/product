@@ -1,36 +1,35 @@
 import ram from '../assets/Icons/family.jpeg'
 export const Cosmetic = [
   {
-    "id": 1,
-    "title": "Perfume Bottle",
-    "url": "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "source": "pexels",
-    "category": "perfume"
+    id: 1,
+    title: "Perfume Bottle",
+    url: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=800",
+    source: "pexels",
+    category: "perfume",
   },
   {
-    "id": 2,
-    "title": "Red Lipstick",
-    "url": "https://images.unsplash.com/photo-1595425959632-34f2822322ce?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlcmZ1bWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-    "source": "pexels",
-    "category": "lipstick"
+    id: 2,
+    title: "Red Lipstick",
+    url: "https://images.unsplash.com/photo-1595425959632-34f2822322ce?auto=format&fit=crop&w=800&q=60",
+    source: "unsplash",
+    category: "lipstick",
   },
   {
-    "id": 3,
-    "title": "Makeup Brushes Set",
-    "url": "https://images.unsplash.com/photo-1622618991746-fe6004db3a47?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBlcmZ1bWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-    "source": "pexels",
-    "category": "brushes"
+    id: 3,
+    title: "Makeup Brushes Set",
+    url: "https://images.unsplash.com/photo-1622618991746-fe6004db3a47?auto=format&fit=crop&w=800&q=60",
+    source: "unsplash",
+    category: "brushes",
   },
   {
-    "id": 4,
-    "title": "Foundation Bottles",
-    "url": "https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyZnVtZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
-    "source": "pexels",
-    "category": "foundation"
+    id: 4,
+    title: "Foundation Bottles",
+    url: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=60",
+    source: "unsplash",
+    category: "foundation",
   },
- 
-];
 
+];
 
 
 
@@ -201,20 +200,5 @@ export const HoverImageData = [
     description:
       "A refreshing facial mist made from natural rose petals. It tightens pores, balances pH, and gives your skin a fresh floral touch.",
   },
-  {
-    id: 9,
-    image: "https://htmldemo.net/alista/alista/assets/img/product/product28.jpg",
-    title: "Herbal Kajal (Eye Liner)",
-    price: "$9.49",
-    description:
-      "Enriched with almond oil and camphor for naturally beautiful, bold eyes without irritation. Safe for everyday wear.",
-  },
-  {
-    id: 10,
-    image: "https://htmldemo.net/alista/alista/assets/img/product/product26.jpg",
-    title: "Whitening & Moisturizing Hand Cream",
-    price: "$12.25",
-    description:
-      "A silky, non-sticky formula that keeps hands soft, bright, and beautifully smooth even after washing.",
-  },
+
 ];

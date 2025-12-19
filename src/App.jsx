@@ -42,16 +42,37 @@ const App = () => {
         <Route path='/wishlist' element={<WishList card = {card} setCard = {setCard}/>}></Route>
 
       </Routes>
-      <Footer/>
       <Footer2/>
+      <Footer/>
+      {/* <Footer2/>
       <Footer3/>
       <Footer4/>
-      {/* <Footer5/> */}
+      <Footer5/> */}
     </Router>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

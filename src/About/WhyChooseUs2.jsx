@@ -1,41 +1,99 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { FaStarHalfAlt } from "react-icons/fa";
-import { RiSpaceShipFill } from "react-icons/ri";
-import { RiMoneyRupeeCircleFill } from "react-icons/ri";
+import { RiSpaceShipFill, RiMoneyRupeeCircleFill } from "react-icons/ri";
 
+const features = [
+  {
+    icon: <GiCommercialAirplane />,
+    title: "Fast Delivery",
+    desc: "Same-day delivery within 2 hours",
+    color: "cyan",
+  },
+  {
+    icon: <RiMoneyRupeeCircleFill />,
+    title: "Best Prices",
+    desc: "Competitive pricing guaranteed",
+    color: "green",
+  },
+  {
+    icon: <FaStarHalfAlt />,
+    title: "Premium Quality",
+    desc: "Fresh products daily from local farms",
+    color: "yellow",
+  },
+  {
+    icon: <RiSpaceShipFill />,
+    title: "Innovation",
+    desc: "Latest technology for better service",
+    color: "purple",
+  },
+];
 
 const WhyChooseUs2 = () => {
+  const cardRefs = useRef([]);
+  const [visible, setVisible] = useState([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible((prev) => [
+              ...new Set([...prev, entry.target.dataset.index]),
+            ]);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-4 p-4 py-[30px]">
-    
-          <div className="bg-pink-300 p-4 py-[40px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            <GiCommercialAirplane className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Fast Delivery</h1>
-            <h2 className="text-gray-700">Same-day delivery within 2 hours</h2>
-          </div>
-    
-       <div className="bg-orange-300 p-4 py-[40px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            <RiMoneyRupeeCircleFill className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Best Prices</h1>
-            <h2 className="text-gray-700">Competitive pricing guaranteed</h2>
-          </div>
-    
+    <div className="w-full py-20 px-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-     <div className="bg-yellow-300 p-4 py-[40px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            <FaStarHalfAlt className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Premium Qualityy</h1>
-            <h2 className="text-gray-700">Fresh products daily from local farms</h2>
-          </div>
+        {features.map((item, i) => (
+          <div
+            key={i}
+            ref={(el) => (cardRefs.current[i] = el)}
+            data-index={i}
+            style={{ transitionDelay: `${i * 120}ms` }}
+            className={`group relative bg-pink-600
+            border border-${item.color}-500/40
+            rounded-2xl p-8 text-center
+            transform transition-all duration-[900ms] ease-out
+            ${
+              visible.includes(String(i))
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-20"
+            }
+            hover:scale-[1.08]
+            hover:shadow-[0_0_45px_rgba(236,72,153,0.6)]
+            `}
+          >
+            {/* ICON CENTER */}
+            <div className="flex items-center justify-center h-20 mb-6">
+              <div
+                className={`text-6xl text-${item.color}-400
+                transition-transform duration-[900ms] ease-out
+                group-hover:scale-125`}
+              >
+                {item.icon}
+              </div>
+            </div>
 
- <div className="bg-blue-300 p-4 py-[40px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            <RiSpaceShipFill className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Innovation</h1>
-            <h2 className="text-gray-700">Latest technology for better service</h2>
+            <h1 className="text-2xl font-bold text-white">{item.title}</h1>
+            <p className="text-gray-400 mt-2">{item.desc}</p>
           </div>
-      
-        </div>
-  )
-}
+        ))}
+
+      </div>
+    </div>
+  );
+};
 
 export default WhyChooseUs2;

@@ -1,44 +1,99 @@
-import React from 'react'
-import { FaLeaf } from "react-icons/fa";
-import { FaHandHoldingHeart } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { FaLeaf, FaHandHoldingHeart } from "react-icons/fa";
 import { BiAdjust } from "react-icons/bi";
 import { GiRapidshareArrow } from "react-icons/gi";
 
+const values = [
+  {
+    icon: <FaLeaf />,
+    title: "Sustainability",
+    desc: "Eco-friendly packaging and supporting local farmers",
+    color: "green",
+  },
+  {
+    icon: <FaHandHoldingHeart />,
+    title: "Community First",
+    desc: "Building strong relationships with our customers",
+    color: "pink",
+  },
+  {
+    icon: <BiAdjust />,
+    title: "Quality Promise",
+    desc: "100% quality assurance on all products",
+    color: "cyan",
+  },
+  {
+    icon: <GiRapidshareArrow />,
+    title: "Innovation",
+    desc: "Constantly improving our services",
+    color: "purple",
+  },
+];
 
 const OurValues2 = () => {
+  const cardRefs = useRef([]);
+  const [visible, setVisible] = useState([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible((prev) => [
+              ...new Set([...prev, entry.target.dataset.index]),
+            ]);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-4 p-4 py-[30px]">
-    
-          <div className="bg-pink-300 p-4 py-[100px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            <FaLeaf className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Sustainability</h1>
-            <h2 className="text-gray-700">Eco-friendly packaging and supporting local farmers</h2>
-          </div>
-    
-      <div className="bg-pink-300 p-4 py-[100px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            <FaHandHoldingHeart className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Community First</h1>
-            <h2 className="text-gray-700">Building strong relationships with our customers</h2>
-          </div>
-    
+    <div className="w-full bg-black py-20 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-      <div className="bg-pink-300 p-4 py-[100px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            < BiAdjust  className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Quality Promise</h1>
-            <h2 className="text-gray-700">100% quality assurance on all products</h2>
+        {values.map((item, i) => (
+          <div
+            key={i}
+            ref={(el) => (cardRefs.current[i] = el)}
+            data-index={i}
+            style={{ transitionDelay: `${i * 120}ms` }}
+            className={`group relative bg-pink-600
+            border border-${item.color}-500/40
+            rounded-2xl p-10 text-center
+            transform transition-all duration-[900ms] ease-out
+            ${
+              visible.includes(String(i))
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-20"
+            }
+            hover:scale-[1.08]
+            hover:shadow-[0_0_45px_rgba(236,72,153,0.6)]
+            `}
+          >
+            {/* ICON CENTER */}
+            <div className="flex items-center justify-center h-20 mb-6">
+              <div
+                className={`text-6xl text-${item.color}-400
+                transition-transform duration-[900ms] ease-out
+                group-hover:scale-125`}
+              >
+                {item.icon}
+              </div>
+            </div>
+
+            <h1 className="text-2xl font-bold text-white">{item.title}</h1>
+            <p className="text-gray-400 mt-3">{item.desc}</p>
           </div>
-    
+        ))}
 
-      <div className="bg-pink-300 p-4 py-[100px] text-center rounded-lg shadow-sm shadow-pink-300 hover:scale-105 duration-700 group transition-transform">
-            <GiRapidshareArrow className="mx-auto text-6xl transform transition-transform duration-700 group-hover:scale-105 pb-5" />
-            <h1 className="text-2xl font-bold">Innovation</h1>
-            <h2 className="text-gray-700">Constantly improving our servicesConstantly improving our services</h2>
-          </div>
-    
+      </div>
+    </div>
+  );
+};
 
-    
-        </div>
-  )
-}
-
-export default OurValues2
+export default OurValues2;

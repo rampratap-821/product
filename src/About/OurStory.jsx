@@ -1,105 +1,116 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import { MdFoundation } from "react-icons/md";
-import { MdExpandCircleDown } from "react-icons/md";
-import { RiComputerLine } from "react-icons/ri";
-import { FaMobileAlt } from "react-icons/fa";
 
 const OurStory = () => {
-    return (
-        <div className=' w-full py-[20px] sm:py-[50px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2   gap-5 px-2 sm:px-5'>
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(false);
 
-            <div className='h-full'>
-                <div className='px-10  bg-white py-10 rounded-2xl h-full'>
-                    <h1 className='text-4xl text-pink-900 font-bold'>Our Story—The Glow Behind the Brand</h1>
-                    <p className='py-4 text-gray-700  '>
-                        Founded in 2010 by Sofia Mehra, Bloom Cosmetics began as a small studio with one dream — to
-                        make beauty simple, natural, and empowering. What started as handmade lip balms and skincare blends soon
-                        turned into a movement toward conscious beauty. Sofia believed that true beauty
-                        comes from confidence, care, and connection with nature.
-                        </p>
-                            <p className='py-4 text-gray-700  '>
-                               From the beginning, we sourced every ingredient with love — cold-pressed oils,
-                                pure plant extracts, and cruelty-free pigments — ensuring that each product touched your
-                                 skin gently and responsibly. Our mission was never just to sell makeup, but to create a
-                                mindful beauty ritual for every woman who believes in her glow.
-                            </p>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === leftRef.current) setShowLeft(true);
+            if (entry.target === rightRef.current) setShowRight(true);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
 
-                            <p className='py-4 text-gray-700  '>
-                               n 2012, Bloom introduced its first organic lipstick collection — made with natural waxes 
-                               and rich botanical colors. The response was overwhelming. Women from all walks of life embraced the
-                                idea that makeup can be clean, luxurious, and guilt-free. By 2015, we had launched our skincare line 
-                               inspired by Indian botanicals like rose, turmeric, aloe, and sandalwood.
-                            </p>
+    leftRef.current && observer.observe(leftRef.current);
+    rightRef.current && observer.observe(rightRef.current);
 
-                            <p className='py-4 text-gray-700  '>
-                               Every formula is created with transparency — no parabens, no sulfates, no harmful chemicals. 
-                               Only goodness that your skin deserves. In 2018, Bloom expanded its reach with the “Pure Inside, Radiant 
-                               Outside” campaign —
-                                inspiring thousands to redefine beauty beyond filters and trends.
-                            </p>
+    return () => observer.disconnect();
+  }, []);
 
-                           
-                        </div>
-                </div>
+  return (
+    <div className="w-full py-5 px-4 ">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
 
-                <div className='grid grid-cols-1'>
-                    <div className='bg-white mb-5  border-l-8 border-pink-900 py-10 rounded-2xl shadow-lg group hover:scale-105 transition duration-1000 flex pl-10 items-center gap-4 px-2'>
-                        <div>
-                            <h1 className='text-2xl bg-pink-800 p-5 rounded-2xl group-hover:scale-105 transition duration-1000'><MdFoundation></MdFoundation></h1>
-                        </div>
-                        <div className='[&>*]:p-1'>
-                            <h1 className='text-pink-800 text-2xl font-bold '>2010</h1>
-                            <h1 className=' text-2xl font-bold '>Founded</h1>
-                            <h1 className='text-xl font-semibold  text-gray-600'>Started with a single store in downtown</h1>
+        {/* LEFT STORY PANEL */}
+        <div
+          ref={leftRef}
+          className={`relative bg-pink-900 border border-pink-500/40
+          rounded-2xl p-10 shadow-[0_0_40px_#ec489950]
+          transition-all duration-700 ease-out
+          ${
+            showLeft
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 -translate-x-20"
+          }`}
+        >
+          <h1 className="text-4xl font-extrabold text-pink-400 mb-6">
+            Our Story <span className="text-white">— The Glow Behind the Brand</span>
+          </h1>
 
-                        </div>
-                    </div>
+          <p className="text-gray-300 leading-relaxed mb-4">
+            Founded in 2010 by Sofia Mehra, Bloom Cosmetics began as a small studio
+            with one dream — to make beauty simple, natural, and empowering.
+          </p>
 
+          <p className="text-gray-300 leading-relaxed mb-4">
+            From cold-pressed oils to cruelty-free pigments, every ingredient was
+            chosen with care. Our mission was never just makeup — it was a mindful
+            beauty ritual.
+          </p>
 
+          <p className="text-gray-300 leading-relaxed mb-4">
+            In 2012, Bloom launched its first organic lipstick line. By 2015,
+            skincare inspired by Indian botanicals followed — rose, turmeric,
+            aloe, and sandalwood.
+          </p>
 
+          <p className="text-gray-300 leading-relaxed">
+            No parabens. No sulfates. Only skin-loving formulas. In 2018, the
+            “Pure Inside, Radiant Outside” campaign inspired thousands to
+            redefine beauty.
+          </p>
+        </div>
 
-                    <div className='bg-white mb-5  border-l-8 border-pink-900 py-10 rounded-2xl shadow-lg group hover:scale-105 transition duration-1000 flex pl-10 items-center gap-4'>
-                        <div>
-                            <h1 className='text-2xl bg-pink-800 p-5 rounded-2xl group-hover:scale-105 transition duration-1000'><MdFoundation></MdFoundation></h1>
-                        </div>
-                        <div className='[&>*]:p-1'>
-                            <h1 className='text-pink-800 text-2xl font-bold '>2010</h1>
-                            <h1 className=' text-2xl font-bold '>Founded</h1>
-                            <h1 className='text-xl font-semibold  text-gray-600'>Started with a single store in downtown</h1>
+        {/* RIGHT TIMELINE */}
+        <div
+          ref={rightRef}
+          className={`space-y-6 transition-all duration-700 ease-out
+          ${
+            showRight
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-20"
+          }`}
+        >
+          {[
+            { year: "2010", title: "Founded", desc: "Started with a single store" },
+            { year: "2012", title: "First Organic Lipstick", desc: "Clean & bold beauty" },
+            { year: "2015", title: "Skincare Launch", desc: "Inspired by botanicals" },
+            { year: "2018", title: "Global Vision", desc: "Pure Inside, Radiant Outside" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="group relative bg-pink-600 border-l-4 border-pink-500
+              rounded-xl p-6 flex gap-5 items-center
+              hover:shadow-[0_0_35px_#ec4899] transition duration-700"
+            >
+              <div className="bg-pink-500/20 p-4 rounded-xl
+                group-hover:scale-110 transition duration-700">
+                <MdFoundation className="text-3xl text-pink-400" />
+              </div>
 
-                        </div>
-                    </div>
-
-
-
-                    <div className='bg-white mb-5  border-l-8 border-pink-900 py-10 rounded-2xl shadow-lg group hover:scale-105 transition duration-1000 flex pl-10 items-center gap-4'>
-                        <div>
-                            <h1 className='text-2xl bg-pink-800 p-5 rounded-2xl group-hover:scale-105 transition duration-1000'><MdFoundation></MdFoundation></h1>
-                        </div>
-                        <div className='[&>*]:p-1'>
-                            <h1 className='text-pink-800 text-2xl font-bold '>2010</h1>
-                            <h1 className=' text-2xl font-bold '>Founded</h1>
-                            <h1 className='text-xl font-semibold  text-gray-600'>Started with a single store in downtown</h1>
-
-                        </div>
-                    </div>
-
-
-                    <div className='bg-white   border-l-8 border-pink-900 py-10 rounded-2xl shadow-lg group hover:scale-105 transition duration-1000 flex pl-10 items-center gap-4'>
-                        <div>
-                            <h1 className='text-2xl bg-pink-800 p-5 rounded-2xl group-hover:scale-105 transition duration-1000'><MdFoundation></MdFoundation></h1>
-                        </div>
-                        <div className='[&>*]:p-1'>
-                            <h1 className='text-pink-800 text-2xl font-bold '>2010</h1>
-                            <h1 className=' text-2xl font-bold '>Founded</h1>
-                            <h1 className='text-xl font-semibold  text-gray-600'>Started with a single store in downtown</h1>
-
-                        </div>
-                    </div>
-                </div>
-
+              <div>
+                <h1 className="text-pink-400 text-xl font-bold">{item.year}</h1>
+                <h2 className="text-white text-2xl font-semibold">
+                  {item.title}
+                </h2>
+                <p className="text-gray-400">{item.desc}</p>
+              </div>
             </div>
-            )
-}
+          ))}
+        </div>
 
-            export default OurStory
+      </div>
+    </div>
+  );
+};
+
+export default OurStory;

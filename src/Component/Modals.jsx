@@ -236,7 +236,7 @@ const Modals = (props) => {
 
             // token save in localStorage
             localStorage.setItem("token", res.data.token);
-            localStorage.setItem("login", handleClick());
+            
 
             console.log("Login Response:", res.data);
 

@@ -1,54 +1,150 @@
-import React from 'react'
-import google from '../assets/Icons/google.png'
-import appstore from '../assets/Icons/Appstoe.png'
+// import React from 'react'
+// import google from '../assets/Icons/google.png'
+// import appstore from '../assets/Icons/Appstoe.png'
+// import Lottie from "lottie-react";
+// import perfume from "../assets/Images/perfume.json";
+// import { MdOutlineForwardToInbox } from "react-icons/md";
+// import { FaMobileScreenButton } from "react-icons/fa6";
+// import { BsTelephoneXFill } from "react-icons/bs";
+
+
+
+
+// const Footer = () => {
+//   return (
+//     <div className='w-[100%]  text-white bg-black sm:py-[70px] py-[35px] px-[25px] '>
+//       <div className="">
+
+//         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-5'>
+
+//           <div>
+//             <div><MdOutlineForwardToInbox className='text-white animate-bounce'></MdOutlineForwardToInbox> GET SPECIAL DISCOUNT ON YOUR INBOX</div>
+//             <div className='  py-5 sm:grid-cols-2 grid-cols-[70%_auto]' >
+//               <input type='text' placeholder='Your Email' className='bg-black font-bold border-b-[2px] border-white mx-2  focus:outline-none focus:ring-0 w-1/2 ' />
+//               <div className='border border-white p-2 text-center'>SEND</div>
+//             </div>
+//           </div>
+
+//           <div >
+//             <div><FaMobileScreenButton className='text-white animate-bounce'></FaMobileScreenButton>EXPERIENCE THE NYKAA MOBILE APP</div>
+//             <img src={appstore} className='sm:w-[100px] w-[75px] py-4  ' />
+//             <img src={appstore} className='sm:w-[100px] w-[75px]   ' />
+
+//           </div>
+
+//           <div>
+//             <div><BsTelephoneXFill className='text-white animate-bounce'></BsTelephoneXFill>FOR ANY HELP, YOU MAY BE CALL US ATT</div>
+//             <h1>1800-267-4444</h1>
+//             <h1>(Monday to Saturday, 8AM to 10PM and Sunday, 10AM to 7PM)</h1>
+//           </div>
+
+//           <div>
+//           <Lottie animationData={perfume} loop={true} className="w-[150px] lg:mx-auto  " />
+//           </div>
+
+
+//         </div>
+
+
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Footer
+
+
+
+import React from "react";
+import google from "../assets/Icons/google.png";
+import appstore from "../assets/Icons/Appstoe.png";
 import Lottie from "lottie-react";
 import perfume from "../assets/Images/perfume.json";
 import { MdOutlineForwardToInbox } from "react-icons/md";
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { BsTelephoneXFill } from "react-icons/bs";
 
-
-
-
 const Footer = () => {
   return (
-    <div className='w-[100%]  text-white bg-black sm:py-[70px] py-[35px] px-[25px] '>
-      <div className='max-w-[1170px] mx-auto'>
+    <footer className="w-full bg-black text-gray-300 py-16 px-6 relative overflow-hidden">
+      
+      {/* Neon Background Glow */}
+      <div className="absolute inset-0 bg-black" />
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-5'>
+      <div className="relative max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
 
-          <div>
-            <div><MdOutlineForwardToInbox className='text-white animate-bounce'></MdOutlineForwardToInbox> GET SPECIAL DISCOUNT ON YOUR INBOX</div>
-            <div className='  py-5 sm:grid-cols-2 grid-cols-[70%_auto]' >
-              <input type='text' placeholder='Your Email' className='bg-black font-bold border-b-[2px] border-white mx-2  focus:outline-none focus:ring-0 w-1/2 ' />
-              <div className='border border-white p-2 text-center'>SEND</div>
+          {/* EMAIL SUBSCRIBE */}
+          <div className="space-y-4">
+            <h2 className="flex items-center gap-2 text-pink-400 tracking-widest font-semibold">
+              <MdOutlineForwardToInbox className="text-xl animate-pulse" />
+              SPECIAL DISCOUNT
+            </h2>
+
+            <p className="text-sm text-gray-400">
+              Get exclusive cosmetic deals, bridal offers & updates directly in your inbox.
+            </p>
+
+            <div className="flex items-center border border-pink-500/50 rounded-full overflow-hidden">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-transparent px-4 py-2 w-full text-sm focus:outline-none"
+              />
+              <button className="px-6 py-2 bg-pink-500 text-black font-bold hover:bg-pink-400 transition">
+                SEND
+              </button>
             </div>
           </div>
 
-          <div >
-            <div><FaMobileScreenButton className='text-white animate-bounce'></FaMobileScreenButton>EXPERIENCE THE NYKAA MOBILE APP</div>
-            <img src={appstore} className='sm:w-[100px] w-[75px] py-4  ' />
-            <img src={appstore} className='sm:w-[100px] w-[75px]   ' />
+          {/* MOBILE APP */}
+          <div className="space-y-4">
+            <h2 className="flex items-center gap-2 text-pink-400 tracking-widest font-semibold">
+              <FaMobileScreenButton className="text-xl animate-pulse" />
+              MOBILE APP
+            </h2>
 
+            <p className="text-sm text-gray-400">
+              Experience our cosmetic store on mobile with smooth & secure access.
+            </p>
+
+            <div className="flex gap-3 pt-2">
+              <img src={appstore} alt="App Store" className="w-[110px] hover:scale-105 transition" />
+              <img src={google} alt="Google Play" className="w-[110px] hover:scale-105 transition" />
+            </div>
           </div>
 
-          <div>
-            <div><BsTelephoneXFill className='text-white animate-bounce'></BsTelephoneXFill>FOR ANY HELP, YOU MAY BE CALL US ATT</div>
-            <h1>1800-267-4444</h1>
-            <h1>(Monday to Saturday, 8AM to 10PM and Sunday, 10AM to 7PM)</h1>
+          {/* SUPPORT */}
+          <div className="space-y-4">
+            <h2 className="flex items-center gap-2 text-pink-400 tracking-widest font-semibold">
+              <BsTelephoneXFill className="text-xl animate-pulse" />
+              SUPPORT
+            </h2>
+
+            <p className="text-lg font-bold text-white">1800-267-4444</p>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Mon–Sat: 8AM – 10PM <br />
+              Sun: 10AM – 7PM
+            </p>
           </div>
 
-          <div>
-          <Lottie animationData={perfume} loop={true} className="w-[150px] lg:mx-auto  " />
+          {/* LOTTIE */}
+          <div className="flex justify-center items-center">
+            <Lottie
+              animationData={perfume}
+              loop={true}
+              className="w-[160px] drop-shadow-[0_0_25px_rgba(236,72,153,0.6)]"
+            />
           </div>
-
-
         </div>
 
-
+        {/* Divider */}
+        <div className="mt-14 border-t border-pink-500/20 pt-6 text-center text-sm text-gray-500 tracking-widest">
+          © 2025 • COSMETIC HACKER UI • ALL RIGHTS RESERVED
+        </div>
       </div>
-    </div>
-  )
-}
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

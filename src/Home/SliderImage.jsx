@@ -1,563 +1,44 @@
-// // // import React, { useState, useEffect } from 'react';
-// // // import banner1 from "../assets/Icons/Banner1.jpeg";
-// // // import banner2 from "../assets/Icons/Banner2.jpeg";
-// // // import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-// // // import { RxDot, RxDotFilled } from 'react-icons/rx';
-
-// // // const dataSlider = [
-// // //   {
-// // //     id: "1",
-// // //     imageUrl: banner1,
-// // //     button: { text: "Shop Now", cssClasses: "text-white" },
-// // //     body: {
-// // //       cssClasses: "text-white",
-// // //       mainText: "Perfume Tips Tricks One",
-// // //       subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
-// // //     },
-// // //   },
-// // //   {
-// // //     id: "2",
-// // //     imageUrl: banner2,
-// // //     button: { text: "Shop Now", cssClasses: "text-white" },
-// // //     body: {
-// // //       cssClasses: "text-white",
-// // //       mainText: "Perfume Tips Tricks Two",
-// // //       subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
-// // //     },
-// // //   },
-// // //   {
-// // //     id: "3",
-// // //     imageUrl:
-// // //       "https://t3.ftcdn.net/jpg/15/36/40/70/240_F_1536407091_PtCL3kqQTdU2pMOkAcwQj9Dq5OsYGK9d.jpg",
-// // //     button: { text: "Shop Now", cssClasses: "text-white" },
-// // //     body: {
-// // //       cssClasses: "text-white",
-// // //       mainText: "Perfume Tips Tricks Three",
-// // //       subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
-// // //     },
-// // //   },
-// // // ];
-
-// // // const SliderImage = () => {
-// // //   const [currentIndex, setCurrentIndex] = useState(0);
-
-// // //   const nextSlider = () => {
-// // //     const isFirstSlider = currentIndex === 0;
-// // //     const newIndex = isFirstSlider ? dataSlider.length - 1 : currentIndex - 1;
-// // //     setCurrentIndex(newIndex);
-// // //   };
-
-// // //   const previousSlider = () => {
-// // //     const isLastSlider = currentIndex === dataSlider.length - 1;
-// // //     const newIndex = isLastSlider ? 0 : currentIndex + 1;
-// // //     setCurrentIndex(newIndex);
-// // //   };
-
-// // //   // useEffect(() => {
-// // //   //   const interval = setInterval(() => {
-// // //   //     nextSlider();
-// // //   //   }, 4000);
-// // //   //   return () => clearInterval(interval);
-// // //   // }, [currentIndex]);
-
-// // //   return (
-// // //     <div className="relative w-full h-[400px] sm:h-[500px] md:h-[550px] overflow-hidden  ">
-
-// // //       <div
-// // //         className="w-full h-full  bg-cover mt-10 "
-// // //         style={{
-// // //           backgroundImage: `url(${dataSlider[currentIndex].imageUrl})`,
-// // //           // backgroundSize: "cover",
-// // //           backgroundPosition: "center",
-// // //           backgroundRepeat: "no-repeat",
-// // //         }}
-// // //       ></div>
-
-// // //      z
-// // //       <div
-// // //         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full cursor-pointer hover:bg-black/70 transition"
-// // //         onClick={nextSlider}
-// // //       >
-// // //         <BsChevronCompactLeft size={24} />
-// // //       </div>
-
-
-// // //       <div
-// // //         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full cursor-pointer hover:bg-black/70 transition"
-// // //         onClick={previousSlider}
-// // //       >
-// // //         <BsChevronCompactRight size={24} />
-// // //       </div>
-
-
-// // //       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-// // //         {dataSlider.map((slider, index) => (
-// // //           <div key={slider.id} className="cursor-pointer text-3xl">
-// // //             {index === currentIndex ? (
-// // //               <RxDotFilled className="text-orange-500" />
-// // //             ) : (
-// // //               <RxDot className="text-white" />
-// // //             )}
-// // //           </div>
-// // //         ))}
-// // //       </div>
-
-
-// // //       <div className="absolute bottom-12 left-8 translate-y-2 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent font-bold text-2xl sm:text-4xl">
-// // //         {dataSlider[currentIndex].body.mainText}
-// // //       </div>
-// // //     </div>
-// // //   );
-// // // };
-
-// // // export default SliderImage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // // import React, { useState, useEffect } from "react";
-// // // import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-// // // import { RxDot, RxDotFilled } from "react-icons/rx";
-
-// // // const dataSlider = [
-// // //   {
-// // //     id: "1",
-// // //     imageUrl:
-// // //       "https://images.unsplash.com/photo-1602928321679-560bb453f190?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzA3fHxwZXJmdW1lfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
-// // //     button: { text: "Shop Now", cssClasses: "text-white" },
-// // //     body: {
-// // //       cssClasses: "text-white",
-// // //       mainText: "Perfume Tips Tricks One",
-// // //       subText:
-// // //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
-// // //     },
-// // //   },
-// // //   {
-// // //     id: "2",
-// // //     imageUrl:
-// // //       "https://plus.unsplash.com/premium_photo-1661380586936-af10aa12b232?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzE3fHxwZXJmdW1lfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
-// // //     button: { text: "Shop Now", cssClasses: "text-white" },
-// // //     body: {
-// // //       cssClasses: "text-white",
-// // //       mainText: "Perfume Tips Tricks Two",
-// // //       subText:
-// // //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
-// // //     },
-// // //   },
-// // //   {
-// // //     id: "3",
-// // //     imageUrl:
-// // //       "https://plus.unsplash.com/premium_photo-1664303418178-b8767b25f646?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzc3fHxwZXJmdW1lfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500j",
-// // //     button: { text: "Shop Now", cssClasses: "text-white" },
-// // //     body: {
-// // //       cssClasses: "text-white",
-// // //       mainText: "Perfume Tips Tricks Three",
-// // //       subText:
-// // //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante tellus.",
-// // //     },
-// // //   },
-// // // ];
-
-// // // const SliderImage = () => {
-// // //   const [currentIndex, setCurrentIndex] = useState(0);
-
-// // //   const nextSlider = () => {
-// // //     const isLastSlide = currentIndex === dataSlider.length - 1;
-// // //     const newIndex = isLastSlide ? 0 : currentIndex + 1;
-// // //     setCurrentIndex(newIndex);
-// // //   };
-
-// // //   const prevSlider = () => {
-// // //     const isFirstSlide = currentIndex === 0;
-// // //     const newIndex = isFirstSlide ? dataSlider.length - 1 : currentIndex - 1;
-// // //     setCurrentIndex(newIndex);
-// // //   };
-
-// // //   // useEffect(() => {
-// // //   //   const interval = setInterval(() => {
-// // //   //     nextSlider();
-// // //   //   }, 3000); 
-// // //   //   return () => clearInterval(interval);
-// // //   // }, [currentIndex]);
-
-// // //   return (
-// // //     <div className="w-full h-[500px] relative text-white  overflow-hidden ">
-// // //       <div className="mt-0">
-// // //         <img
-// // //           src={dataSlider[currentIndex].imageUrl}
-// // //           className='w-full h-full object-cover  sm:p-2 md:p-2 lg:p-0 p-2 duration-500 '
-// // //           alt="slider"
-// // //         />
-// // //       </div>
-// // //       <div
-// // //         className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black text-white p-2 rounded-full cursor-pointer"
-// // //         onClick={prevSlider}
-// // //       >
-// // //         <BsChevronCompactLeft size={30} />
-// // //       </div>
-
-// // //       <div
-// // //         className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black text-white p-2 rounded-full cursor-pointer"
-// // //         onClick={nextSlider}
-// // //       >
-// // //         <BsChevronCompactRight size={30} />
-// // //       </div>
-
-// // //       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-// // //         {dataSlider.map((slider, index) => (
-// // //           <div
-// // //             key={slider.id}
-// // //             className="text-3xl cursor-pointer"
-// // //             onClick={() => setCurrentIndex(index)}
-// // //           >
-// // //             {index === currentIndex ? (
-// // //               <RxDotFilled className="text-pink-500" />
-// // //             ) : (
-// // //               <RxDot className="text-white" />
-// // //             )}
-// // //           </div>
-// // //         ))}
-// // //       </div>
-// // //     </div>
-// // //   );
-// // // };
-
-// // // export default SliderImage;
-
-
-
-// // // SliderImage.jsx
-// // import React, { useState } from "react";
-// // import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-// // import { RxDot, RxDotFilled } from "react-icons/rx";
-
-// // const dataSlider = [
-// //   {
-// //     id: "1",
-// //     imageUrl:
-// //       "https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&q=60&w=500",
-// //     mainText: "Perfume Tips Tricks One",
-// //     subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-// //   },
-// //   {
-// //     id: "2",
-// //     imageUrl:
-// //       "https://plus.unsplash.com/premium_photo-1661380586936-af10aa12b232?auto=format&fit=crop&q=60&w=500",
-// //     mainText: "Perfume Tips Tricks Two",
-// //     subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-// //   },
-// //   {
-// //     id: "3",
-// //     imageUrl:
-// //       "https://plus.unsplash.com/premium_photo-1664303418178-b8767b25f646?auto=format&fit=crop&q=60&w=500",
-// //     mainText: "Perfume Tips Tricks Three",
-// //     subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-// //   },
-// // ];
-
-// // const SliderImage = () => {
-// //   const [currentIndex, setCurrentIndex] = useState(0);
-
-// //   const nextSlider = () =>
-// //     setCurrentIndex((prev) => (prev === dataSlider.length - 1 ? 0 : prev + 1));
-
-// //   const prevSlider = () =>
-// //     setCurrentIndex((prev) => (prev === 0 ? dataSlider.length - 1 : prev - 1));
-
-// //   return (
-// //     <div className="w-full h-[500px] relative mt-0 ">
-// //       {/* Slider Image */}
-// //       <img
-// //         src={dataSlider[currentIndex].imageUrl}
-// //         className="w-full h-full object-cover duration-500"
-// //         alt="slider"
-// //       />
-
-// //       {/* LEFT BUTTON */}
-// //       <button
-// //         className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black text-white p-2 rounded-full"
-// //         onClick={prevSlider}
-// //       >
-// //         <BsChevronCompactLeft size={30} />
-// //       </button>
-
-// //       {/* RIGHT BUTTON */}
-// //       <button
-// //         className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black text-white p-2 rounded-full"
-// //         onClick={nextSlider}
-// //       >
-// //         <BsChevronCompactRight size={30} />
-// //       </button>
-
-// //       {/* DOTS */}
-// //       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-// //         {dataSlider.map((slide, index) => (
-// //           <div
-// //             key={slide.id}
-// //             onClick={() => setCurrentIndex(index)}
-// //             className="cursor-pointer text-3xl"
-// //           >
-// //             {index === currentIndex ? (
-// //               <RxDotFilled className="text-pink-500" />
-// //             ) : (
-// //               <RxDot className="text-white" />
-// //             )}
-// //           </div>
-// //         ))}
-// //       </div>
-// //     </div>
-// //   );
-// // };
-
-// // export default SliderImage;
-
-
-
-
-// // import React, { useEffect, useState } from "react";
-// // import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-// // import { RxDot, RxDotFilled } from "react-icons/rx";
-// // import banner1 from "../assets/Images/creepy-young-female-standing-with-zombie-hand.jpg"
-// // import banner2 from "../assets/Images/front-view-blonde-woman-with-cosmetic-powder-brush.jpg"
-// // import banner3 from "../assets/Images/young-woman-black-smokes-electronic-cigarette-dark-wall.jpg"
-// // const dataSlider = [
-// //   {
-// //     id: "1",
-// //     imageUrl:
-// //       banner1,
-// //   },
-// //   {
-// //     id: "2",
-// //     imageUrl:
-// //     banner2,
-// //   },
-// //   {
-// //     id: "3",
-// //     imageUrl:
-// //       banner3,
-// //   },
-  
-// // ];
-
-// // const SliderImage = () => {
-// //   const [currentIndex, setCurrentIndex] = useState(0);
-
-// //   const nextSlide = () =>
-// //     setCurrentIndex((prev) => (prev === dataSlider.length - 1 ? 0 : prev + 1));
-
-// //   const prevSlide = () =>
-// //     setCurrentIndex((prev) => (prev === 0 ? dataSlider.length - 1 : prev - 1));
-
-
-// //   return (
-// //     <>
-   
-// //     <div className="w-full h-[600px] relative overflow-hidden ">
-// //       <img
-// //         src={dataSlider[currentIndex].imageUrl}
-// //         className="w-full h-full object-cover duration-500 "
-// //         alt="slider"
-// //       />
-
-// //       {/* Left Button */}
-// //       <button
-// //         onClick={prevSlide}
-// //         className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black p-2 text-white rounded-full"
-// //       >
-// //         <BsChevronCompactLeft size={30} />
-// //       </button>
-
-// //       {/* Right Button */}
-// //       <button
-// //         onClick={nextSlide}
-// //         className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black p-2 text-white rounded-full"
-// //       >
-// //         <BsChevronCompactRight size={30} />
-// //       </button>
-
-// //       {/* Dots */}
-// //       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-// //         {dataSlider.map((_, index) => (
-// //           <div
-// //             key={index}
-// //             onClick={() => setCurrentIndex(index)}
-// //             className="cursor-pointer text-3xl"
-// //           >
-// //             {index === currentIndex ? (
-// //               <RxDotFilled className="text-pink-500" />
-// //             ) : (
-// //               <RxDot className="text-white" />
-// //             )}
-// //           </div>
-// //         ))}
-// //       </div>
-// //     </div>
-// //     </>
-// //   );
-// // };
-
-// // export default SliderImage;
-
-
-
-// import React, { useEffect, useRef, useState } from "react";
-// import { BsChevronCompactLeft, BsChevronCompactRight, BsStarFill } from "react-icons/bs";
-// import { motion, AnimatePresence } from "framer-motion";
-
-// export default function ServiceHero() {
-//   const ref = useRef(null);
-//   const [show, setShow] = useState(false);
-//   const [currentIndex, setCurrentIndex] = useState(0);
-//   const [girlIndex, setGirlIndex] = useState(0);
-
-//   const cosmeticGirls = [
-//     "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
-//     "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
-//     "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb",
-//   ];
-
-//   useEffect(() => {
-//     const io = new IntersectionObserver(
-//       ([entry]) => entry.isIntersecting && setShow(true),
-//       { threshold: 0.2 }
-//     );
-//     if (ref.current) io.observe(ref.current);
-//     return () => io.disconnect();
-//   }, []);
-
-//   // Vertical image auto slider
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setGirlIndex((prev) => (prev === cosmeticGirls.length - 1 ? 0 : prev + 1));
-//     }, 3500);
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   return (
-//     <section
-//       ref={ref}
-//       className="relative h-[90vh] min-h-[700px] flex items-center overflow-hidden"
-//     >
-//       {/* Background */}
-//       <div className="absolute inset-0">
-//         <img
-//           src={cosmeticGirls[girlIndex]}
-//           className="h-full w-full object-cover scale-110"
-//         />
-//         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
-//       </div>
-
-//       {/* LEFT CONTENT */}
-//       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
-//         <motion.div
-//           initial={{ opacity: 0, y: 60 }}
-//           animate={show ? { opacity: 1, y: 0 } : {}}
-//           transition={{ duration: 0.8 }}
-//           className="lg:w-1/2"
-//         >
-//           <div className="flex items-center gap-2 mb-6">
-//             {[...Array(5)].map((_, i) => (
-//               <BsStarFill key={i} className="text-yellow-400" />
-//             ))}
-//             <span className="text-yellow-400 font-bold tracking-widest">
-//               PREMIUM COSMETICS
-//             </span>
-//           </div>
-
-//           <h1 className="text-6xl lg:text-7xl font-black leading-tight mb-6">
-//             <span className="bg-gradient-to-r from-pink-400 via-rose-400 to-fuchsia-500 bg-clip-text text-transparent">
-//               Beauty
-//             </span>
-//             <span className="block text-white">That Defines You</span>
-//           </h1>
-
-//           <p className="text-2xl font-bold text-white mb-8">
-//             Luxury Makeup • Skincare • Timeless Glow ✨
-//           </p>
-
-//           <div className="flex flex-wrap gap-3 mb-8">
-//             {["Dermatology Tested", "Luxury Formula", "Long Lasting Glow"].map(
-//               (item, i) => (
-//                 <span
-//                   key={i}
-//                   className="bg-pink-500/20 border border-pink-400/30 px-4 py-2 rounded-full text-white backdrop-blur-sm"
-//                 >
-//                   ✨ {item}
-//                 </span>
-//               )
-//             )}
-//           </div>
-
-//           <p className="text-gray-300 max-w-xl mb-8 bg-white/5 p-6 rounded-2xl backdrop-blur-md border border-white/10">
-//             <span className="text-pink-400 text-3xl">"</span>
-//             Discover beauty that enhances your natural glow. Our premium cosmetic
-//             range is crafted for confidence, elegance, and everyday luxury.
-//             <span className="text-pink-400 text-3xl">"</span>
-//           </p>
-
-//           <div className="flex gap-4">
-//             <button className="bg-gradient-to-r from-pink-500 to-fuchsia-500 px-8 py-4 rounded-xl text-white font-bold hover:scale-105 transition">
-//               Shop Collection
-//             </button>
-
-//             <button className="border border-white/30 px-8 py-4 rounded-xl text-white backdrop-blur-sm hover:bg-white/10 transition">
-//               Explore Products
-//             </button>
-//           </div>
-//         </motion.div>
-//       </div>
-
-//       {/* RIGHT SIDE – VERTICAL COSMETIC IMAGE SLIDER */}
-//       <div className="absolute right-10 top-1/2 -translate-y-1/2 z-20 hidden xl:block">
-//         <div className="h-[420px] w-[260px] overflow-hidden rounded-3xl border border-white/20 bg-white/10 backdrop-blur-lg shadow-2xl">
-//           <AnimatePresence mode="wait">
-//             <motion.img
-//               key={girlIndex}
-//               src={cosmeticGirls[girlIndex]}
-//               initial={{ y: "100%", opacity: 0 }}
-//               animate={{ y: 0, opacity: 1 }}
-//               exit={{ y: "-100%", opacity: 0 }}
-//               transition={{ duration: 0.8 }}
-//               className="h-full w-full object-cover"
-//             />
-//           </AnimatePresence>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
 import React, { useEffect, useRef, useState } from "react";
-import { BsStarFill } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import image from "../assets/Images/image.png";
+import image1 from "../assets/Images/beautiful.jpg";
+import image2 from "../assets/Images/top.jpg";
+import image3 from "../assets/Images/pala.jpg";
 
 export default function ServiceHero() {
   const ref = useRef(null);
   const [show, setShow] = useState(false);
   const [girlIndex, setGirlIndex] = useState(0);
 
-  const cosmeticGirls = [
-    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
-    "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
-    "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb",
+  const slides = [
+    {
+      image: image3,
+      title: "Beauty",
+      subtitle: "That Defines You",
+      tagline: "Luxury Makeup • Skincare • Timeless Glow",
+      tags: ["Dermatology Tested", "Luxury Formula", "Long Lasting Glow"],
+    },
+    {
+      image: image2,
+      title: "Glow",
+      subtitle: "Beyond Expectations",
+      tagline: "Pure Radiance • Skin Love • Confidence",
+      tags: ["Skin Friendly", "Natural Finish", "All Day Fresh"],
+    },
+    {
+      image: image1,
+      title: "Elegance",
+      subtitle: "In Every Touch",
+      tagline: "Premium Care • Soft Glam • Luxury Feel",
+      tags: ["Premium Quality", "Smooth Texture", "Elegant Look"],
+    },
+    {
+      image,
+      title: "Luxury",
+      subtitle: "You Can Feel",
+      tagline: "High End Beauty • Bold & Beautiful",
+      tags: ["Luxury Brand", "Pro Approved", "Silky Finish"],
+    },
   ];
 
   useEffect(() => {
@@ -571,84 +52,202 @@ export default function ServiceHero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setGirlIndex((prev) => (prev + 1) % cosmeticGirls.length);
+      setGirlIndex((prev) => (prev + 1) % slides.length);
     }, 3500);
     return () => clearInterval(interval);
   }, []);
 
+  const current = slides[girlIndex];
+
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-white"
     >
-      {/* Background */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0">
         <img
-          src={cosmeticGirls[girlIndex]}
-          alt=""
-          className="h-full w-full object-cover scale-110"
+          src={current.image}
+          alt="Cosmetics background"
+          className="h-full w-full object-cover transition-all duration-700 opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
+        <div className="absolute inset-0 bg-white/50" />
       </div>
 
-      {/* Content Wrapper */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-2 xl:grid-cols-2 gap-10 items-center">
-
+      {/* CONTENT */}
+      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* LEFT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={show ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6">
-              <span className="bg-gradient-to-r from-pink-400 via-rose-400 to-fuchsia-500 bg-clip-text text-transparent">
-                Beauty
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+              <span className="text-black">
+                {current.title}
               </span>
-              <span className="block text-white">That Defines You</span>
+              <span className="block text-gray-800 mt-2">
+                {current.subtitle}
+              </span>
             </h1>
 
-            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-6">
-              Luxury Makeup • Skincare • Timeless Glow ✨
+            <p className="text-lg sm:text-xl text-gray-700 mb-6">
+              {current.tagline}
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-6">
-              {["Dermatology Tested", "Luxury Formula", "Long Lasting Glow"].map(
-                (item, i) => (
-                  <span
-                    key={i}
-                    className="bg-pink-500/20 border border-pink-400/30 px-4 py-2 rounded-full text-white text-sm sm:text-base backdrop-blur-sm"
-                  >
-                    ✨ {item}
-                  </span>
-                )
-              )}
+            {/* TAGS */}
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+              {current.tags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full border border-gray-300"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
 
-         
-          </motion.div>
-
-          {/* RIGHT IMAGE SLIDER */}
-          <div className="flex justify-end xl:justify-end">
-            <div className="relative h-[300px] sm:h-[360px] md:h-[420px] w-[220px] sm:w-[260px] md:w-[300px] overflow-hidden rounded-3xl border border-white/20 bg-white/10 backdrop-blur-lg shadow-2xl">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={girlIndex}
-                  src={cosmeticGirls[girlIndex]}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="h-full w-full object-cover"
-                />
-              </AnimatePresence>
+            {/* CTA BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <button className="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition-colors">
+                Shop Now
+              </button>
+              <button className="px-6 py-3 bg-white text-gray-800 font-medium rounded-md border border-gray-800 hover:bg-gray-50 transition-colors">
+                Learn More
+              </button>
             </div>
           </div>
 
+          {/* RIGHT IMAGE */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative h-[300px] sm:h-[350px] w-[250px] sm:w-[280px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md">
+              <img
+                src={current.image}
+                alt={current.title}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* SLIDE INDICATORS */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setGirlIndex(idx)}
+            className={`w-2 h-2 rounded-full ${
+              idx === girlIndex ? "bg-black" : "bg-gray-400"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
 }
+
+
+
+// import React, { useEffect, useState } from "react";
+
+// export default function ServiceHero() {
+//   const categories = [
+//     { name: "Daily Deals", img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200" },
+//     { name: "Bestseller", img: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=200" },
+//     { name: "Lips", img: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=200" },
+//     { name: "Face", img: "https://images.unsplash.com/photo-1590156223821-25d5c07d19a8?w=200" },
+//     { name: "Eye", img: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200" },
+//     { name: "New Launch", img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=200" },
+//     { name: "Skin Care", img: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=200" },
+//     { name: "Gifts & Kits", img: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=200" },
+//   ];
+
+//   const sliderImages = [
+//     "https://swissbeauty.in/cdn/shop/files/1800x600_3.gif?v=1745868324&width=1800",
+//     "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?w=1200",
+//     "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200",
+//   ];
+
+//   const [index, setIndex] = useState(0);
+
+//   useEffect(() => {
+//     const i = setInterval(() => {
+//       setIndex((p) => (p + 1) % sliderImages.length);
+//     }, 3000);
+//     return () => clearInterval(i);
+//   }, []);
+
+//   return (
+//     <>
+//       {/* ================= CATEGORY (UNCHANGED) ================= */}
+//       <div className="bg-white py-4">
+//         <div className="flex gap-6 justify-center overflow-x-auto px-4">
+//           {categories.map((item, i) => (
+//             <div key={i} className="text-center min-w-[90px]">
+//               <img
+//                 src={item.img}
+//                 className="w-16 h-16 rounded-full mx-auto border-2 border-white object-cover"
+//               />
+//               <p className="text-white text-xs mt-2 font-semibold">{item.name}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+
+//     {/* ================= HERO ================= */}
+//       <div className="relative w-full bg-gradient-to-r from-[#fde2e2] via-[#f8c1d9] to-[#fde2e2] overflow-hidden">
+
+//         {/* soft light effect */}
+//         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.45),transparent_45%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.35),transparent_40%)]" />
+
+//         <div className="relative max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-3 items-center gap-10">
+
+//           {/* ================= LEFT PRODUCTS ================= */}
+//           <div className="flex gap-4 justify-center md:justify-start">
+//             <img
+//               src="https://swissbeauty.in/cdn/shop/files/All_About_Lips_Palette.jpg"
+//               className="w-28 rounded-xl shadow-2xl bg-white p-2"
+//             />
+//             <img
+//               src="https://swissbeauty.in/cdn/shop/files/High_On_Glow_Liquid_Highlighter.jpg"
+//               className="w-28 rounded-xl shadow-2xl bg-white p-2 mt-10"
+//             />
+//             <img
+//               src="https://swissbeauty.in/cdn/shop/files/Airbrush_Finish_Foundation.jpg"
+//               className="w-28 rounded-xl shadow-2xl bg-white p-2"
+//             />
+//           </div>
+
+//           {/* ================= CENTER OFFER ================= */}
+//           <div className="text-center">
+//             <p className="text-lg font-semibold text-gray-700">
+//               Exclusive Early Access
+//             </p>
+
+//             <div className="mt-4 inline-block bg-[#e85c8b] text-white px-12 py-6 rounded-2xl shadow-2xl border-2 border-white">
+//               <h2 className="text-3xl font-bold">
+//                 Buy 4 Products
+//               </h2>
+//               <p className="text-4xl font-extrabold mt-2">
+//                 @ Just ₹999
+//               </p>
+//             </div>
+
+//             <p className="mt-4 text-lg font-semibold text-gray-700">
+//               Use Code: <span className="font-bold text-[#e85c8b]">BUY4</span>
+//             </p>
+//           </div>
+
+//           {/* ================= RIGHT MODEL ================= */}
+//           <div className="flex justify-center md:justify-end">
+//             <img
+//               src="https://swissbeauty.in/cdn/shop/files/Lipstick_Model_Image.png"
+//               className="w-[320px] drop-shadow-2xl"
+//             />
+//           </div>
+//         </div>
+//       </div>
+
+     
+      
+//     </>
+//   );
+// }

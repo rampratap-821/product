@@ -1,737 +1,313 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { CgProfile } from "react-icons/cg";
-// import { FaRegHeart } from "react-icons/fa6";
-// import { FaMapMarkerAlt } from "react-icons/fa";
-// import { IoMdSettings } from "react-icons/io";
-// import { FaRegMoneyBillAlt } from "react-icons/fa";
-// import { IoMdLogOut } from "react-icons/io";
-// import Modals from '../Component/Modals'
-
-// import {
-//   RiShoppingBasketFill,
-//   RiSearchLine,
-//   RiUserLine,
-//   RiCloseLine
-// } from "react-icons/ri";
-// import { motion, AnimatePresence } from "framer-motion";
-
-// const Navbar = ({card }) => {
-//   const [activeDropdown, setActiveDropdown] = useState(null);
-//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-//   const [searchQuery, setSearchQuery] = useState('');
-//   const [isCartOpen, setIsCartOpen] = useState(false);
-//    const[showModal,setShowModal] = useState(false)
-
-//   const dropdowns = {
-//     brands: {
-//       title: "Brands",
-//       items: [
-//         { title: "L'Oreal", description: "Premium beauty products" },
-//         { title: "Maybelline", description: "Affordable makeup" },
-//         { title: "Lakme", description: "Indian beauty brand" },
-//         { title: "Huda Beauty", description: "Luxury cosmetics" },
-//         { title: "MAC", description: "Professional makeup" },
-//       ]
-//     },
-//     luxe: {
-//       title: "Luxe",
-//       items: [
-//         { title: "Designer Perfumes", description: "Luxury fragrances" },
-//         { title: "Premium Skincare", description: "High-end skincare" },
-//         { title: "Luxury Makeup", description: "Premium cosmetics" },
-//         { title: "VIP Services", description: "Exclusive treatments" },
-//       ]
-//     },
-//   };
-
-//   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-//   const toggleCart = () => setIsCartOpen(!isCartOpen);
-//   const toggleDropdown = (name) => setActiveDropdown(activeDropdown === name ? null : name);
-
-//   return (
-//     <>
-//       <nav className="fixed w-full bg-orange-600 shadow-md border-b-2 border-white py-1 z-40  ">
-//         <div className="px-4 md:px-6">
-//           <div className="flex items-center justify-between py-3 md:py-4">
-//             {/* Logo */}
-//             <Link to="/" className="text-2xl font-bold text-pink-600">Cosmetic</Link>
-
-//             {/* Desktop Menu */}
-//             <ul className="hidden lg:flex items-center space-x-8">
-//               <li>
-//                 <Link to="/" className="hover:text-pink-600 transition-colors font-medium">Home</Link>
-//               </li>
-
-//               <li>
-//                 <Link to="/about" className=" hover:text-pink-600 transition-colors font-medium">About</Link>
-//               </li>
-
-//               <li>
-//                 <Link to="/products" className="hover:text-pink-600 transition-colors font-medium">Product</Link>
-//               </li>
 
 
-
-//               {/* Brands Dropdown */}
-//               <li
-//                 className="relative dropdown-container"
-//                 onMouseEnter={() => setActiveDropdown('brands')}
-//                 onMouseLeave={() => setActiveDropdown(null)}
-//               >
-//                 <button className="flex items-center gap-1  hover:text-pink-600 transition font-medium">
-//                   Brands
-//                   <svg className={`w-3 h-3 transition-transform ${activeDropdown === 'brands' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 10 6">
-//                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-//                   </svg>
-//                 </button>
-
-//                 <AnimatePresence>
-//                   {activeDropdown === 'brands' && (
-//                     <motion.div
-//                       initial={{ opacity: 0, y: -10 }}
-//                       animate={{ opacity: 1, y: 0 }}
-//                       exit={{ opacity: 0, y: -10 }}
-//                       transition={{ duration: 0.25 }}
-//                       className="absolute top-11 left-0 mt-2 w-64 bg-white shadow-lg z-50"
-//                     >
-//                       <div className="p-4 grid grid-cols-1 gap-2">
-//                         {dropdowns.brands.items.map((item, i) => (
-//                           <Link key={i} to="/" className="block p-3 rounded-lg hover:bg-pink-50 transition-all">
-//                             <div className="font-bold text-pink-600 text-sm">{item.title}</div>
-//                             <div className="text-xs text-gray-500">{item.description}</div>
-//                           </Link>
-//                         ))}
-//                       </div>
-//                     </motion.div>
-//                   )}
-//                 </AnimatePresence>
-//               </li>
-
-//               {/* Luxe Dropdown */}
-//               <li
-//                 className="relative dropdown-container"
-//                 onMouseEnter={() => setActiveDropdown('luxe')}
-//                 onMouseLeave={() => setActiveDropdown(null)}
-//               >
-//                 <button className="flex items-center gap-1  hover:text-amber-600 transition font-medium">
-//                   Luxe
-//                   <svg className={`w-3 h-3 transition-transform ${activeDropdown === 'luxe' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 10 6">
-//                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-//                   </svg>
-//                 </button>
-
-//                 <AnimatePresence>
-//                   {activeDropdown === 'luxe' && (
-//                     <motion.div
-//                       initial={{ opacity: 0, y: -10 }}
-//                       animate={{ opacity: 1, y: 0 }}
-//                       exit={{ opacity: 0, y: -10 }}
-//                       transition={{ duration: 0.25 }}
-//                       className="absolute top-11 left-0 mt-2 w-64 bg-white shadow-lg z-50"
-//                     >
-//                       <div className="p-4 grid grid-cols-1 gap-2">
-//                         {dropdowns.luxe.items.map((item, i) => (
-//                           <Link key={i} to="/" className="block p-3 rounded-lg hover:bg-amber-50 transition-all">
-//                             <div className="font-bold text-amber-600 text-sm">{item.title}</div>
-//                             <div className="text-xs text-gray-500">{item.description}</div>
-//                           </Link>
-//                         ))}
-//                       </div>
-//                     </motion.div>
-//                   )}
-//                 </AnimatePresence>
-//               </li>
-//             </ul>
-
-//             {/* Right Section */}
-//             <div className="flex items-center space-x-4">
-//               {/* Search Bar */}
-//               <div className="hidden md:flex items-center relative">
-//                 <input
-//                   type="text"
-//                   placeholder="Search..."
-//                   value={searchQuery}
-//                   onChange={(e) => setSearchQuery(e.target.value)}
-//                   className="w-56 px-4 py-2 pl-10 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm"
-//                 />
-//                 <RiSearchLine className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-//               </div>
-
-//               {/* Sign in */}
-//               <button onClick={() => setShowModal(true)} className='bg-pink-500 px-2 py-1 rounded'>Signup</button>
-//               {/* Cart */}
-//               <button onClick={toggleCart} className="relative p-2  hover:text-pink-600 transition">
-//                 <RiShoppingBasketFill className="text-2xl" />
-//                 <span className="absolute -top-1 -right-1 bg-pink-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">{card.length}</span>
-//               </button>
-
-//               {/* Mobile Menu Button */}
-//               <button onClick={toggleMobileMenu} className="lg:hidden p-2 text-gray-700 hover:bg-pink-50 rounded-lg">
-//                 {isMobileMenuOpen ? (
-//                   <RiCloseLine className="text-xl" />
-//                 ) : (
-//                   <svg className="w-5 h-5" fill="none" viewBox="0 0 17 14">
-//                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-//                   </svg>
-//                 )}
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* 📱 Mobile Dropdown Menu */}
-//         <AnimatePresence>
-//           {isMobileMenuOpen && (
-//             <motion.div
-//               initial={{ height: 0 }}
-//               animate={{ height: "auto" }}
-//               exit={{ height: 0 }}
-//               transition={{ duration: 0.3 }}
-//               className="lg:hidden bg-white border-t border-gray-200 overflow-hidden shadow-md"
-//             >
-//               <ul className="flex flex-col space-y-2 px-4 py-4">
-//                 <li>
-//                   <Link to="/" className="block text-gray-700 font-medium hover:text-pink-600">Home</Link>
-//                 </li>
-
-//                 <li>
-//                   <Link to="/about" className="block text-gray-700 font-medium hover:text-pink-600">About</Link>
-//                 </li>
-
-//                 <li>
-//                   <Link to="/products" className="block text-gray-700 font-medium hover:text-pink-600">Products</Link>
-//                 </li>
-
-//                 {/* Mobile Dropdown - Brands */}
-//                 <li>
-//                   <button
-//                     onClick={() => toggleDropdown('brands')}
-//                     className="flex justify-between items-center w-full text-gray-700 font-medium hover:text-pink-600"
-//                   >
-//                     Brands
-//                     <svg className={`w-3 h-3 transition-transform ${activeDropdown === 'brands' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 10 6">
-//                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-//                     </svg>
-//                   </button>
-//                   <AnimatePresence>
-//                     {activeDropdown === 'brands' && (
-//                       <motion.div
-//                         initial={{ opacity: 0, height: 0 }}
-//                         animate={{ opacity: 1, height: "auto" }}
-//                         exit={{ opacity: 0, height: 0 }}
-//                         transition={{ duration: 0.3 }}
-//                         className="pl-4 mt-2 space-y-1"
-//                       >
-//                         {dropdowns.brands.items.map((item, i) => (
-//                           <Link key={i} to="/" className="block text-sm text-gray-600 hover:text-pink-600">{item.title}</Link>
-//                         ))}
-//                       </motion.div>
-//                     )}
-//                   </AnimatePresence>
-//                 </li>
-
-//                 {/* Mobile Dropdown - Luxe */}
-//                 <li>
-//                   <button
-//                     onClick={() => toggleDropdown('luxe')}
-//                     className="flex justify-between items-center w-full text-gray-700 font-medium hover:text-amber-600"
-//                   >
-//                     Luxe
-//                     <svg className={`w-3 h-3 transition-transform ${activeDropdown === 'luxe' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 10 6">
-//                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-//                     </svg>
-//                   </button>
-//                   <AnimatePresence>
-//                     {activeDropdown === 'luxe' && (
-//                       <motion.div
-//                         initial={{ opacity: 0, height: 0 }}
-//                         animate={{ opacity: 1, height: "auto" }}
-//                         exit={{ opacity: 0, height: 0 }}
-//                         transition={{ duration: 0.3 }}
-//                         className="pl-4 mt-2 space-y-1"
-//                       >
-//                         {dropdowns.luxe.items.map((item, i) => (
-//                           <Link key={i} to="/" className="block text-sm text-gray-600 hover:text-amber-600">{item.title}</Link>
-//                         ))}
-//                       </motion.div>
-//                     )}
-//                   </AnimatePresence>
-//                 </li>
-//               </ul>
-//             </motion.div>
-//           )}
-//         </AnimatePresence>
-//       </nav>
-
-//       {/* 🛒 CART SIDEBAR */}
-//       {/* 🛒 CART SIDEBAR */}
-// <AnimatePresence>
-//   {isCartOpen && (
-//     <>
-//       <motion.div
-//         initial={{ opacity: 0 }}
-//         animate={{ opacity: 0.4 }}
-//         exit={{ opacity: 0 }}
-//         transition={{ duration: 0.3 }}
-//         onClick={toggleCart}
-//         className="fixed inset-0 bg-black z-40"
-//       />
-
-//       <motion.div
-//         initial={{ x: "100%" }}
-//         animate={{ x: 0 }}
-//         exit={{ x: "100%" }}
-//         transition={{ type: "tween", duration: 0.4 }}
-//         className="fixed top-0 right-0 w-80 sm:w-96 h-full bg-black text-white shadow-2xl z-50"
-//       >
-//         <div className="flex justify-between border-b border-gray-200 pb-3 p-2 pl-10">
-//           <h2 className="text-xl font-bold text-pink-600">My account</h2>
-//           <RiCloseLine className="text-2xl cursor-pointer" onClick={toggleCart} />
-//         </div>
-
-//         <div className="my-2 flex gap-5 border-b border-gray-200" style={{ alignItems: "center" }}>
-//           <div className="size-10 rounded-full bg-pink-400 flex justify-center ml-2" style={{ alignItems: "center" }}>
-//             <h1 className="font-bold text-pink-900">R</h1>
-//           </div>
-
-//           <div>
-//             <h1 className="text-pink-500 font-bold">Welcome User</h1>
-//             <h1 className="font-bold">Ram65628@gmail.com</h1>
-//           </div>
-//         </div>
-
-//         <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
-//           <CgProfile className="text-xl" />
-//           <Link to="profile" onClick={toggleCart} className="font-bold text-xl">
-//             Profile
-//           </Link>
-//         </div>
-
-//         <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
-//           <FaRegHeart className="text-xl" />
-//           <Link onClick={toggleCart} to={"wishlist"} className="font-bold text-xl">
-//             Wishlist
-//           </Link>
-//         </div>
-
-//         <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
-//           <FaMapMarkerAlt className="text-xl" />
-//           <Link onClick={toggleCart} className="font-bold text-xl">
-//             Order Tracking
-//           </Link>
-//         </div>
-
-//         <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
-//           <IoMdSettings className="text-xl" />
-//           <Link to="/about" onClick={toggleCart} className="font-bold text-xl">
-//             About
-//           </Link>
-//         </div>
-
-//         <div className="flex gap-3 m-5" style={{ alignItems: "center" }}>
-//           <FaRegMoneyBillAlt className="text-xl" />
-//           <Link to="/myaccount" onClick={toggleCart} className="font-bold text-xl">
-//             My account
-//           </Link>
-//         </div>
-
-//         <div className="flex gap-3 text-red-400 m-5" style={{ alignItems: "center" }}>
-//           <IoMdLogOut className="text-xl" />
-//           <Link onClick={toggleCart} className="font-bold text-xl">
-//             Logout
-//           </Link>
-//         </div>
-//       </motion.div>
-//     </>
-//   )}
-// </AnimatePresence>
-
-
-// {
-//         showModal && (
-          
-//           <Modals onClose={()=>setShowModal(false)} >
-//           </Modals>
-//         )
-//       }
-
-
-
-
-//     </>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { CgProfile } from "react-icons/cg";
-import { FaRegHeart } from "react-icons/fa6";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { IoMdSettings } from "react-icons/io";
-import { FaRegMoneyBillAlt } from "react-icons/fa";
-import { IoMdLogOut } from "react-icons/io";
-import Modals from '../Component/Modals'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import Modals from "../Component/Modals";
+import logo from "../assets/Icons/logo-removebg-preview.png"
 
 import {
   RiShoppingBasketFill,
   RiSearchLine,
+  RiCloseLine,
+  RiMenu3Line,
   RiUserLine,
-  RiCloseLine
+  RiHeartLine,
+  RiTruckLine,
+  RiSettingsLine,
+  RiAccountCircleLine,
+  RiLogoutBoxRLine,
+  RiArrowDownSLine,
+  RiShoppingCartLine,
+  RiStarLine,
+  RiGiftLine,
 } from "react-icons/ri";
-import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar = ({card }) => {
+const Navbar = ({ card }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [isCartOpen, setIsCartOpen] = useState(false);
-   const[showModal,setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth >= 1024) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const dropdowns = {
     brands: {
-      title: "Brands",
-      items: [
-        { title: "L'Oreal", description: "Premium beauty products" },
-        { title: "Maybelline", description: "Affordable makeup" },
-        { title: "Lakme", description: "Indian beauty brand" },
-        { title: "Huda Beauty", description: "Luxury cosmetics" },
-        { title: "MAC", description: "Professional makeup" },
-      ]
+      items: ["L'Oreal", "Maybelline", "Lakme", "Huda Beauty", "MAC"],
+      icons: [RiStarLine, RiStarLine, RiStarLine, RiStarLine, RiStarLine]
     },
     luxe: {
-      title: "Luxe",
       items: [
-        { title: "Designer Perfumes", description: "Luxury fragrances" },
-        { title: "Premium Skincare", description: "High-end skincare" },
-        { title: "Luxury Makeup", description: "Premium cosmetics" },
-        { title: "VIP Services", description: "Exclusive treatments" },
-      ]
+        "Designer Perfumes",
+        "Premium Skincare",
+        "Luxury Makeup",
+        "VIP Services",
+      ],
+      icons: [RiGiftLine, RiGiftLine, RiGiftLine, RiGiftLine]
     },
   };
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const sidebarItems = [
+    { name: "Profile", icon: RiUserLine, path: "/profile" },
+    { name: "Wishlist", icon: RiHeartLine, path: "/wishlist" },
+    { name: "Order Tracking", icon: RiTruckLine, path: "/tracking" },
+    { name: "Settings", icon: RiSettingsLine, path: "/settings" },
+    { name: "My Cart", icon: RiShoppingCartLine, path: "/cart" },
+    { name: "My Account", icon: RiAccountCircleLine, path: "/myaccount" },
+  ];
+
   const toggleCart = () => setIsCartOpen(!isCartOpen);
-  const toggleDropdown = (name) => setActiveDropdown(activeDropdown === name ? null : name);
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleDropdown = (name) =>
+    setActiveDropdown(activeDropdown === name ? null : name);
 
   return (
     <>
-      <nav className="fixed w-full bg-gradient-to-r from-black to-pink-900 shadow-lg border-b-2 border-white py-1 z-40">
-        <div className="px-4 md:px-6">
-          <div className="flex items-center justify-between py-3 md:py-4">
-            {/* Logo */}
-            <Link to="/" className="text-2xl font-bold text-white tracking-wide">
-              Cosmetic<span className="text-pink-800">Hub</span>
+      {/* ================= NAVBAR ================= */}
+      <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
+        <div className="px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+          {/* LOGO & MOBILE MENU BUTTON */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden text-black hover:text-gray-700 transition"
+            >
+              <RiMenu3Line className="text-2xl" />
+            </button>
+
+            <Link to="/" className="flex items-center gap-3">
+              <img
+                src={logo}
+                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+                alt="Logo"
+              />
             </Link>
+          </div>
 
-            {/* Desktop Menu */}
-            <ul className="hidden lg:flex items-center space-x-8">
-              <li>
-                <Link 
-                  to="/" 
-                  className="text-white font-medium hover:text-pink-200 transition-colors px-3 py-2 rounded-lg hover:bg-white/20"
-                >
-                  Home
-                </Link>
-              </li>
+          {/* DESKTOP NAVIGATION */}
+          <ul className="hidden lg:flex items-center gap-6 xl:gap-10">
+            {["Home", "About", "Products", "Contact"].map((item, i) => (
+              <Link
+                key={i}
+                to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                className="relative text-black font-medium tracking-wide text-lg
+                  after:absolute after:left-0 after:-bottom-1 after:h-[1px]
+                  after:w-0 after:bg-black after:transition-all after:duration-300 
+                  hover:after:w-full hover:text-gray-800 transition-colors duration-200"
+              >
+                {item}
+              </Link>
+            ))}
 
-              <li>
-                <Link 
-                  to="/about" 
-                  className="text-white font-medium hover:text-pink-200 transition-colors px-3 py-2 rounded-lg hover:bg-white/20"
-                >
-                  About
-                </Link>
-              </li>
-
-              <li>
-                <Link 
-                  to="/products" 
-                  className="text-white font-medium hover:text-pink-200 transition-colors px-3 py-2 rounded-lg hover:bg-white/20"
-                >
-                  Product
-                </Link>
-              </li>
-
-              {/* Brands Dropdown */}
+            {/* DROPDOWNS */}
+            {["brands", "luxe"].map((key) => (
               <li
-                className="relative dropdown-container"
-                onMouseEnter={() => setActiveDropdown('brands')}
+                key={key}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(key)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="text-white font-medium hover:text-pink-200 transition px-3 py-2 rounded-lg hover:bg-white/20">
-                  Brands
-                </button>
-
-                <AnimatePresence>
-                  {activeDropdown === 'brands' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute top-12 left-0 mt-2 w-64 bg-white shadow-xl z-50 rounded-lg overflow-hidden"
-                    >
-                      <div className="p-3 grid grid-cols-1 gap-1">
-                        {dropdowns.brands.items.map((item, i) => (
-                          <Link 
-                            key={i} 
-                            to="/" 
-                            className="block p-3 rounded-md hover:bg-pink-50 transition-all duration-200"
-                          >
-                            <div className="font-bold text-pink-600 text-sm">{item.title}</div>
-                            <div className="text-xs text-gray-500 mt-1">{item.description}</div>
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-
-              {/* Luxe Dropdown */}
-              <li
-                className="relative dropdown-container"
-                onMouseEnter={() => setActiveDropdown('luxe')}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button className="text-white font-medium hover:text-amber-200 transition px-3 py-2 rounded-lg hover:bg-white/20">
-                  Luxe
-                </button>
-
-                <AnimatePresence>
-                  {activeDropdown === 'luxe' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute top-12 left-0 mt-2 w-64 bg-white shadow-xl z-50 rounded-lg overflow-hidden"
-                    >
-                      <div className="p-3 grid grid-cols-1 gap-1">
-                        {dropdowns.luxe.items.map((item, i) => (
-                          <Link 
-                            key={i} 
-                            to="/" 
-                            className="block p-3 rounded-md hover:bg-amber-50 transition-all duration-200"
-                          >
-                            <div className="font-bold text-amber-600 text-sm">{item.title}</div>
-                            <div className="text-xs text-gray-500 mt-1">{item.description}</div>
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-            </ul>
-
-            {/* Right Section */}
-            <div className="flex items-center space-x-4">
-              {/* Search Bar */}
-              <div className="hidden md:flex items-center relative">
-                <input
-                  type="text"
-                  placeholder="Search cosmetics..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-56 px-4 py-2 pl-10 bg-white/90 backdrop-blur-sm rounded-lg border border-white/30 focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm placeholder-gray-600"
-                />
-                <RiSearchLine className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-              </div>
-
-              {/* Sign up Button */}
-              {showModal && (
-                <button 
-                onClick={() => setShowModal(true)} 
-                className='bg-white text-pink-600 px-4 py-2 rounded-lg font-medium hover:bg-pink-50 hover:scale-105 transition-all shadow-md'
-              >
-                Sign Up
-              </button>
-              )}
-              
-              {/* Cart */}
-              <button onClick={toggleCart} className="relative p-2 hover:text-white transition">
-                <RiShoppingBasketFill className="text-2xl text-white" />
-                <span className="absolute -top-1 -right-1 bg-white text-pink-600 rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold shadow-sm">
-                  {card.length}
+                <span className="cursor-pointer text-black hover:text-gray-800 flex items-center gap-1">
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
                 </span>
-              </button>
 
-              {/* Mobile Menu Button */}
-              <button 
-                onClick={toggleMobileMenu} 
-                className="lg:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors"
+                <AnimatePresence>
+                  {activeDropdown === key && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-10 left-0 w-64 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden"
+                    >
+                      {dropdowns[key].items.map((d, i) => (
+                        <Link
+                          key={i}
+                          to="/products"
+                          className="flex items-center gap-3 px-5 py-3 text-gray-800 hover:text-black hover:bg-gray-100 transition-colors"
+                        >
+                          <span className="text-sm font-medium">{d}</span>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </li>
+            ))}
+          </ul>
+
+          {/* RIGHT SECTION */}
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+            {/* SEARCH FOR MOBILE */}
+            <div className="lg:hidden relative">
+              <button
+                onClick={() => setSearchQuery("")}
+                className="text-black hover:text-gray-700 transition"
               >
-                {isMobileMenuOpen ? (
-                  <RiCloseLine className="text-xl" />
-                ) : (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                  </svg>
-                )}
+                <RiSearchLine className="text-xl" />
               </button>
             </div>
+
+            {/* SEARCH FOR DESKTOP */}
+            <div className="hidden lg:block relative w-64">
+              <input
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search cosmetics..."
+                className="w-full bg-gray-50 text-black text-sm pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 focus:shadow-sm transition-all"
+              />
+              <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black"
+                >
+                  <RiCloseLine />
+                </button>
+              )}
+            </div>
+
+            {/* AUTH BUTTON */}
+            <button
+              onClick={() => setShowModal(true)}
+              className="hidden sm:block px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all"
+            >
+              Sign In
+            </button>
+
+            {/* CART BUTTON */}
+            <button
+              onClick={toggleCart}
+              className="relative group"
+            >
+              <div className="p-2 rounded-lg bg-gray-100 group-hover:bg-gray-200 transition-all">
+                <RiShoppingBasketFill className="text-2xl text-black group-hover:text-gray-800 group-hover:scale-110 transition-transform" />
+              </div>
+              <span className="absolute -top-1 -right-1 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {card.length}
+              </span>
+            </button>
           </div>
         </div>
 
-        {/* 📱 Mobile Dropdown Menu */}
+        {/* MOBILE SEARCH BAR */}
         <AnimatePresence>
-          {isMobileMenuOpen && (
+          {searchQuery && (
             <motion.div
-              initial={{ height: 0 }}
-              animate={{ height: "auto" }}
-              exit={{ height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden bg-gradient-to-b from-orange-500 to-pink-500 border-t border-white/30 overflow-hidden shadow-lg"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="lg:hidden px-4 py-2 border-t border-gray-200 bg-white"
             >
-              <ul className="flex flex-col space-y-1 px-4 py-4">
-                <li>
-                  <Link 
-                    to="/" 
-                    className="block text-white font-medium hover:text-pink-100 p-3 rounded-lg hover:bg-white/10 transition-colors"
-                    onClick={toggleMobileMenu}
-                  >
-                    Home
-                  </Link>
-                </li>
-
-                <li>
-                  <Link 
-                    to="/about" 
-                    className="block text-white font-medium hover:text-pink-100 p-3 rounded-lg hover:bg-white/10 transition-colors"
-                    onClick={toggleMobileMenu}
-                  >
-                    About
-                  </Link>
-                </li>
-
-                <li>
-                  <Link 
-                    to="/products" 
-                    className="block text-white font-medium hover:text-pink-100 p-3 rounded-lg hover:bg-white/10 transition-colors"
-                    onClick={toggleMobileMenu}
-                  >
-                    Products
-                  </Link>
-                </li>
-
-                {/* Mobile Dropdown - Brands */}
-                <li>
-                  <button
-                    onClick={() => toggleDropdown('brands')}
-                    className="flex justify-between items-center w-full text-white font-medium hover:text-pink-100 p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
-                  >
-                    <span>Brands</span>
-                    <span className="text-xs bg-white/20 px-2 py-1 rounded">
-                      {activeDropdown === 'brands' ? '▲' : '▼'}
-                    </span>
-                  </button>
-                  <AnimatePresence>
-                    {activeDropdown === 'brands' && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="pl-6 mt-1 space-y-1"
-                      >
-                        {dropdowns.brands.items.map((item, i) => (
-                          <Link 
-                            key={i} 
-                            to="/" 
-                            className="block text-sm text-white/80 hover:text-white p-2.5 rounded-lg hover:bg-white/10 transition-colors"
-                            onClick={toggleMobileMenu}
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-
-                {/* Mobile Dropdown - Luxe */}
-                <li>
-                  <button
-                    onClick={() => toggleDropdown('luxe')}
-                    className="flex justify-between items-center w-full text-white font-medium hover:text-amber-100 p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
-                  >
-                    <span>Luxe</span>
-                    <span className="text-xs bg-white/20 px-2 py-1 rounded">
-                      {activeDropdown === 'luxe' ? '▲' : '▼'}
-                    </span>
-                  </button>
-                  <AnimatePresence>
-                    {activeDropdown === 'luxe' && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="pl-6 mt-1 space-y-1"
-                      >
-                        {dropdowns.luxe.items.map((item, i) => (
-                          <Link 
-                            key={i} 
-                            to="/" 
-                            className="block text-sm text-white/80 hover:text-amber-100 p-2.5 rounded-lg hover:bg-white/10 transition-colors"
-                            onClick={toggleMobileMenu}
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-                
-                {/* Mobile Search */}
-                <li className="px-3 pt-4">
-                  <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="Search..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full px-4 py-2 pl-10 bg-white/90 backdrop-blur-sm rounded-lg border border-white/30 focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm placeholder-gray-600"
-                    />
-                    <RiSearchLine className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-                  </div>
-                </li>
-                
-                {/* Mobile Sign Up Button */}
-                <li className="px-3 pt-2">
-                  <button 
-                    onClick={() => {
-                      setShowModal(true);
-                      toggleMobileMenu();
-                    }} 
-                    className='w-full bg-white text-pink-600 px-4 py-3 rounded-lg font-medium hover:bg-pink-50 transition-all shadow-md'
-                  >
-                    Sign Up
-                  </button>
-                </li>
-              </ul>
+              <div className="relative">
+                <input
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search..."
+                  className="w-full bg-gray-50 text-black pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
+                />
+                <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
       </nav>
 
-      {/* 🛒 CART SIDEBAR */}
+      {/* ================= MOBILE SIDEBAR MENU ================= */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            <motion.div
+              onClick={toggleMobileMenu}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black z-40 lg:hidden"
+            />
+
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25 }}
+              className="fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-white z-50 border-r border-gray-300 shadow-lg lg:hidden"
+            >
+              <div className="p-6 h-full flex flex-col">
+                {/* HEADER */}
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={logo}
+                      className="w-12 h-12"
+                      alt="Logo"
+                    />
+                    <span className="text-xl font-bold text-black">
+                      LuxeCosmetics
+                    </span>
+                  </div>
+                  <button
+                    onClick={toggleMobileMenu}
+                    className="text-black hover:text-gray-700 transition"
+                  >
+                    <RiCloseLine className="text-2xl" />
+                  </button>
+                </div>
+
+                {/* MOBILE NAV LINKS */}
+                <div className="space-y-2 flex-1">
+                  {["Home", "About", "Products", "Contact", "Brands", "Luxe"].map((item, i) => (
+                    <Link
+                      key={i}
+                      to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                      onClick={toggleMobileMenu}
+                      className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group"
+                    >
+                      <div className="w-1 h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <span className="text-lg font-medium">{item}</span>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* MOBILE AUTH SECTION */}
+                <div className="pt-6 border-t border-gray-300">
+                  <button
+                    onClick={() => {
+                      toggleMobileMenu();
+                      setShowModal(true);
+                    }}
+                    className="w-full mb-3 px-4 py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all"
+                  >
+                    Sign In / Sign Up
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* ================= CART SIDEBAR ================= */}
       <AnimatePresence>
         {isCartOpen && (
           <>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
               onClick={toggleCart}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black z-40"
             />
 
@@ -739,101 +315,98 @@ const Navbar = ({card }) => {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.4 }}
-              className="fixed top-0 right-0 w-80 sm:w-96 h-full bg-gradient-to-b from-gray-900 to-black text-white shadow-2xl z-50"
+              transition={{ type: "spring", damping: 25 }}
+              className="fixed right-0 top-0 h-full w-80 sm:w-80 md:w-80 lg:w-96 bg-white z-50 border-l border-gray-300 shadow-lg"
             >
-              {/* Header */}
-              <div className="flex justify-between items-center border-b border-gray-700 p-6">
-                <h2 className="text-xl font-bold text-pink-500">My Account</h2>
-                <RiCloseLine 
-                  className="text-2xl cursor-pointer text-gray-400 hover:text-white transition-colors" 
-                  onClick={toggleCart} 
-                />
-              </div>
-
-              {/* User Profile */}
-              <div className="flex gap-5 border-b border-gray-700 p-6 items-center">
-                <div className="size-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 flex items-center justify-center shadow-lg">
-                  <h1 className="font-bold text-white text-lg">R</h1>
+              <div className="h-full flex flex-col">
+                {/* HEADER */}
+                <div className="p-6 border-b border-gray-300">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-2xl font-bold text-black">
+                      My Account
+                    </h2>
+                    <button
+                      onClick={toggleCart}
+                      className="text-black hover:text-gray-700 transition"
+                    >
+                      <RiCloseLine className="text-2xl" />
+                    </button>
+                  </div>
+                  <p className="text-gray-600 text-sm mt-1">
+                    Manage your account and preferences
+                  </p>
                 </div>
-                <div>
-                  <h1 className="text-pink-400 font-bold">Welcome User</h1>
-                  <h1 className="font-medium text-gray-300">Ram65628@gmail.com</h1>
+
+                {/* PROFILE SECTION */}
+                <div className="p-6 border-b border-gray-300">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
+                      <RiUserLine className="text-2xl text-gray-700" />
+                    </div>
+                    <div>
+                      <h3 className="text-black text-lg font-semibold">
+                        Welcome Back!
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        Access your account details
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* NAVIGATION ITEMS */}
+                <div className="flex-1 p-6 space-y-1 overflow-y-auto">
+                  {sidebarItems.map((item, i) => (
+                    <Link
+                      key={i}
+                      to={item.path}
+                      onClick={toggleCart}
+                      className="flex items-center gap-4 px-4 py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group"
+                    >
+                      <div className="p-2 rounded-lg bg-gray-100 group-hover:bg-gray-200 transition-all">
+                        {React.createElement(item.icon, { className: "text-gray-700 text-xl" })}
+                      </div>
+                      <span className="text-lg font-medium">{item.name}</span>
+                      <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="w-2 h-2 rounded-full bg-gray-500" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* FOOTER SECTION */}
+                <div className="p-6 border-t border-gray-300">
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => {
+                        toggleCart();
+                        setShowModal(true);
+                      }}
+                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all group"
+                    >
+                      <RiLogoutBoxRLine className="text-xl group-hover:rotate-180 transition-transform" />
+                      <span>Sign Out</span>
+                    </button>
+                    
+                    <div className="text-center text-gray-500 text-xs">
+                      <p>© 2024 LuxeCosmetics</p>
+                      <p className="mt-1">Premium Beauty Experience</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              {/* Menu Items */}
-              <div className="p-4 space-y-1">
-                <Link 
-                  to="profile" 
-                  onClick={toggleCart} 
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/10 transition-colors group"
-                >
-                  <CgProfile className="text-xl text-pink-400 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium text-lg">Profile</span>
-                </Link>
-
-                <Link 
-                  onClick={toggleCart} 
-                  to={"wishlist"} 
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/10 transition-colors group"
-                >
-                  <FaRegHeart className="text-xl text-pink-400 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium text-lg">Wishlist</span>
-                </Link>
-
-                <Link 
-                  onClick={toggleCart} 
-                  to="/tracking" 
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/10 transition-colors group"
-                >
-                  <FaMapMarkerAlt className="text-xl text-pink-400 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium text-lg">Order Tracking</span>
-                </Link>
-
-                <Link 
-                  to="/about" 
-                  onClick={toggleCart} 
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/10 transition-colors group"
-                >
-                  <IoMdSettings className="text-xl text-pink-400 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium text-lg">Settings</span>
-                </Link>
-
-                <Link 
-                  to="/myaccount" 
-                  onClick={toggleCart} 
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/10 transition-colors group"
-                >
-                  <FaRegMoneyBillAlt className="text-xl text-pink-400 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium text-lg">My Account</span>
-                </Link>
-
-                {/* Divider */}
-                <div className="border-t border-gray-700 my-4"></div>
-
-                <Link 
-                  onClick={toggleCart} 
-                
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-red-500/20 transition-colors group"
-                >
-                  <IoMdLogOut className="text-xl text-red-400 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium text-lg text-red-400"onClick={()=>setShowModal(true)}>Logout</span>
-                </Link>
-              </div>
-
-              
             </motion.div>
           </>
         )}
       </AnimatePresence>
 
-      {/* Modal */}
-      {showModal && (
-        <Modals onClose={() => setShowModal(false)} />
-      )}
+      {/* MODAL */}
+      {showModal && <Modals onClose={() => setShowModal(false)} />}
+
+      {/* PADDING FOR FIXED NAVBAR */}
+      <div className="h-16 sm:h-20"></div>
     </>
   );
 };
 
-export default Navbar;  
+export default Navbar;
