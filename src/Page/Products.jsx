@@ -1,8 +1,9 @@
 import React from 'react'
+import Our_Product from '../Home/Our_Product'
 
-const Products = () => {
+const Products = ({ card, setCard }) => {
   return (
-    <div className='text-black'>Products</div>
+    <Our_Product  card ={card} setCard={setCard} />
   )
 }
 

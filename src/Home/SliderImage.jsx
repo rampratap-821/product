@@ -9,6 +9,7 @@ export default function ServiceHero() {
   const ref = useRef(null);
   const [show, setShow] = useState(false);
   const [girlIndex, setGirlIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const slides = [
     {
@@ -42,12 +43,23 @@ export default function ServiceHero() {
   ];
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    
     const io = new IntersectionObserver(
       ([entry]) => entry.isIntersecting && setShow(true),
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
     if (ref.current) io.observe(ref.current);
-    return () => io.disconnect();
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      io.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -62,42 +74,51 @@ export default function ServiceHero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden bg-white"
+      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden  pt-16 sm:pt-20"
     >
       {/* BACKGROUND */}
       <div className="absolute inset-0">
-        <img
+        <motion.img
+          key={girlIndex}
           src={current.image}
           alt="Cosmetics background"
-          className="h-full w-full object-cover transition-all duration-700 opacity-60"
+          className="h-full w-full object-cover"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 0.6, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
         />
-        <div className="absolute inset-0 bg-white/50" />
+        <div className="absolute inset-0 " />
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* LEFT CONTENT */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              <span className="text-black">
+          <motion.div 
+            className="text-center lg:text-left order-2 lg:order-1"
+            initial={{ opacity: 0, y: 30 }}
+            animate={show ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6">
+              <span className="block text-gray-900">
                 {current.title}
               </span>
-              <span className="block text-gray-800 mt-2">
+              <span className="block text-gray-700 mt-2 md:mt-3">
                 {current.subtitle}
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-700 mb-6">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0">
               {current.tagline}
             </p>
 
             {/* TAGS */}
-            <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start mb-6 sm:mb-8">
               {current.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full border border-gray-300"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/80 backdrop-blur-sm text-gray-800 text-xs sm:text-sm rounded-full border border-gray-200 shadow-sm"
                 >
                   {tag}
                 </span>
@@ -105,45 +126,88 @@ export default function ServiceHero() {
             </div>
 
             {/* CTA BUTTONS */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-              <button className="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition-colors">
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+              <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-gray-900 hover:bg-black text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300 text-sm sm:text-base">
                 Shop Now
               </button>
-              <button className="px-6 py-3 bg-white text-gray-800 font-medium rounded-md border border-gray-800 hover:bg-gray-50 transition-colors">
+              <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/90 backdrop-blur-sm text-gray-800 font-medium rounded-lg border border-gray-300 hover:border-gray-400 hover:bg-white transition-all duration-300 text-sm sm:text-base">
                 Learn More
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT IMAGE */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative h-[300px] sm:h-[350px] w-[250px] sm:w-[280px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md">
-              <img
+          <motion.div 
+            className="flex justify-center lg:justify-end order-1 lg:order-2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={show ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative h-[250px] xs:h-[280px] sm:h-[350px] md:h-[400px] lg:h-[450px] w-[200px] xs:w-[220px] sm:w-[280px] md:w-[320px] lg:w-[350px] xl:w-[400px] overflow-hidden rounded-2xl border border-gray-200/50 bg-white shadow-xl">
+              <motion.img
+                key={girlIndex}
                 src={current.image}
                 alt={current.title}
                 className="h-full w-full object-cover"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7 }}
               />
+              {/* DECORATIVE ELEMENTS */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-pink-100/30 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-blue-100/30 rounded-full blur-xl" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* SLIDE INDICATORS */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setGirlIndex(idx)}
-            className={`w-2 h-2 rounded-full ${
-              idx === girlIndex ? "bg-black" : "bg-gray-400"
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+              idx === girlIndex 
+                ? "bg-gray-900 scale-125" 
+                : "bg-gray-400 hover:bg-gray-600"
             }`}
+            aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
+      </div>
+
+      {/* MOBILE SWIPE HINT */}
+      {isMobile && (
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-gray-500 text-xs opacity-70">
+          Swipe to explore
+        </div>
+      )}
+
+      {/* ARROW INDICATORS */}
+      <div className="hidden lg:flex absolute left-4 right-4 top-1/2 transform -translate-y-1/2 justify-between z-10">
+        <button
+          onClick={() => setGirlIndex((prev) => (prev - 1 + slides.length) % slides.length)}
+          className="p-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-300 hover:bg-white shadow-md transition-all"
+          aria-label="Previous slide"
+        >
+          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={() => setGirlIndex((prev) => (prev + 1) % slides.length)}
+          className="p-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-300 hover:bg-white shadow-md transition-all"
+          aria-label="Next slide"
+        >
+          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </section>
   );
 }
-
 
 
 // import React, { useEffect, useState } from "react";

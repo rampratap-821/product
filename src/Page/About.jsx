@@ -12,12 +12,12 @@ import TeamMembers from '../About/TeamMembers'
 
 const About = () => {
   return (
-    <div>
+    <div >
       <AboutTitle/>
       <ProductAvaileble/>
-      <OurStory/>
+      {/* <OurStory/> */}
       <OurValues/>
-      <OurValues2/>
+      {/* <OurValues2/> */}
       <WhyChooseUs/>
       <WhyChooseUs2/>
       <MyOurTeam/>

@@ -7,7 +7,7 @@ const products = [
   "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=80",
 ];
 
-const CosmeticBanner = () => {
+const Get_Glowing = () => {
   return (
     <section className="w-full min-h-[400px] md:min-h-[500px] flex flex-col justify-center items-center bg-white px-4 py-8">
 
@@ -67,4 +67,4 @@ const CosmeticBanner = () => {
   );
 };
 
-export default CosmeticBanner;
+export default Get_Glowing;

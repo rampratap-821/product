@@ -18,12 +18,14 @@ import Footer4 from './Component/Footer4'
 import Profile from './Page/Profile'
 import MyAccount from './Page/MyAccount'
 import WishList from './Page/WishList'
+import ScrollToTop from "./Component/ScrollToTop";
+
 const App = () => {
   const [card,setCard] = useState([])
   return (
     <Router >
       {/* <Navbar1/> */}
-     
+      <ScrollToTop /> 
       <Navbar card = {card} setCard = {setCard} />
       
      {/* <Navbar3/>
@@ -32,7 +34,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home card = {card} setCard ={setCard}/>}></Route>
         <Route path='/about' element={<About/>}></Route>
-        <Route path='/products' element={<Products/>}></Route>
+        <Route path='/products' element={<Products  card ={card} setCard={setCard}/>}></Route>
         <Route path='/gallery' element={<Gallery/>}></Route>
         <Route path='/blog' element={<Blog/>}></Route>
         <Route path='/team' element={<Team/>}></Route>
