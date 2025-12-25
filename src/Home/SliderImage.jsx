@@ -113,27 +113,9 @@ export default function ServiceHero() {
               {current.tagline}
             </p>
 
-            {/* TAGS */}
-            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start mb-6 sm:mb-8">
-              {current.tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/80 backdrop-blur-sm text-gray-800 text-xs sm:text-sm rounded-full border border-gray-200 shadow-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            
 
-            {/* CTA BUTTONS */}
-            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-gray-900 hover:bg-black text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300 text-sm sm:text-base">
-                Shop Now
-              </button>
-              <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/90 backdrop-blur-sm text-gray-800 font-medium rounded-lg border border-gray-300 hover:border-gray-400 hover:bg-white transition-all duration-300 text-sm sm:text-base">
-                Learn More
-              </button>
-            </div>
+           
           </motion.div>
 
           {/* RIGHT IMAGE */}
@@ -162,20 +144,7 @@ export default function ServiceHero() {
       </div>
 
       {/* SLIDE INDICATORS */}
-      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setGirlIndex(idx)}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-              idx === girlIndex 
-                ? "bg-gray-900 scale-125" 
-                : "bg-gray-400 hover:bg-gray-600"
-            }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
+      
 
       {/* MOBILE SWIPE HINT */}
       {isMobile && (
@@ -184,27 +153,9 @@ export default function ServiceHero() {
         </div>
       )}
 
-      {/* ARROW INDICATORS */}
-      <div className="hidden lg:flex absolute left-4 right-4 top-1/2 transform -translate-y-1/2 justify-between z-10">
-        <button
-          onClick={() => setGirlIndex((prev) => (prev - 1 + slides.length) % slides.length)}
-          className="p-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-300 hover:bg-white shadow-md transition-all"
-          aria-label="Previous slide"
-        >
-          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          onClick={() => setGirlIndex((prev) => (prev + 1) % slides.length)}
-          className="p-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-300 hover:bg-white shadow-md transition-all"
-          aria-label="Next slide"
-        >
-          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+     
+      
+    
     </section>
   );
 }

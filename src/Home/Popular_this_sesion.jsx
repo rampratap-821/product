@@ -161,7 +161,7 @@ const This_Season = () => {
       >
         {/* HEADING */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold text-black">
+          <h2 className="text-4xl md:text-5xl font-bold text-black" >
             This Season's Picks
           </h2>
           <p className="text-gray-600 mt-3 text-sm tracking-wide">

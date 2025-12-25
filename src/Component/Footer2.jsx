@@ -29,82 +29,93 @@ const Footer2 = () => {
         className="relative max-w-7xl mx-auto px-6 py-24"
       >
 
-        {/* TOP BRAND */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-widest text-pink-400">
-            BEAUTY<span className="text-white">.STORE</span>
-          </h2>
+        {/* MAIN LAYOUT - Image ke according */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
-          <button className="px-8 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition shadow-[0_0_20px_rgba(236,72,153,0.6)]">
-            SHOP NOW →
-          </button>
-        </div>
-
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-14">
-
-          {/* ABOUT */}
+          {/* LEFT SIDE - BEAUTY.STORE and RAMCOS */}
           <div>
-            <h1 className="text-4xl font-extrabold text-white mb-4">
-              RAM<span className="text-pink-500">COS</span>
-            </h1>
-            <p className="text-gray-400 leading-relaxed">
-              India’s trusted destination for beauty, skincare & luxury cosmetics.
-              Discover authentic brands, trending products & expert care.
-            </p>
+            {/* BEAUTY.STORE */}
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-widest text-pink-400 mb-6">
+              BEAUTY<span className="text-white">.STORE</span>
+            </h2>
+
+            {/* RAMCOS and Description */}
+            <div className="mb-12">
+              <h1 className="text-4xl font-extrabold text-white mb-4">
+                RAM<span className="text-pink-500">COS</span>
+              </h1>
+              <p className="text-gray-400 leading-relaxed max-w-lg">
+                India’s trusted destination for beauty, skincare & luxury cosmetics.
+                Discover authentic brands, trending products & expert care.
+              </p>
+            </div>
+
+            {/* Copyright - Bottom left */}
+            <div className="mt-16 pt-6 border-t border-gray-700">
+              <p className="text-xs text-gray-500 tracking-widest">
+                © 2025 RAM COSMETIC. ALL RIGHTS RESERVED.
+              </p>
+            </div>
           </div>
 
-          {/* COMPANY */}
-          <div>
-            <h4 className="text-pink-400 mb-4 tracking-widest">COMPANY</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li className="hover:text-pink-400 cursor-pointer">About Us</li>
-              <li className="hover:text-pink-400 cursor-pointer">Careers</li>
-              <li className="hover:text-pink-400 cursor-pointer">Authenticity</li>
-              <li className="hover:text-pink-400 cursor-pointer">Press & Media</li>
-              <li className="hover:text-pink-400 cursor-pointer">Sustainability</li>
-            </ul>
-          </div>
+          {/* RIGHT SIDE - 3 Columns */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-          {/* HELP */}
-          <div>
-            <h4 className="text-pink-400 mb-4 tracking-widest">HELP</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li className="hover:text-pink-400 cursor-pointer">Contact Us</li>
-              <li className="hover:text-pink-400 cursor-pointer">Shipping Policy</li>
-              <li className="hover:text-pink-400 cursor-pointer">Returns</li>
-              <li className="hover:text-pink-400 cursor-pointer">FAQs</li>
-              <li className="hover:text-pink-400 cursor-pointer">Track Order</li>
-            </ul>
-          </div>
+            {/* COMPANY */}
+            <div>
+              <h4 className="text-pink-400 mb-4 tracking-widest font-semibold">COMPANY</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">About Us</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Careers</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Authenticity</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Press & Media</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Sustainability</li>
+              </ul>
+            </div>
 
-          {/* NEWSLETTER */}
-          <div>
-            <h4 className="text-pink-400 mb-4 tracking-widest">
-              BEAUTY UPDATES
-            </h4>
-            <p className="text-gray-400 mb-4 text-sm">
-              Get exclusive offers, beauty tips & new launches straight to your inbox.
-            </p>
+            {/* HELP */}
+            <div>
+              <h4 className="text-pink-400 mb-4 tracking-widest font-semibold">HELP</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Contact Us</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Shipping Policy</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Returns</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">FAQs</li>
+                <li className="hover:text-pink-400 cursor-pointer hover:translate-x-2 transition">Track Order</li>
+              </ul>
+            </div>
 
-            <div className="flex bg-white/5 backdrop-blur-md border border-pink-400/30">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-transparent px-4 py-3 w-full text-gray-300 placeholder-gray-500 focus:outline-none"
-              />
-              <button className="px-6 bg-pink-500 text-black font-semibold hover:bg-purple-400 transition">
-                SUBSCRIBE
-              </button>
+            {/* BEAUTY UPDATES */}
+            <div>
+              <h4 className="text-pink-400 mb-4 tracking-widest font-semibold">
+                BEAUTY UPDATES
+              </h4>
+              <p className="text-gray-400 mb-4 text-sm">
+                Get exclusive offers, beauty tips & new launches straight to your inbox.
+              </p>
+
+              {/* Email Input */}
+              <div className="flex bg-white/5 backdrop-blur-md border border-pink-400/30 rounded-md overflow-hidden">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-transparent px-4 py-3 w-full text-gray-300 placeholder-gray-500 focus:outline-none text-sm"
+                />
+                <button className="px-4 bg-pink-500 text-black font-semibold hover:bg-purple-400 transition text-sm">
+                  SUBSCRIBE
+                </button>
+              </div>
+
+              {/* Beauty tagline - Bottom right */}
+              <div className="mt-16 pt-6 border-t border-gray-700 md:text-right">
+                <p className="text-xs text-pink-400 tracking-widest">
+                  BEAUTY YOU DESERVE ✦
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* BOTTOM */}
-        <div className="mt-20 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 tracking-widest">
-          <p>© 2025 RAM COSMETIC. ALL RIGHTS RESERVED.</p>
-          <p className="text-pink-400">BEAUTY YOU DESERVE ✦</p>
-        </div>
       </motion.div>
     </footer>
   );

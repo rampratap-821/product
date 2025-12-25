@@ -1,10 +1,8 @@
-
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Modals from "../Component/Modals";
-import logo from "../assets/Icons/logo-removebg-preview.png"
+import logo from "../assets/Icons/logo-removebg-preview.png";
 
 import {
   RiShoppingBasketFill,
@@ -17,10 +15,11 @@ import {
   RiSettingsLine,
   RiAccountCircleLine,
   RiLogoutBoxRLine,
-  RiArrowDownSLine,
   RiShoppingCartLine,
   RiStarLine,
   RiGiftLine,
+  RiArrowDownSLine,
+  RiArrowUpSLine,
 } from "react-icons/ri";
 
 const Navbar = ({ card }) => {
@@ -30,12 +29,21 @@ const Navbar = ({ card }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [mobileDropdowns, setMobileDropdowns] = useState({
+    brands: false,
+    luxe: false,
+  });
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-      if (window.innerWidth >= 1024) {
+      const mobile = window.innerWidth < 1024;
+      setIsMobile(mobile);
+      if (!mobile) {
         setIsMobileMenuOpen(false);
+        setShowMobileSearch(false);
+        // Reset mobile dropdowns on desktop
+        setMobileDropdowns({ brands: false, luxe: false });
       }
     };
 
@@ -65,45 +73,67 @@ const Navbar = ({ card }) => {
     { name: "Wishlist", icon: RiHeartLine, path: "/wishlist" },
     { name: "Order Tracking", icon: RiTruckLine, path: "/tracking" },
     { name: "Settings", icon: RiSettingsLine, path: "/settings" },
-    { name: "My Cart", icon: RiShoppingCartLine, path: "/cart" },
     { name: "My Account", icon: RiAccountCircleLine, path: "/myaccount" },
   ];
 
   const toggleCart = () => setIsCartOpen(!isCartOpen);
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (showMobileSearch) setShowMobileSearch(false);
+    // Reset dropdowns when closing menu
+    if (isMobileMenuOpen) {
+      setMobileDropdowns({ brands: false, luxe: false });
+    }
+  };
+  
+  const toggleMobileSearch = () => setShowMobileSearch(!showMobileSearch);
+  
   const toggleDropdown = (name) =>
     setActiveDropdown(activeDropdown === name ? null : name);
+
+  const toggleMobileDropdown = (dropdownName) => {
+    setMobileDropdowns(prev => ({
+      ...prev,
+      [dropdownName]: !prev[dropdownName]
+    }));
+  };
+
+  const navLinks = ["Home", "About", "Products", "Contact"];
 
   return (
     <>
       {/* ================= NAVBAR ================= */}
       <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
-        <div className="px-4 sm:px-6  py-3 flex items-center justify-between">
+        <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 flex items-center justify-between">
           {/* LOGO & MOBILE MENU BUTTON */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden text-black hover:text-gray-700 transition"
+              className="lg:hidden text-black hover:text-gray-700 transition p-1"
+              aria-label="Toggle menu"
             >
-              <RiMenu3Line className="text-2xl" />
+              <RiMenu3Line className="text-xl sm:text-2xl" />
             </button>
 
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-1 sm:gap-2 md:gap-3">
               <img
                 src={logo}
-                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+                className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
                 alt="Logo"
               />
+              <span className="hidden xs:inline-block text-lg sm:text-xl md:text-2xl font-bold text-black">
+                LuxeCosmetics
+              </span>
             </Link>
           </div>
 
           {/* DESKTOP NAVIGATION */}
-          <ul className="hidden lg:flex items-center gap-6 xl:gap-10">
-            {["Home", "About", "Products", "Contact"].map((item, i) => (
+          <ul className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8">
+            {navLinks.map((item) => (
               <Link
-                key={i}
+                key={item}
                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="relative text-black font-medium tracking-wide text-lg
+                className="relative text-black font-medium tracking-wide text-base xl:text-lg
                   after:absolute after:left-0 after:-bottom-1 after:h-[1px]
                   after:w-0 after:bg-black after:transition-all after:duration-300 
                   hover:after:w-full hover:text-gray-800 transition-colors duration-200"
@@ -112,15 +142,17 @@ const Navbar = ({ card }) => {
               </Link>
             ))}
 
-            {/* DROPDOWNS */}
-            {["brands", "luxe"].map((key) => (
+            {/* DROPDOWNS - DESKTOP */}
+            {Object.keys(dropdowns).map((key) => (
               <li
                 key={key}
-                className="relative"
+                className="relative        
+                relative text-black font-medium tracking-wide text-base xl:text-lg
+                 "
                 onMouseEnter={() => setActiveDropdown(key)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <span className="cursor-pointer text-black hover:text-gray-800 flex items-center gap-1">
+                <span className="cursor-pointer text-black hover:text-gray-800 flex items-center gap-1 text-base xl:text-lg">
                   {key.charAt(0).toUpperCase() + key.slice(1)}
                 </span>
 
@@ -131,15 +163,15 @@ const Navbar = ({ card }) => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-10 left-0 w-64 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden"
+                      className="absolute top-10 left-0 w-56 xl:w-64 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden z-50"
                     >
-                      {dropdowns[key].items.map((d, i) => (
+                      {dropdowns[key].items.map((item, index) => (
                         <Link
-                          key={i}
+                          key={index}
                           to="/products"
-                          className="flex items-center gap-3 px-5 py-3 text-gray-800 hover:text-black hover:bg-gray-100 transition-colors"
+                          className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:text-black hover:bg-gray-100 transition-colors"
                         >
-                          <span className="text-sm font-medium">{d}</span>
+                          <span className="text-sm font-medium">{item}</span>
                         </Link>
                       ))}
                     </motion.div>
@@ -150,30 +182,30 @@ const Navbar = ({ card }) => {
           </ul>
 
           {/* RIGHT SECTION */}
-          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-            {/* SEARCH FOR MOBILE */}
-            <div className="lg:hidden relative">
-              <button
-                onClick={() => setSearchQuery("")}
-                className="text-black hover:text-gray-700 transition"
-              >
-                <RiSearchLine className="text-xl" />
-              </button>
-            </div>
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+            {/* MOBILE SEARCH TOGGLE */}
+            <button
+              onClick={toggleMobileSearch}
+              className="lg:hidden text-black hover:text-gray-700 transition p-1"
+              aria-label="Search"
+            >
+              <RiSearchLine className="text-xl sm:text-2xl" />
+            </button>
 
-            {/* SEARCH FOR DESKTOP */}
-            <div className="hidden lg:block relative w-64">
+            {/* DESKTOP SEARCH */}
+            <div className="hidden lg:block relative w-48 xl:w-56 2xl:w-64">
               <input
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search cosmetics..."
-                className="w-full bg-gray-50 text-black text-sm pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 focus:shadow-sm transition-all"
+                className="w-full bg-gray-50 text-black text-sm pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 focus:shadow-sm transition-all"
               />
               <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black"
+                  aria-label="Clear search"
                 >
                   <RiCloseLine />
                 </button>
@@ -183,7 +215,7 @@ const Navbar = ({ card }) => {
             {/* AUTH BUTTON */}
             <button
               onClick={() => setShowModal(true)}
-              className="hidden sm:block px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all"
+              className="hidden sm:block px-3 py-1.5 md:px-4 md:py-2 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all text-sm md:text-base"
             >
               Sign In
             </button>
@@ -191,12 +223,13 @@ const Navbar = ({ card }) => {
             {/* CART BUTTON */}
             <button
               onClick={toggleCart}
-              className="relative group"
+              className="relative group p-1"
+              aria-label="Cart"
             >
-              <div className="p-2 rounded-lg bg-gray-100 group-hover:bg-gray-200 transition-all">
-                <RiShoppingBasketFill className="text-2xl text-black group-hover:text-gray-800 group-hover:scale-110 transition-transform" />
+              <div className="p-1.5 sm:p-2 rounded-lg bg-gray-100 group-hover:bg-gray-200 transition-all">
+                <RiShoppingBasketFill className="text-xl sm:text-2xl text-black group-hover:text-gray-800 group-hover:scale-110 transition-transform" />
               </div>
-              <span className="absolute -top-1 -right-1 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-black text-white text-xs font-bold rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
                 {card.length}
               </span>
             </button>
@@ -205,21 +238,27 @@ const Navbar = ({ card }) => {
 
         {/* MOBILE SEARCH BAR */}
         <AnimatePresence>
-          {searchQuery && (
+          {showMobileSearch && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden px-4 py-2 border-t border-gray-200 bg-white"
+              className="lg:hidden px-3 sm:px-4 border-t border-gray-200 bg-white"
             >
-              <div className="relative">
+              <div className="py-2 sm:py-3 relative">
                 <input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search..."
-                  className="w-full bg-gray-50 text-black pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
+                  placeholder="Search cosmetics..."
+                  className="w-full bg-gray-50 text-black pl-10 pr-4 py-2 sm:py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 text-sm sm:text-base"
                 />
                 <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+                <button
+                  onClick={toggleMobileSearch}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black p-1"
+                >
+                  <RiCloseLine className="text-xl" />
+                </button>
               </div>
             </motion.div>
           )}
@@ -243,55 +282,144 @@ const Navbar = ({ card }) => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-white z-50 border-r border-gray-300 shadow-lg lg:hidden"
+              className="fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-white z-50 border-r border-gray-300 shadow-lg lg:hidden overflow-y-auto"
             >
-              <div className="p-6 h-full flex flex-col">
+              <div className="p-4 sm:p-6 h-full flex flex-col">
                 {/* HEADER */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-center justify-between mb-6 sm:mb-8">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <img
                       src={logo}
-                      className="w-12 h-12"
+                      className="w-10 h-10 sm:w-12 sm:h-12"
                       alt="Logo"
                     />
-                    <span className="text-xl font-bold text-black">
+                    <span className="text-lg sm:text-xl font-bold text-black">
                       LuxeCosmetics
                     </span>
                   </div>
                   <button
                     onClick={toggleMobileMenu}
-                    className="text-black hover:text-gray-700 transition"
+                    className="text-black hover:text-gray-700 transition p-1"
                   >
-                    <RiCloseLine className="text-2xl" />
+                    <RiCloseLine className="text-xl sm:text-2xl" />
                   </button>
                 </div>
 
                 {/* MOBILE NAV LINKS */}
-                <div className="space-y-2 flex-1">
-                  {["Home", "About", "Products", "Contact", "Brands", "Luxe"].map((item, i) => (
+                <div className="space-y-1 sm:space-y-2 flex-1">
+                  {navLinks.map((item) => (
                     <Link
-                      key={i}
+                      key={item}
                       to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                       onClick={toggleMobileMenu}
-                      className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group"
+                      className="flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group text-base "
                     >
-                      <div className="w-1 h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span className="text-lg font-medium">{item}</span>
+                      <div className="w-1 h-5 sm:h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <span className="">{item}</span>
                     </Link>
                   ))}
+                  
+                  {/* BRANDS DROPDOWN FOR MOBILE */}
+                  <div className="mt-2">
+                    <button
+                      onClick={() => toggleMobileDropdown('brands')}
+                      className="w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group text-base sm:text-lg"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-1 h-5 sm:h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <span className="font-medium">Brands</span>
+                      </div>
+                      {mobileDropdowns.brands ? (
+                        <RiArrowUpSLine className="text-xl text-gray-500" />
+                      ) : (
+                        <RiArrowDownSLine className="text-xl text-gray-500" />
+                      )}
+                    </button>
+                    
+                    {/* BRANDS DROPDOWN ITEMS */}
+                    <AnimatePresence>
+                      {mobileDropdowns.brands && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="ml-5 sm:ml-10 pl-2  mt-1">
+                            {dropdowns.brands.items.map((item, index) => (
+                              <Link
+                                key={index}
+                                to="/products"
+                                onClick={toggleMobileMenu}
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-all text-sm sm:text-base"
+                              >
+                              
+                                <span>{item}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  
+                  {/* LUXE DROPDOWN FOR MOBILE */}
+                  <div className="mt-2">
+                    <button
+                      onClick={() => toggleMobileDropdown('luxe')}
+                      className="w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group text-base sm:text-lg"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-1 h-5 sm:h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <span className="font-medium">Luxe</span>
+                      </div>
+                      {mobileDropdowns.luxe ? (
+                        <RiArrowUpSLine className="text-xl text-gray-500" />
+                      ) : (
+                        <RiArrowDownSLine className="text-xl text-gray-500" />
+                      )}
+                    </button>
+                    
+                    {/* LUXE DROPDOWN ITEMS */}
+                    <AnimatePresence>
+                      {mobileDropdowns.luxe && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="ml-5 sm:ml-10 pl-2  mt-1">
+                            {dropdowns.luxe.items.map((item, index) => (
+                              <Link
+                                key={index}
+                                to="/products"
+                                onClick={toggleMobileMenu}
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-all text-sm sm:text-base"
+                              >
+                               
+                                <span>{item}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </div>
 
                 {/* MOBILE AUTH SECTION */}
-                <div className="pt-6 border-t border-gray-300">
+                <div className="pt-4 sm:pt-6 border-t border-gray-300">
                   <button
                     onClick={() => {
                       toggleMobileMenu();
                       setShowModal(true);
                     }}
-                    className="w-full mb-3 px-4 py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all"
+                    className="w-full mb-2 sm:mb-3 px-3 sm:px-4 py-2.5 sm:py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all text-sm sm:text-base"
                   >
                     Sign In / Sign Up
                   </button>
+              
                 </div>
               </div>
             </motion.div>
@@ -316,82 +444,63 @@ const Navbar = ({ card }) => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed right-0 top-0 h-full w-80 sm:w-80 md:w-80 lg:w-96 bg-white z-50 border-l border-gray-300 shadow-lg"
+              className="fixed right-0 top-0 h-full  w-80 sm:w-96 md:w-96 lg:w-96 xl:w-96 bg-white z-50 border-l border-gray-300 shadow-lg overflow-y-auto"
             >
               <div className="h-full flex flex-col">
                 {/* HEADER */}
-                <div className="p-6 border-b border-gray-300">
+                <div className="p-4 sm:p-6 border-b border-gray-300">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-2xl font-bold text-black">
+                    <h2 className="text-xl sm:text-2xl font-bold text-black">
                       My Account
                     </h2>
                     <button
                       onClick={toggleCart}
-                      className="text-black hover:text-gray-700 transition"
+                      className="text-black hover:text-gray-700 transition p-1"
                     >
-                      <RiCloseLine className="text-2xl" />
+                      <RiCloseLine className="text-xl sm:text-2xl" />
                     </button>
                   </div>
-                  <p className="text-gray-600 text-sm mt-1">
+                  <p className="text-gray-600 text-xs sm:text-sm mt-1">
                     Manage your account and preferences
                   </p>
                 </div>
 
-                {/* PROFILE SECTION */}
-                <div className="p-6 border-b border-gray-300">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
-                      <RiUserLine className="text-2xl text-gray-700" />
-                    </div>
-                    <div>
-                      <h3 className="text-black text-lg font-semibold">
-                        Welcome Back!
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Access your account details
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
                 {/* NAVIGATION ITEMS */}
-                <div className="flex-1 p-6 space-y-1 overflow-y-auto">
-                  {sidebarItems.map((item, i) => (
+                <div className="flex-1 p-4 sm:p-6 space-y-1">
+                  {sidebarItems.map((item) => (
                     <Link
-                      key={i}
+                      key={item.name}
                       to={item.path}
                       onClick={toggleCart}
-                      className="flex items-center gap-4 px-4 py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group"
+                      className="flex items-center gap-3 sm:gap-4 px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group"
                     >
-                      <div className="p-2 rounded-lg bg-gray-100 group-hover:bg-gray-200 transition-all">
-                        {React.createElement(item.icon, { className: "text-gray-700 text-xl" })}
+                      <div className="p-1.5 sm:p-2 rounded-lg  group-hover:bg-gray-200 transition-all">
+                        {React.createElement(item.icon, { className: "text-lg sm:text-xl" })}
                       </div>
-                      <span className="text-lg font-medium">{item.name}</span>
+                      <span className="text-base sm:text-lg ">{item.name}</span>
                       <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-2 h-2 rounded-full bg-gray-500" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-500" />
                       </div>
                     </Link>
                   ))}
                 </div>
 
                 {/* FOOTER SECTION */}
-                <div className="p-6 border-t border-gray-300">
-                  <div className="space-y-3">
+                <div className="p-4 sm:p-6 border-t border-gray-300">
+                  <div className="space-y-2 sm:space-y-3">
                     <button
                       onClick={() => {
                         toggleCart();
                         setShowModal(true);
                       }}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all group"
+                      className="w-full flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all group text-sm sm:text-base"
                     >
-                      <RiLogoutBoxRLine className="text-xl group-hover:rotate-180 transition-transform" />
+                      <RiLogoutBoxRLine className="text-lg sm:text-xl group-hover:rotate-180 transition-transform" />
                       <span>Sign Out</span>
                     </button>
                     
-                    <div className="text-center text-gray-500 text-xs">
-                      <p>© 2024 LuxeCosmetics</p>
-                      <p className="mt-1">Premium Beauty Experience</p>
-                    </div>
+                    
+                    
                   </div>
                 </div>
               </div>
@@ -403,14 +512,13 @@ const Navbar = ({ card }) => {
       {/* MODAL */}
       {showModal && <Modals onClose={() => setShowModal(false)} />}
 
-      {/* PADDING FOR FIXED NAVBAR */}
-      <div className="h-16 sm:h-20"></div>
+      {/* PADDING FOR FIXED NAVBAR - RESPONSIVE */}
+      <div className="h-14 sm:h-16 md:h-20"></div>
     </>
   );
 };
 
 export default Navbar;
-
 
 // import React, { useState, useEffect, useRef } from "react";
 // import { Link } from "react-router-dom";

@@ -58,8 +58,8 @@
 import React from "react";
 import google from "../assets/Icons/google.png";
 import appstore from "../assets/Icons/Appstoe.png";
-import Lottie from "lottie-react";
-import perfume from "../assets/Images/perfume.json";
+//import Lottie from "lottie-react";
+//import perfume from "../assets/Images/perfume.json";
 import { MdOutlineForwardToInbox } from "react-icons/md";
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { BsTelephoneXFill } from "react-icons/bs";
@@ -72,7 +72,7 @@ const Footer = () => {
       <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10">
 
           {/* EMAIL SUBSCRIBE */}
           <div className="space-y-4">
@@ -128,15 +128,15 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* LOTTIE */}
+{/*        
           <div className="flex justify-center items-center">
             <Lottie
               animationData={perfume}
               loop={true}
               className="w-[160px] drop-shadow-[0_0_25px_rgba(236,72,153,0.6)]"
             />
-          </div>
-        </div>
+          </div> */}
+        </div> 
 
         {/* Divider */}
         <div className="mt-14 border-t border-pink-500/20 pt-6 text-center text-sm text-gray-500 tracking-widest">

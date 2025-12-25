@@ -19,9 +19,22 @@ import Profile from './Page/Profile'
 import MyAccount from './Page/MyAccount'
 import WishList from './Page/WishList'
 import ScrollToTop from "./Component/ScrollToTop";
+import AddDeliveryAddress from './Page/AddDeliveryAddress'
+import Payment from './Page/Payment'
+import OrderSumary from './Page/OrderSumary'
 
 const App = () => {
   const [card,setCard] = useState([])
+  const [formData, setFormData] = useState({
+      name: '',
+      mobile: '',
+      pincode: '',
+      address: '',
+      city: '',
+      state: '',
+      addressType: 'home'
+    })
+   console.log("Formdata",formData)
   return (
     <Router >
       {/* <Navbar1/> */}
@@ -42,14 +55,17 @@ const App = () => {
         <Route path='/profile' element={<Profile/>}></Route>
         <Route path='/myaccount' element={<MyAccount/>}></Route>
         <Route path='/wishlist' element={<WishList card = {card} setCard = {setCard}/>}></Route>
+        <Route path='/addDeliveryAddress' element={<AddDeliveryAddress formData ={formData} setFormData={setFormData}/>}></Route>
+        <Route path='/orderSumary' element={<OrderSumary card = {card} setCard = {setCard} formData ={formData} setFormData={setFormData}/>}></Route>
+        <Route path='/payment' element={<Payment card = {card} setCard = {setCard}/>}></Route>
 
       </Routes>
       <Footer2/>
       <Footer/>
-      {/* <Footer2/>
-      <Footer3/>
-      <Footer4/>
-      <Footer5/> */}
+     
+      {/* <Footer3/>
+      <Footer4/> */}
+      {/* <Footer5/> */} 
     </Router>
   )
 }
