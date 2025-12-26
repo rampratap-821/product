@@ -1,170 +1,4 @@
-// import React, { useState } from "react";
-// import { HoverImageData } from "../JsonData/Home_Json";
-// import { FaEye, FaHeart, FaShareAlt, FaBoxOpen } from "react-icons/fa";
-// import { ToastContainer, toast, Bounce } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-// import ProductModals from "../Component/ProductModals";
-
-// const Our_Product = ({ card, setCard }) => {
-//   const [category, setCategory] = useState([]);
-//   const [show, setShow] = useState(false);
-
-//   const addToCard = (id, price, title, image) => {
-//     setCard([...card, { id, price, title, image }]);
-//     toast.success("Added to cart successfully", {
-//       position: "top-right",
-//       autoClose: 1500,
-//       theme: "dark",
-//       transition: Bounce,
-//     });
-//   };
-
-//   const addModals = (id) => {
-//     const handle = HoverImageData.filter((item) => item.id === id);
-//     setCategory(handle);
-//     setShow(true);
-//   };
-
-//   return (
-//     <>
-//         <section className="w-full  bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] py-16">
-//       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
-        
-//         {/* Left Content */}
-//         <div className="flex-1 text-white">
-//           <h4 className="text-sm uppercase tracking-widest text-white/80">
-//             Our Product
-//           </h4>
-
-//           <h1 className="text-4xl md:text-5xl font-bold leading-tight mt-3">
-//             Premium Beauty <br />
-//             <span className="text-white">Cosmetic Collection</span>
-//           </h1>
-
-//           <p className="text-white/90 mt-5 max-w-md">
-//             Discover high-quality cosmetics made with skin-friendly ingredients.
-//             Enhance your beauty with confidence and care.
-//           </p>
-
-//           <div className="flex gap-4 mt-8">
-//             <button className="bg-white text-pink-600 px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
-//               Shop Now
-//             </button>
-//             <button className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-pink-600 transition">
-//               View Products
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Right Image */}
-//         <div className="flex-1 flex justify-center relative">
-//           <div className="absolute -top-6 -right-6 w-72 h-72 bg-white/20 rounded-full blur-3xl"></div>
-//           <img
-//             src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600"
-//             alt="Our Product"
-//             className="w-80 md:w-[420px] rounded-2xl shadow-2xl relative z-10"
-//           />
-//         </div>
-//       </div>
-//     </section>
-
-
-
-//       <ToastContainer />
-
-//       <div className="w-full py-12 bg-gray-50">
-//         {/* Heading */}
-//         <div className="text-center mb-10">
-//           <FaBoxOpen className="text-5xl mx-auto text-green-700 mb-3" />
-//           <h1 className="text-4xl font-bold text-gray-800">
-//             OUR PRODUCTS
-//           </h1>
-//         </div>
-
-//         {/* Products Grid */}
-//         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5">
-//           {HoverImageData.map((item) => (
-//             <div
-//               key={item.id}
-//               className="bg-white rounded-xl shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-//             >
-//               {/* IMAGE AREA */}
-//               <div className="relative h-60 bg-white flex items-center justify-center overflow-hidden rounded-t-xl group">
-//                 <img
-//                   src={item.image}
-//                   alt={item.title}
-//                   className="max-h-full max-w-full object-contain p-4 transition-opacity duration-300 group-hover:opacity-90"
-//                 />
-
-//                 {/* HOVER ICONS */}
-//                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4">
-//                   <button
-//                     onClick={() =>
-//                       addToCard(
-//                         item.id,
-//                         item.price,
-//                         item.title,
-//                         item.image
-//                       )
-//                     }
-//                     className="p-3 bg-white rounded-full
-//                                transform scale-75 translate-y-4
-//                                group-hover:scale-100 group-hover:translate-y-0
-//                                transition-all duration-300 hover:bg-red-500 hover:text-white"
-//                   >
-//                     <FaHeart />
-//                   </button>
-
-//                   <button
-//                     className="p-3 bg-white rounded-full
-//                                transform scale-75 translate-y-4
-//                                group-hover:scale-100 group-hover:translate-y-0
-//                                transition-all duration-300 delay-75
-//                                hover:bg-blue-500 hover:text-white"
-//                   >
-//                     <FaShareAlt />
-//                   </button>
-
-//                   <button
-//                     onClick={() => addModals(item.id)}
-//                     className="p-3 bg-white rounded-full
-//                                transform scale-75 translate-y-4
-//                                group-hover:scale-100 group-hover:translate-y-0
-//                                transition-all duration-300 delay-150
-//                                hover:bg-green-600 hover:text-white"
-//                   >
-//                     <FaEye />
-//                   </button>
-//                 </div>
-//               </div>
-
-//               {/* CONTENT */}
-//               <div className="p-4 text-center">
-//                 <h1 className="text-lg font-semibold text-gray-800">
-//                   {item.title}
-//                 </h1>
-//                 <p className="text-yellow-500 text-sm">★★★★★</p>
-//                 <p className="text-green-700 font-bold mt-1">
-//                   ₹ {item.price}
-//                 </p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* PRODUCT MODAL */}
-//       {show && (
-//         <ProductModals
-//           onClose={() => setShow(false)}
-//           category={category}
-//         />
-//       )}
-//     </>
-//   );
-// };
-
-// export default Our_Product;
+;
 
 import React, { useState } from "react";
 import { HoverImageData } from "../JsonData/Home_Json";
@@ -196,29 +30,29 @@ const Our_Product = ({ card, setCard }) => {
 
   return (
     <>
-      <section className="w-full  bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] py-16">
+      <section className="w-full   py-16">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
           {/* Left Content */}
-          <div className="flex-1 text-white">
-            <h4 className="text-sm uppercase tracking-widest text-white/80">
+          <div className="flex-1 black">
+            <h4 className="text-lg font-bold uppercase tracking-widest text-black">
               Our Product
             </h4>
 
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mt-3">
               Premium Beauty <br />
-              <span className="text-white">Cosmetic Collection</span>
+              <span className="black">Cosmetic Collection</span>
             </h1>
 
-            <p className="text-white/90 mt-5 max-w-md">
+            <p className="text-black mt-5 max-w-md">
               Discover high-quality cosmetics made with skin-friendly ingredients.
               Enhance your beauty with confidence and care.
             </p>
 
             <div className="flex gap-4 mt-8">
-              <button className="bg-white text-pink-600 px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
+              <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition">
                 Shop Now
               </button>
-              <button className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-pink-600 transition">
+              <button className=" bg-black  text-white border border-white px-6 py-3 rounded-xl font-semibold hover:bg-black hover:text-white transition">
                 View Products
               </button>
             </div>
@@ -238,10 +72,10 @@ const Our_Product = ({ card, setCard }) => {
 
       <ToastContainer />
 
-      <div className="w-full py-12 bg-gray-50">
+      <div className="w-full py-12 bg-white">
         {/* Heading */}
         <div className="text-center mb-10">
-          <FaBoxOpen className="text-5xl mx-auto text-green-700 mb-3" />
+        
           <h1 className="text-4xl font-bold text-gray-800">
             OUR PRODUCTS
           </h1>
@@ -313,13 +147,13 @@ const Our_Product = ({ card, setCard }) => {
 
               {/* CONTENT - Bounce on hover */}
               <div className="p-4 text-center flex-grow group-hover:animate-pulse">
-                <h1 className="text-lg font-semibold text-gray-800 transform transition-transform duration-500 group-hover:scale-105">
+                <h1 className="text-lg font-semibold text-black transform transition-transform duration-500 group-hover:scale-105">
                   {item.title}
                 </h1>
                 <p className="text-yellow-500 text-sm transform transition-transform duration-500 group-hover:scale-110">
                   ★★★★★
                 </p>
-                <p className="text-green-700 font-bold mt-1 transform transition-transform duration-500 group-hover:scale-110">
+                <p className="text-black font-bold mt-1 transform transition-transform duration-500 group-hover:scale-110">
                   ₹ {item.price}
                 </p>
               </div>
@@ -328,15 +162,25 @@ const Our_Product = ({ card, setCard }) => {
               <div className="p-4 pt-0">
                 <Link
                 to={"payment"}
-                  className="w-full bg-gradient-to-r from-pink-400 to-pink-400 
+                  className="w-full bg-gradient-to-r from-pink-700 to-pink-700 
                            text-white py-3 rounded-lg font-semibold
                            flex items-center justify-center gap-2
-                           hover:from-pink-500 hover:to-pink-500 
+                           hover:from-pink-700 hover:to-pink-700 
                            transition-all duration-300 hover:scale-[1.02] 
                            active:scale-[0.98] shadow-md hover:shadow-lg"
                 >
-                  <FaShoppingCart />
+                  < button
+                    onClick={() =>
+                      addToCard(
+                        item.id,
+                        item.price,
+                        item.title,
+                        item.image,
+                      )
+                    }
+                  >
                   Add to Cart
+                  </button>
                 </Link>
               </div>
             </div>

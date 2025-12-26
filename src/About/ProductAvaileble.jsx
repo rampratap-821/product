@@ -34,7 +34,7 @@ const ProductAvaileble = () => {
   }, []);
 
   return (
-    <div className="w-full py-14 px-4 bg-transparent">
+    <div className="w-full py-14 px-4 ">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {data.map((item, i) => (
@@ -56,7 +56,7 @@ const ProductAvaileble = () => {
               `}
             >
               {/* ICON */}
-              <div className="flex items-center justify-center h-16 mb-5">
+              <div className="flex items-center justify-center h-16 mb-2">
                 <div className="text-4xl text-white drop-shadow-lg transition-transform duration-300 group-hover:rotate-6">
                   {item.icon}
                 </div>

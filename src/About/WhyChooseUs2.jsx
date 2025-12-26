@@ -49,7 +49,7 @@ const WhyChooseUs2 = () => {
   }, []);
 
   return (
-    <div className="w-full py-24 px-4 bg-white">
+    <div className="w-full py-10 px-4 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {features.map((item, i) => (
           <div

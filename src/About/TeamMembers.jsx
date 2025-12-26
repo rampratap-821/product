@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ProfileData } from "../JsonData/About";
-import { FaUserAstronaut } from "react-icons/fa";
 
 const TeamMembers = () => {
   const cardRefs = useRef([]);
@@ -25,7 +24,7 @@ const TeamMembers = () => {
   }, []);
 
   return (
-    <div className="w-full px-4 sm:px-10 py-24 bg-white">
+    <div className="w-full px-4 sm:px-10 py-10 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {ProfileData.map((item, index) => (
           <div
@@ -35,10 +34,9 @@ const TeamMembers = () => {
             style={{ transitionDelay: `${index * 120}ms` }}
             className={`
               group relative rounded-2xl overflow-hidden
-              bg-black
+              bg-white shadow-lg
               transform transition-all duration-700 ease-out
               hover:-translate-y-2 hover:scale-105
-              hover:shadow-[0_25px_60px_-15px_rgba(255,255,255,0.15)]
               ${
                 visible.includes(String(index))
                   ? "opacity-100 translate-y-0"
@@ -46,8 +44,8 @@ const TeamMembers = () => {
               }
             `}
           >
-            {/* TOP */}
-            <div className="relative h-[190px] flex justify-center items-center bg-black">
+            {/* TOP - पहले जैसा ही gradient */}
+            <div className="relative h-[190px] flex justify-center items-center bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]">
               {/* PROFILE IMAGE */}
               <div className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-xl transition-transform duration-500 group-hover:scale-110">
                 <img
@@ -56,30 +54,24 @@ const TeamMembers = () => {
                   className="w-full h-full rounded-full object-cover"
                 />
               </div>
-
-              {/* ICON */}
-              <div className="absolute top-4 right-4 text-white/70 text-2xl transition-transform duration-500 group-hover:rotate-12">
-                <FaUserAstronaut />
-              </div>
             </div>
 
-            {/* CONTENT (WHITE) */}
+            {/* CONTENT - पहले जैसा ही */}
             <div className="p-6 text-center">
-              <h1 className="text-2xl font-extrabold text-white">
+              <h1 className="text-2xl font-extrabold text-black">
                 {item.name}
               </h1>
 
-              <h2 className="text-lg font-semibold text-white/80 mt-1">
+              <h2 className="text-lg font-semibold text-pink-600 mt-1">
                 {item.role}
               </h2>
 
-              <p className="text-white/70 text-sm mt-3 leading-relaxed">
+              <p className="text-black text-sm mt-3 leading-relaxed">
                 {item.content}
               </p>
             </div>
 
-            {/* SUBTLE GLOW */}
-            <div className="absolute inset-0 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+            {/* SUBTLE GLOW - हटा दिया ताकि कोई नया color न आए */}
           </div>
         ))}
       </div>

@@ -59,9 +59,9 @@ const Experience = () => {
               px-8 py-4 rounded-2xl font-bold
               bg-black 
               transition-all duration-500
-              hover:scale-110 hover:bg-white hover:text-pink-900"
+              hover:scale-110 "
           >
-            <FaShoppingCart className="text-xl group-hover:scale-125 transition  text-white group-hover:text-pink-900" />
+            <FaShoppingCart className="text-xl group-hover:scale-125 transition  text-white " />
             Start Shopping
           </Link>
 
@@ -71,9 +71,9 @@ const Experience = () => {
               px-8 py-4 rounded-2xl font-bold
               bg-black 
               transition-all duration-500
-              hover:scale-110 hover:bg-white hover:text-pink-900"
+              hover:scale-110 "
           >
-            <FaPhoneAlt className="text-xl group-hover:rotate-12 transition text-white group-hover:text-pink-900" />
+            <FaPhoneAlt className="text-xl group-hover:rotate-12 transition text-white " />
             Contact Us
           </Link>
         </div>

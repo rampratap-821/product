@@ -32,7 +32,7 @@ const AboutTitle = () => {
           inspired by modern beauty and timeless confidence.
         </p>
 
-        <button className="px-9 py-3 rounded-full bg-black hover:bg-gray-900 transition font-semibold text-white shadow-xl">
+        <button className="px-9 py-3 rounded-full bg-black  transition font-semibold text-white shadow-xl">
           Our Story
         </button>
 

@@ -61,7 +61,7 @@ const App = () => {
 
       </Routes>
       <Footer2/>
-      <Footer/>
+      {/* <Footer/> */}
      
       {/* <Footer3/>
       <Footer4/> */}

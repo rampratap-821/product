@@ -133,9 +133,9 @@ const Navbar = ({ card }) => {
               <Link
                 key={item}
                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="relative text-black font-medium tracking-wide text-base xl:text-lg
+                className="relative text-black tracking-wide text-base xl:text-lg
                   after:absolute after:left-0 after:-bottom-1 after:h-[1px]
-                  after:w-0 after:bg-black after:transition-all after:duration-300 
+                  after:w-0 after:bg-pink-700 after:transition-all after:duration-300 
                   hover:after:w-full hover:text-gray-800 transition-colors duration-200"
               >
                 {item}
@@ -147,7 +147,7 @@ const Navbar = ({ card }) => {
               <li
                 key={key}
                 className="relative        
-                relative text-black font-medium tracking-wide text-base xl:text-lg
+                relative text-black  tracking-wide text-base xl:text-lg
                  "
                 onMouseEnter={() => setActiveDropdown(key)}
                 onMouseLeave={() => setActiveDropdown(null)}
@@ -163,7 +163,7 @@ const Navbar = ({ card }) => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-10 left-0 w-56 xl:w-64 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden z-50"
+                      className="absolute top-10 left-0 w-56 xl:w-64 bg-white border border-pink-300 shadow-lg rounded-lg overflow-hidden z-50"
                     >
                       {dropdowns[key].items.map((item, index) => (
                         <Link
@@ -327,7 +327,7 @@ const Navbar = ({ card }) => {
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-1 h-5 sm:h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <span className="font-medium">Brands</span>
+                        <span className="">Brands</span>
                       </div>
                       {mobileDropdowns.brands ? (
                         <RiArrowUpSLine className="text-xl text-gray-500" />

@@ -164,7 +164,7 @@ const This_Season = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-black" >
             This Season's Picks
           </h2>
-          <p className="text-gray-600 mt-3 text-sm tracking-wide">
+          <p className="text-black mt-3 text-lg tracking-wide">
             Discover trending beauty categories
           </p>
         </div>
@@ -201,7 +201,7 @@ const This_Season = () => {
 
                 {/* CONTENT */}
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-black mb-3">
+                  <h3 className="text-xl  text-black mb-3">
                     {item.category}
                   </h3>
 
@@ -232,7 +232,7 @@ const This_Season = () => {
         <div className="text-center mt-12">
           <Link
             to="/categories"
-            className="inline-block px-8 py-3 text-sm font-semibold
+            className="inline-block px-8 py-4 text-lg font-semibold
             text-black border-2 border-black rounded-xl
             hover:bg-black hover:text-white transition-all duration-300"
           >

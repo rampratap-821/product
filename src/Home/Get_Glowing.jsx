@@ -16,7 +16,7 @@ const Get_Glowing = () => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
           LUXURY COSMETICS
         </h1>
-        <p className="mt-2 text-gray-600 text-sm sm:text-base">
+        <p className="mt-2 text-black text-md sm:text-base">
           Premium Beauty Collection
         </p>
       </div>
@@ -51,7 +51,7 @@ const Get_Glowing = () => {
       {/* CTA */}
       <div className="mt-8">
         <button
-          className="
+          className=" bg-black text-white
           px-6 py-2 rounded-md
           border border-black
           text-black

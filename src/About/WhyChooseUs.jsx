@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
   return (
     <div
       ref={sectionRef}
-      className="w-full py-24 relative overflow-hidden bg-white"
+      className="w-full py-10 relative overflow-hidden bg-white"
     >
       {/* Soft Pink Glow */}
       <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 via-pink-400/10 to-pink-300/10 blur-3xl"></div>
@@ -33,13 +33,13 @@ const WhyChooseUs = () => {
           ${show ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-16"}`}
         >
           <div className="p-6 rounded-full bg-pink-100 shadow-lg">
-            <FaShieldAlt className="text-6xl text-black animate-pulse drop-shadow-[0_0_12px_rgba(255,143,163,0.6)]" />
+            <FaShieldAlt className="text-4xl text-black " />
           </div>
         </div>
 
         {/* Heading with Whisper Effect */}
         <h1
-          className={`relative text-6xl sm:text-7xl font-extrabold
+          className={`relative text-4xl sm:text-4xl font-extrabold
           bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]
           bg-clip-text text-transparent tracking-wider
           animate-whisper
@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
 
         {/* Subtitle */}
         <p
-          className={`mt-6 text-xl sm:text-2xl text-gray-700
+          className={`mt-6 text-xl sm:text-2xl text-black
           transition-all duration-700 ease-out delay-300
           ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}`}
         >

@@ -55,14 +55,14 @@ const OurValues = () => {
   }, []);
 
   return (
-    <div className="w-full py-24 px-4 bg-white">
+    <div className="w-full py-10 px-4 bg-white">
       {/* HEADING */}
       <div
         ref={headingRef}
         className={`text-center mb-20 transition-all duration-700 ease-out
         ${showHeading ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-16"}`}
       >
-       <h1 className="relative text-6xl sm:text-7xl font-extrabold 
+       <h1 className="relative text-5xl sm:text-5xl font-extrabold 
 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] 
 bg-clip-text text-transparent 
 animate-whisper">
