@@ -44,9 +44,7 @@ const MyOurTeam = () => {
         {/* Heading with Whisper Effect */}
         <h1
           className="relative text-6xl sm:text-4xl font-bold
-           bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]
-          bg-clip-text text-transparent tracking-wider
-          animate-whisper
+         
         "
         >
           MY OUR TEAM

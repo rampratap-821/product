@@ -3,6 +3,7 @@ import {
   FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane
 } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -14,25 +15,36 @@ const Footer = () => {
     }
   };
 
-
-
-    const Link = [
+  // Company links array
+  const companyLinks = [
     {
-      id:1,
-      name:"Home",
-      Link:"/"
+      id: 1,
+      name: "Home",
+      link: "/"
     },
-     {
-      id:2,
-      name:"About",
-      Link:"/about"
+    {
+      id: 2,
+      name: "About",
+      link: "/about"
     },
-     {
-      id:3,
-      name:"Product",
-      Link:"/product"
+    {
+      id: 3,
+      name: "Product",
+      link: "/products"
     },
-  ]
+  ];
+
+  // Help links array (unchanged)
+  const helpLinks = [
+    {
+      name: "Contact Us",
+      link: "/contact"
+    },
+    {
+      name: "Track Order",
+      link: "/track-order"
+    }
+  ];
 
   return (
     <>
@@ -43,12 +55,7 @@ const Footer = () => {
 
           {/* TOP LOGO SECTION */}
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-12 pb-8 border-b border-pink-700/30">
-            <div className="flex items-center gap-4 mb-6 lg:mb-0">
-              <h1 className="text-5xl font-bold">
-                <span className="text-pink-700">BEAUTY</span>
-                <span className="text-black">.STORE</span>
-              </h1>
-            </div>
+           
            
           </div>
 
@@ -93,12 +100,14 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-semibold text-pink-700 mb-6 tracking-widest">COMPANY</h3>
               <ul className="space-y-3">
-                {["Home", "About", "Product", ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-black hover:text-pink-700 cursor-pointer transition-colors"
-                  >
-                    {item}
+                {companyLinks.map((item) => (
+                  <li key={item.id}>
+                    <Link 
+                      to={item.link}
+                      className="text-black hover:text-pink-700 cursor-pointer transition-colors block"
+                    >
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -115,7 +124,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3 text-black">
                   <FaMapMarkerAlt className="" />
-                  <span className="text-sm">Mumbai • Delhi • Bangalore</span>
+                  <span className="text-sm">Moradabad • Ratanpur • BahadurpurRajpoot</span>
                 </div>
               </div>
             </div>
@@ -124,12 +133,14 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-semibold text-pink-700 mb-6 tracking-widest">HELP</h3>
               <ul className="space-y-3">
-                {["Contact Us",  "Track Order"].map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-text-black hover:text-pink-700 cursor-pointer transition-colors"
-                  >
-                    {item}
+                {helpLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link 
+                      to={item.link}
+                      className="text-text-black hover:text-pink-700 cursor-pointer transition-colors block"
+                    >
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -214,19 +225,17 @@ const Footer = () => {
         </div>
 
         {/* COPYRIGHT */}
-        <div className="bg-white py-6">
+        <div className="bg-white py-4">
           <div className="max-w-7xl mx-auto px-6">
-            <p className="text-center text-black text-sm font-semibold tracking-widest">
-              © 2025 RAM COSMETIC. ALL RIGHTS RESERVED.
-            </p>
-            <div className="flex justify-center gap-6 mt-4 text-black text-xs">
-              <span className="hover:text-pink-700 cursor-pointer transition">Privacy Policy</span>
+            
+            <div className="flex justify-center gap-6 text-black text-xs">
+              <Link to="/privacy-policy" className="hover:text-pink-700 cursor-pointer transition">Privacy Policy</Link>
               <span className="text-pink-700">•</span>
-              <span className="hover:text-pink-700 cursor-pointer transition">Terms of Service</span>
+              <Link to="/terms" className="hover:text-pink-700 cursor-pointer transition">Terms of Service</Link>
               <span className="text-pink-700">•</span>
-              <span className="hover:text-pink-700 cursor-pointer transition">Cookie Policy</span>
+              <Link to="/cookies" className="hover:text-pink-700 cursor-pointer transition">Cookie Policy</Link>
               <span className="text-pink-700">•</span>
-              <span className="hover:text-pink-700 cursor-pointer transition">Return Policy</span>
+              <Link to="/returns" className="hover:text-pink-700 cursor-pointer transition">Return Policy</Link>
             </div>
           </div>
         </div>

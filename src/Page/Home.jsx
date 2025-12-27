@@ -34,8 +34,9 @@ import Get_Glowing from "../Home/Get_Glowing";
 import Video from "../Home/Video";
 import This_Season from "../Home/Popular_this_sesion";
 import SliderImage from "../Home/SliderImage";
-import PartnerTheShin from "../Home/PartnerTheShin";
 import Our_Product from "../Home/Our_Product";
+import MyOurTeam from "../About/MyOurTeam"
+import TeamMembers from "../About/TeamMembers"
 
 const Home = ({ card, setCard }) => {
   return (
@@ -47,8 +48,10 @@ const Home = ({ card, setCard }) => {
       <This_Season />
       <Video />
       <Our_Product card={card} setCard={setCard} />
+  <MyOurTeam/>
+  <TeamMembers/>
       <Get_Glowing />
-      {/* <PartnerTheShin /> */}
+     
 
     </div>
   );

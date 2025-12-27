@@ -140,7 +140,7 @@ export const HoverImageData = [
     id: 1,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product32.jpg",
     title: "Hydrating Glow Face Serum",
-    price: "$19.99",
+    price: "200",
     description:
       "This lightweight serum deeply hydrates your skin and gives it a natural, radiant glow. Perfect for daily use and suitable for all skin types.",
   },
@@ -148,7 +148,7 @@ export const HoverImageData = [
     id: 2,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product35.jpg",
     title: "Matte Finish Liquid Lipstick",
-    price: "$14.50",
+    price: "4658",
     description:
       "Get long-lasting, bold color with a soft matte texture that keeps your lips smooth and moisturized all day. Smudge-proof and kiss-proof.",
   },
@@ -156,7 +156,7 @@ export const HoverImageData = [
     id: 3,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product26.jpg",
     title: "Organic Aloe Vera Face Cream",
-    price: "$22.00",
+    price: "499",
     description:
       "Made with pure aloe vera extract, this cream nourishes, heals, and refreshes your skin — leaving it soft, cool, and hydrated.",
   },
@@ -164,7 +164,7 @@ export const HoverImageData = [
     id: 4,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product28.jpg",
     title: "Vitamin C Brightening Face Wash",
-    price: "$11.75",
+    price: "1000",
     description:
       "Infused with vitamin C and natural lemon extracts to remove dirt and dullness, giving your skin a bright, fresh, and healthy look.",
   },
@@ -172,7 +172,7 @@ export const HoverImageData = [
     id: 5,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product30.jpg",
     title: "Charcoal Detox Face Mask",
-    price: "$17.30",
+    price: "230",
     description:
       "This deep-cleansing mask draws out impurities, unclogs pores, and leaves your skin feeling clean, smooth, and refreshed.",
   },
@@ -180,7 +180,7 @@ export const HoverImageData = [
     id: 6,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product31.jpg",
     title: "Nourishing Hair Serum",
-    price: "$15.00",
+    price: "2500",
     description:
       "A blend of argan oil and keratin that smooths frizz, adds shine, and protects hair from heat damage and pollution.",
   },
@@ -188,7 +188,7 @@ export const HoverImageData = [
     id: 7,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product27.jpg",
     title: "SPF 50+ Sunscreen Lotion",
-    price: "$13.99",
+    price: "4550",
     description:
       "Lightweight and non-greasy protection from harmful UV rays. Keeps your skin safe and glowing under the sun.",
   },
@@ -196,7 +196,7 @@ export const HoverImageData = [
     id: 8,
     image: "https://htmldemo.net/alista/alista/assets/img/product/product33.jpg",
     title: "Rose Water Toner",
-    price: "$10.99",
+    price: "1400",
     description:
       "A refreshing facial mist made from natural rose petals. It tightens pores, balances pH, and gives your skin a fresh floral touch.",
   },
