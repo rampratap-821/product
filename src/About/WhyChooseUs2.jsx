@@ -49,46 +49,41 @@ const WhyChooseUs2 = () => {
   }, []);
 
   return (
-    <div className="w-full py-10 px-4 bg-white">
+    <div className="w-full py-14 px-4 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {features.map((item, i) => (
           <div
             key={i}
             ref={(el) => (cardRefs.current[i] = el)}
             data-index={i}
-            style={{ transitionDelay: `${i * 120}ms` }}
             className={`
-              relative rounded-2xl p-8 text-center
-              bg-black
+              flex items-center gap-4
+              border rounded-2xl p-6 py-10
+              bg-white
+              shadow-lg hover:shadow-2xl
               transition-all duration-500 ease-out
               transform hover:-translate-y-2 hover:scale-105
-              hover:shadow-[0_25px_60px_-15px_rgba(255,122,138,0.7)]
               ${
                 visible.includes(String(i))
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-20"
+                  : "opacity-0 translate-y-10"
               }
             `}
           >
             {/* ICON */}
-            <div className="flex items-center justify-center h-20 mb-6">
-              <div className="text-6xl text-white drop-shadow-lg transition-transform duration-300 hover:scale-125">
-                {item.icon}
-              </div>
+            <div className="text-4xl text-black flex-shrink-0">
+              {item.icon}
             </div>
 
-            {/* TITLE */}
-            <h1 className="text-2xl font-bold text-white mb-2 tracking-wide">
-              {item.title}
-            </h1>
-
-            {/* DESC */}
-            <p className="text-white/90 leading-relaxed">
-              {item.desc}
-            </p>
-
-            {/* SOFT GLOW */}
-            <div className="absolute inset-0 rounded-2xl bg-white/5 opacity-0 hover:opacity-100 transition duration-300"></div>
+            {/* TEXT */}
+            <div>
+              <h2 className="text-xl font-extrabold text-black">
+                {item.title}
+              </h2>
+              <p className="text-sm text-black/70 mt-1">
+                {item.desc}
+              </p>
+            </div>
           </div>
         ))}
       </div>

@@ -176,7 +176,7 @@ const AddDeliveryAddress = ({ formData, setFormData }) => {
 
             <button
               type="submit"
-              className="px-8 py-2 bg-blue-600 text-white text-sm font-medium hover:bg-blue-700"
+              className="px-8 py-2 bg-pink-700 text-white text-sm font-medium hover:bg-pink-800"
             >
               Save & Deliver address
             </button>

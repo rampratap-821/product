@@ -34,7 +34,7 @@ const App = () => {
       state: '',
       addressType: 'home'
     })
-   console.log("Formdata",formData)
+   
   return (
     <Router >
       {/* <Navbar1/> */}

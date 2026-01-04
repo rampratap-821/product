@@ -24,7 +24,7 @@ const Experience = () => {
       className="w-full py-24 relative overflow-hidden bg-white"
     >
       {/* Soft Pink Glow */}
-      <div className="absolute inset-0 bg-pink-500/10 blur-3xl"></div>
+      <div className="absolute inset-0 "></div>
 
       <div
         className={`relative text-center max-w-4xl mx-auto px-4
@@ -38,9 +38,7 @@ const Experience = () => {
         {/* Heading with Whisper Effect */}
         <h1
           className="relative text-5xl sm:text-6xl font-extrabold
-          bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]
-          bg-clip-text text-transparent
-          animate-whisper"
+        text-pink-700"
         >
           Ready to Experience the Difference?
         </h1>

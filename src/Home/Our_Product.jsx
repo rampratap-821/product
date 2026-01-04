@@ -30,45 +30,7 @@ const Our_Product = ({ card, setCard }) => {
 
   return (
     <>
-      <section className="w-full   py-16">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
-          {/* Left Content */}
-          <div className="flex-1 black">
-            <h4 className="text-lg font-bold uppercase tracking-widest text-black">
-              Our Product
-            </h4>
-
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mt-3">
-              Premium Beauty <br />
-              <span className="black">Cosmetic Collection</span>
-            </h1>
-
-            <p className="text-black mt-5 max-w-md">
-              Discover high-quality cosmetics made with skin-friendly ingredients.
-              Enhance your beauty with confidence and care.
-            </p>
-
-            <div className="flex gap-4 mt-8">
-              <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition">
-                Shop Now
-              </button>
-              <button className=" bg-black  text-white border border-white px-6 py-3 rounded-xl font-semibold hover:bg-black hover:text-white transition">
-                View Products
-              </button>
-            </div>
-          </div>
-
-          {/* Right Image */}
-          <div className="flex-1 flex justify-center relative">
-            <div className="absolute -top-6 -right-6 w-72 h-72 bg-white/20 rounded-full blur-3xl"></div>
-            <img
-              src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600"
-              alt="Our Product"
-              className="w-80 md:w-[420px] rounded-2xl shadow-2xl relative z-10"
-            />
-          </div>
-        </div>
-      </section>
+    
 
       <ToastContainer />
 
@@ -82,7 +44,7 @@ const Our_Product = ({ card, setCard }) => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5">
           {HoverImageData.map((item) => (
             <div
               key={item.id}
@@ -161,7 +123,7 @@ const Our_Product = ({ card, setCard }) => {
               {/* ADD TO CART BUTTON - No bounce animation */}
               <div className="p-4 pt-0">
                 <Link
-                to={"payment"}
+                to={"/payment"}
                   className="w-full bg-gradient-to-r from-pink-700 to-pink-700 
                            text-white py-3 rounded-lg font-semibold
                            flex items-center justify-center gap-2

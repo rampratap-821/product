@@ -28,6 +28,20 @@ export const Cosmetic = [
     source: "unsplash",
     category: "foundation",
   },
+   {
+    id: 5,
+    title: "Foundation Bottles",
+    url: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=60",
+    source: "unsplash",
+    category: "foundation",
+  },
+   {
+    id: 6,
+    title: "Red Lipstick",
+    url: "https://images.unsplash.com/photo-1595425959632-34f2822322ce?auto=format&fit=crop&w=800&q=60",
+    source: "unsplash",
+    category: "lipstick",
+  },
 
 ];
 

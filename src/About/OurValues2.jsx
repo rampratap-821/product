@@ -6,28 +6,28 @@ import { GiRapidshareArrow } from "react-icons/gi";
 const values = [
   {
     icon: <FaLeaf />,
-    title: "Sustainability",
-    desc: "Eco-friendly packaging and supporting local farmers",
+    title: "Natural",
+    desc: "Eco-friendly & sustainable products",
   },
   {
     icon: <FaHandHoldingHeart />,
-    title: "Community First",
-    desc: "Building strong relationships with our customers",
+    title: "Transparency",
+    desc: "Honest pricing & clear information",
   },
   {
     icon: <BiAdjust />,
-    title: "Quality Promise",
-    desc: "100% quality assurance on all products",
+    title: "Care",
+    desc: "Customer satisfaction first",
   },
   {
     icon: <GiRapidshareArrow />,
     title: "Innovation",
-    desc: "Constantly improving our services",
+    desc: "Always improving our services",
   },
 ];
 
 const OurValues2 = () => {
-  const cardRefs = useRef([]);
+  const refs = useRef([]);
   const [visible, setVisible] = useState([]);
 
   useEffect(() => {
@@ -41,53 +41,53 @@ const OurValues2 = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.25 }
     );
 
-    cardRefs.current.forEach((el) => el && observer.observe(el));
+    refs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="w-full bg-white py-0 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-        {values.map((item, i) => (
-          <div
-            key={i}
-            ref={(el) => (cardRefs.current[i] = el)}
-            data-index={i}
-            style={{ transitionDelay: `${i * 120}ms` }}
-            className={`
-              group relative
-              bg-pink-300
-              rounded-2xl p-10 text-center
-              transform transition-all duration-700 ease-out
-              hover:scale-105 hover:shadow-xl
-              ${
-                visible.includes(String(i))
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-20"
-              }
-            `}
-          >
-            {/* ICON */}
-            <div className="flex items-center justify-center h-20 mb-6">
-              <div className="text-6xl text-black transition-transform duration-500 group-hover:scale-125">
+    <div className="w-full py-0 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {values.map((item, i) => (
+            <div
+              key={i}
+              ref={(el) => (refs.current[i] = el)}
+              data-index={i}
+              className={`
+                flex items-center justify-center gap-4
+                border rounded-2xl p-6 py-10
+                bg-white
+                shadow-lg hover:shadow-2xl
+                transition-all duration-500 ease-out
+                transform hover:-translate-y-2 hover:scale-105
+                ${
+                  visible.includes(String(i))
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }
+              `}
+            >
+              {/* ICON */}
+              <div className="text-4xl text-black flex-shrink-0">
                 {item.icon}
               </div>
+
+              {/* TEXT */}
+              <div>
+                <h1 className="text-xl font-extrabold text-black">
+                  {item.title}
+                </h1>
+                <p className="text-sm text-gray-600 font-medium">
+                  {item.desc}
+                </p>
+              </div>
             </div>
-
-            <h1 className="text-2xl font-bold text-black">
-              {item.title}
-            </h1>
-
-            <p className="text-black/80 mt-3">
-              {item.desc}
-            </p>
-          </div>
-        ))}
-
+          ))}
+        </div>
       </div>
     </div>
   );

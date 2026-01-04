@@ -55,20 +55,16 @@ const OurValues = () => {
   }, []);
 
   return (
-    <div className="w-full py-10 px-4 bg-white">
+    <div className="w-full py-14 px-4 bg-white">
       {/* HEADING */}
       <div
         ref={headingRef}
-        className={`text-center mb-20 transition-all duration-700 ease-out
+        className={`text-center mb-16 transition-all duration-700 ease-out
         ${showHeading ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-16"}`}
       >
-       <h1 className="relative text-5xl sm:text-5xl font-extrabold 
-bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] 
-bg-clip-text text-transparent 
-animate-whisper">
-  OUR VALUES
-</h1>
-
+        <h1 className="text-4xl sm:text-4xl font-extrabold text-pink-700 tracking-wide">
+          OUR VALUES
+        </h1>
       </div>
 
       {/* CARDS */}
@@ -80,37 +76,33 @@ animate-whisper">
             data-index={i}
             style={{ transitionDelay: `${i * 120}ms` }}
             className={`
-              relative rounded-2xl p-8 text-center
-              bg-black
+              flex items-center gap-4
+              border rounded-2xl p-6 py-10
+              bg-white
+              shadow-lg hover:shadow-2xl
               transition-all duration-500 ease-out
               transform hover:-translate-y-2 hover:scale-105
-              hover:shadow-[0_25px_60px_-15px_rgba(255,122,138,0.7)]
               ${
                 visibleCards.includes(String(i))
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-20"
+                  : "opacity-0 translate-y-10"
               }
             `}
           >
             {/* ICON */}
-            <div className="flex items-center justify-center h-20 mb-6">
-              <div className="text-5xl text-white drop-shadow-lg transition-transform duration-300 hover:scale-125">
-                {item.icon}
-              </div>
+            <div className="text-4xl text-black flex-shrink-0">
+              {item.icon}
             </div>
 
-            {/* TITLE */}
-            <h2 className="text-2xl font-bold text-white mb-2 tracking-wide">
-              {item.title}
-            </h2>
-
-            {/* DESC */}
-            <p className="text-white/90 leading-relaxed">
-              {item.desc}
-            </p>
-
-            {/* SOFT GLOW */}
-            <div className="absolute inset-0 rounded-2xl bg-white/5 opacity-0 hover:opacity-100 transition duration-300"></div>
+            {/* TEXT */}
+            <div>
+              <h2 className="text-xl font-extrabold text-black">
+                {item.title}
+              </h2>
+              <p className="text-sm text-gray-600 font-medium">
+                {item.desc}
+              </p>
+            </div>
           </div>
         ))}
       </div>

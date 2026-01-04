@@ -4,7 +4,8 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-
+import Lottie from 'lottie-react';
+import cosmetic from"../assets/Images/Cosmetics.json"
 const Footer = () => {
   const [email, setEmail] = useState("");
 
@@ -113,20 +114,7 @@ const Footer = () => {
               </ul>
 
               {/* CONTACT INFO */}
-              <div className="mt-2 space-y-4">
-                <div className="flex items-center gap-3 text-black">
-                  <FaPhone className="" />
-                  <span>+91 8218253516</span>
-                </div>
-                <div className="flex items-center gap-3 text-black">
-                  <FaEnvelope className="" />
-                  <span>support@beauty.store</span>
-                </div>
-                <div className="flex items-center gap-3 text-black">
-                  <FaMapMarkerAlt className="" />
-                  <span className="text-sm">Moradabad • Ratanpur • BahadurpurRajpoot</span>
-                </div>
-              </div>
+             
             </div>
 
             {/* HELP */}
@@ -144,6 +132,21 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
+               <div className="mt-2 space-y-4">
+                <div className="flex items-center gap-3 text-black">
+                  <FaPhone className="" />
+                  <span>+91 8218253516</span>
+                </div>
+                <div className="flex items-center gap-3 text-black">
+                  <FaEnvelope className="" />
+                  <span>support@beauty.store</span>
+                </div>
+                <div className="flex items-center gap-3 text-black">
+                  <FaMapMarkerAlt className="" />
+                  <span className="text-sm">Moradabad • Ratanpur • BahadurpurRajpoot</span>
+                </div>
+              </div>
+              
             </div>
 
             {/* BEAUTY UPDATES */}
@@ -155,58 +158,61 @@ const Footer = () => {
               </p>
 
               {/* EMAIL INPUT */}
-              <div className="space-y-4">
-                <div className="relative">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    className="
-                      w-full 
-                      bg-gray-100 
-                     text-black
-                      px-4 
-                      py-3 
-                      rounded-md 
-                      border 
-                      border-gray-300 
-                      focus:outline-none 
-                      focus:ring-2 
-                      focus:ring-pink-700 
-                      focus:border-transparent
-                      text-sm
-                      placeholder-gray-500
-                    "
-                  />
-                </div>
-                
-                <button
-                  onClick={handleSend}
-                  className="
-                    w-full
-                    bg-black 
-                    hover:bg-pink-800 
-                    text-white 
-                    px-6 
-                    py-3 
-                    rounded-md 
-                    font-bold
-                    transition-all
-                    text-sm
-                    tracking-wider
-                  "
-                >
-                  SUBSCRIBE
-                </button>
-                
-                <div className="flex items-center gap-2 text-black text-xs">
-                  <input type="checkbox" id="terms" className="accent-pink-600" />
-                  <label htmlFor="terms" className="cursor-pointer">
-                    I agree to receive beauty updates
-                  </label>
-                </div>
-              </div>
+             <div className="space-y-4">
+  <div className="relative">
+
+    {/* INPUT */}
+    <input
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      placeholder="Enter "
+      className="
+        w-full
+        bg-white
+        text-black
+        pl-5
+        pr-36
+        py-4
+        rounded-xl
+        border border-gray-300
+        focus:outline-none
+        focus:ring-2
+        focus:ring-pink-700
+        text-sm
+        placeholder-gray-500
+        shadow-md
+      "
+    />
+
+    {/* BUTTON INSIDE INPUT */}
+    <button
+      onClick={handleSend}
+      className="
+        absolute
+        top-1/2
+        right-2
+        -translate-y-1/2
+        bg-pink-700
+        hover:bg-pink-800
+        text-white
+        px-6
+        py-2.5
+        rounded-lg
+        font-semibold
+        text-xs
+        tracking-wider
+        transition-all
+        shadow-lg
+        active:scale-95
+      "
+    >
+      SUBSCRIBE
+    </button>
+
+  </div>
+</div>
+
             </div>
           </div>
         </div>
@@ -225,20 +231,7 @@ const Footer = () => {
         </div>
 
         {/* COPYRIGHT */}
-        <div className="bg-white py-4">
-          <div className="max-w-7xl mx-auto px-6">
-            
-            <div className="flex justify-center gap-6 text-black text-xs">
-              <Link to="/privacy-policy" className="hover:text-pink-700 cursor-pointer transition">Privacy Policy</Link>
-              <span className="text-pink-700">•</span>
-              <Link to="/terms" className="hover:text-pink-700 cursor-pointer transition">Terms of Service</Link>
-              <span className="text-pink-700">•</span>
-              <Link to="/cookies" className="hover:text-pink-700 cursor-pointer transition">Cookie Policy</Link>
-              <span className="text-pink-700">•</span>
-              <Link to="/returns" className="hover:text-pink-700 cursor-pointer transition">Return Policy</Link>
-            </div>
-          </div>
-        </div>
+        
 
       </footer>
     </>

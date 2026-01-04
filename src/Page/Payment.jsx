@@ -32,10 +32,10 @@ const Payment = ({card,setCard}) => {
     cardType: 'visa'
   });
   const [uiTheme, setUiTheme] = useState({
-    primary: '#ff7a8a',
-    secondary: '#ff8fa3',
-    accent: '#ffb3c1',
-    gradient: 'from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]'
+    primary: '#be185d', // Changed from #ff7a8a to pink-700 (#be185d)
+    secondary: '#db2777', // Changed to pink-600 for gradient
+    accent: '#ec4899', // Changed to pink-500 for gradient
+    gradient: 'from-[#be185d] via-[#db2777] to-[#ec4899]' // Updated gradient
   });
 
   const topRef = useRef(null);
@@ -303,12 +303,12 @@ const Payment = ({card,setCard}) => {
         setUiTheme(method.theme);
       }
     } else {
-      // Default theme
+      // Default theme - now pink-700
       setUiTheme({
-        primary: '#ff7a8a',
-        secondary: '#ff8fa3',
-        accent: '#ffb3c1',
-        gradient: 'from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]'
+        primary: '#be185d', // pink-700
+        secondary: '#db2777', // pink-600
+        accent: '#ec4899', // pink-500
+        gradient: 'from-[#be185d] via-[#db2777] to-[#ec4899]'
       });
     }
   }, [selectedMethod, selectedBank, selectedWallet, cardDetails.cardType]);
@@ -361,10 +361,10 @@ const Payment = ({card,setCard}) => {
     });
     setIsSuccess(false);
     setUiTheme({
-      primary: '#ff7a8a',
-      secondary: '#ff8fa3',
-      accent: '#ffb3c1',
-      gradient: 'from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]'
+      primary: '#be185d', // pink-700
+      secondary: '#db2777', // pink-600
+      accent: '#ec4899', // pink-500
+      gradient: 'from-[#be185d] via-[#db2777] to-[#ec4899]'
     });
     
     setTimeout(() => {
@@ -579,9 +579,10 @@ const Payment = ({card,setCard}) => {
             </div>
             
             <div className="space-y-3 sm:space-y-4 max-w-md mx-auto mb-8 sm:mb-12 px-4">
+              {/* Make Another Payment button - kept black */}
               <button
                 onClick={handleMakeAnotherPayment}
-                className={`w-full bg-gradient-to-br ${uiTheme.gradient} text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center animate-pulse`}
+                className={`w-full bg-black text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center animate-pulse`}
               >
                 <MdAttachMoney className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-white" />
                 Make Another Payment
@@ -795,7 +796,7 @@ const Payment = ({card,setCard}) => {
                             onChange={handleCardInputChange}
                             placeholder="1234 5678 9012 3456"
                             maxLength="19"
-                            className="w-full px-3 sm:px-4 py-3 sm:py-4 pl-10 sm:pl-12 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#ff7a8a] focus:border-[#ff7a8a] transition-all duration-300 text-base sm:text-lg"
+                            className="w-full px-3 sm:px-4 py-3 sm:py-4 pl-10 sm:pl-12 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#be185d] focus:border-[#be185d] transition-all duration-300 text-base sm:text-lg"
                           />
                           <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
                             {cardDetails.cardType === 'visa' ? (
@@ -817,7 +818,7 @@ const Payment = ({card,setCard}) => {
                             onChange={handleCardInputChange}
                             placeholder="MM/YY"
                             maxLength="5"
-                            className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#ff7a8a] focus:border-[#ff7a8a] transition-all duration-300 text-base sm:text-lg"
+                            className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#be185d] focus:border-[#be185d] transition-all duration-300 text-base sm:text-lg"
                           />
                         </div>
                         
@@ -831,7 +832,7 @@ const Payment = ({card,setCard}) => {
                               onChange={handleCardInputChange}
                               placeholder="123"
                               maxLength="3"
-                              className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#ff7a8a] focus:border-[#ff7a8a] transition-all duration-300 text-base sm:text-lg"
+                              className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#be185d] focus:border-[#be185d] transition-all duration-300 text-base sm:text-lg"
                             />
                             <div className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2">
                               <MdLock className="w-4 h-4 sm:w-5 sm:h-5 text-black-400" />
@@ -847,7 +848,7 @@ const Payment = ({card,setCard}) => {
                             value={cardDetails.name}
                             onChange={handleCardInputChange}
                             placeholder="John Doe"
-                            className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#ff7a8a] focus:border-[#ff7a8a] transition-all duration-300 text-base sm:text-lg"
+                            className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#be185d] focus:border-[#be185d] transition-all duration-300 text-base sm:text-lg"
                           />
                         </div>
                       </div>
@@ -890,7 +891,7 @@ const Payment = ({card,setCard}) => {
                           value={upiId}
                           onChange={(e) => setUpiId(e.target.value)}
                           placeholder="yourname@upi"
-                          className="w-full px-10 sm:px-14 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#ff7a8a] focus:border-[#ff7a8a] transition-all duration-300 text-base sm:text-lg"
+                          className="w-full px-10 sm:px-14 py-3 sm:py-4 border-2 border-black-300 rounded-xl focus:ring-2 focus:ring-[#be185d] focus:border-[#be185d] transition-all duration-300 text-base sm:text-lg"
                         />
                         <div className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2">
                           <span className="text-black-500 text-xs sm:text-sm">@upi</span>
@@ -1160,10 +1161,10 @@ const Payment = ({card,setCard}) => {
         
         @keyframes success-pulse {
           0%, 100% {
-            box-shadow: 0 0 20px rgba(255, 122, 138, 0.5);
+            box-shadow: 0 0 20px rgba(190, 24, 93, 0.5); /* Updated to pink-700 */
           }
           50% {
-            box-shadow: 0 0 40px rgba(255, 122, 138, 0.8), 0 0 60px rgba(255, 122, 138, 0.6);
+            box-shadow: 0 0 40px rgba(190, 24, 93, 0.8), 0 0 60px rgba(190, 24, 93, 0.6); /* Updated to pink-700 */
           }
         }
         
@@ -1212,7 +1213,7 @@ const Payment = ({card,setCard}) => {
         }
         
         .border-gradient {
-          border-image: linear-gradient(to right, #ff7a8a, #ffb3c1) 1;
+          border-image: linear-gradient(to right, #be185d, #ec4899) 1; /* Updated to pink-700 to pink-500 */
         }
         
         ::-webkit-scrollbar {
@@ -1225,12 +1226,12 @@ const Payment = ({card,setCard}) => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #ff7a8a, #ffb3c1);
+          background: linear-gradient(to bottom, #be185d, #ec4899); /* Updated to pink-700 to pink-500 */
           border-radius: 10px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #ff6b8b, #ffc2d1);
+          background: linear-gradient(to bottom, #be185d, #ec4899); /* Updated to pink-700 to pink-500 */
         }
       `}</style>
     </div>

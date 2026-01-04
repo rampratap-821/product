@@ -109,7 +109,7 @@ const Navbar = ({ card }) => {
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden text-black hover:text-gray-700 transition p-1"
+              className="lg:hidden text-black hover:text-black-700 transition p-1"
               aria-label="Toggle menu"
             >
               <RiMenu3Line className="text-xl sm:text-2xl" />
@@ -136,7 +136,7 @@ const Navbar = ({ card }) => {
                 className="relative text-black tracking-wide text-base xl:text-lg
                   after:absolute after:left-0 after:-bottom-1 after:h-[1px]
                   after:w-0 after:bg-pink-700 after:transition-all after:duration-300 
-                  hover:after:w-full hover:text-gray-800 transition-colors duration-200"
+                  hover:after:w-full hover:text-black-800 transition-colors duration-200"
               >
                 {item}
               </Link>
@@ -152,7 +152,7 @@ const Navbar = ({ card }) => {
                 onMouseEnter={() => setActiveDropdown(key)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <span className="cursor-pointer text-black hover:text-gray-800 flex items-center gap-1 text-base xl:text-lg">
+                <span className="cursor-pointer text-black hover:text-black-800 flex items-center gap-1 text-base xl:text-lg">
                   {key.charAt(0).toUpperCase() + key.slice(1)}
                 </span>
 
@@ -163,13 +163,13 @@ const Navbar = ({ card }) => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-10 left-0 w-56 xl:w-64 bg-white border border-pink-300 shadow-lg rounded-lg overflow-hidden z-50"
+                      className="absolute top-10 left-0 w-56 xl:w-64 bg-white border border-pink-50 shadow-lg rounded-lg overflow-hidden z-50"
                     >
                       {dropdowns[key].items.map((item, index) => (
                         <Link
                           key={index}
                           to="/products"
-                          className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:text-black hover:bg-gray-100 transition-colors"
+                          className="flex items-center gap-3 px-4 py-3 text-black-800 hover:text-black hover:bg-black-100 transition-colors"
                         >
                           <span className="text-sm font-medium">{item}</span>
                         </Link>
@@ -186,7 +186,7 @@ const Navbar = ({ card }) => {
             {/* MOBILE SEARCH TOGGLE */}
             <button
               onClick={toggleMobileSearch}
-              className="lg:hidden text-black hover:text-gray-700 transition p-1"
+              className="lg:hidden text-black hover:text-black-700 transition p-1"
               aria-label="Search"
             >
               <RiSearchLine className="text-xl sm:text-2xl" />
@@ -198,13 +198,13 @@ const Navbar = ({ card }) => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search cosmetics..."
-                className="w-full bg-gray-50 text-black text-sm pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 focus:shadow-sm transition-all"
+                className="w-full bg-black-50 text-black text-sm pl-10 pr-4 py-2 rounded-lg border border-black-300 focus:outline-none focus:border-black-500 focus:shadow-sm transition-all"
               />
-              <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+              <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-black-600" />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-black-600 hover:text-black"
                   aria-label="Clear search"
                 >
                   <RiCloseLine />
@@ -215,7 +215,7 @@ const Navbar = ({ card }) => {
             {/* AUTH BUTTON */}
             <button
               onClick={() => setShowModal(true)}
-              className="hidden sm:block px-3 py-1.5 md:px-4 md:py-2 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all text-sm md:text-base"
+              className="hidden sm:block px-3 py-1.5 md:px-4 md:py-2 bg-black hover:bg-black-800 text-white rounded-lg font-medium transition-all text-sm md:text-base"
             >
               Sign In
             </button>
@@ -226,8 +226,8 @@ const Navbar = ({ card }) => {
               className="relative group p-1"
               aria-label="Cart"
             >
-              <div className="p-1.5 sm:p-2 rounded-lg bg-gray-100 group-hover:bg-gray-200 transition-all">
-                <RiShoppingBasketFill className="text-xl sm:text-2xl text-black group-hover:text-gray-800 group-hover:scale-110 transition-transform" />
+              <div className="p-1.5 sm:p-2 rounded-lg bg-black-100 group-hover:bg-black-200 transition-all">
+                <RiShoppingBasketFill className="text-xl sm:text-2xl text-black group-hover:text-black-800 group-hover:scale-110 transition-transform" />
               </div>
               <span className="absolute -top-1 -right-1 bg-black text-white text-xs font-bold rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
                 {card.length}
@@ -243,19 +243,19 @@ const Navbar = ({ card }) => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden px-3 sm:px-4 border-t border-gray-200 bg-white"
+              className="lg:hidden px-3 sm:px-4 border-t border-black-200 bg-white"
             >
               <div className="py-2 sm:py-3 relative">
                 <input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search cosmetics..."
-                  className="w-full bg-gray-50 text-black pl-10 pr-4 py-2 sm:py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 text-sm sm:text-base"
+                  className="w-full bg-black-50 text-black pl-10 pr-4 py-2 sm:py-2.5 rounded-lg border border-black-300 focus:outline-none focus:border-black-500 text-sm sm:text-base"
                 />
-                <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+                <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-black-600" />
                 <button
                   onClick={toggleMobileSearch}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-black-600 hover:text-black p-1"
                 >
                   <RiCloseLine className="text-xl" />
                 </button>
@@ -282,7 +282,7 @@ const Navbar = ({ card }) => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-white z-50 border-r border-gray-300 shadow-lg lg:hidden overflow-y-auto"
+              className="fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-white z-50 border-r border-black-300 shadow-lg lg:hidden overflow-y-auto"
             >
               <div className="p-4 sm:p-6 h-full flex flex-col">
                 {/* HEADER */}
@@ -299,7 +299,7 @@ const Navbar = ({ card }) => {
                   </div>
                   <button
                     onClick={toggleMobileMenu}
-                    className="text-black hover:text-gray-700 transition p-1"
+                    className="text-black hover:text-black-700 transition p-1"
                   >
                     <RiCloseLine className="text-xl sm:text-2xl" />
                   </button>
@@ -312,9 +312,9 @@ const Navbar = ({ card }) => {
                       key={item}
                       to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                       onClick={toggleMobileMenu}
-                      className="flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group text-base "
+                      className="flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 text-black-800 hover:text-black hover:bg-black-100 rounded-lg transition-all group text-base "
                     >
-                      <div className="w-1 h-5 sm:h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="w-1 h-5 sm:h-6 bg-black-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                       <span className="">{item}</span>
                     </Link>
                   ))}
@@ -323,16 +323,16 @@ const Navbar = ({ card }) => {
                   <div className="mt-2">
                     <button
                       onClick={() => toggleMobileDropdown('brands')}
-                      className="w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group text-base sm:text-lg"
+                      className="w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 text-black-800 hover:text-black hover:bg-black-100 rounded-lg transition-all group text-base sm:text-lg"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-1 h-5 sm:h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="w-1 h-5 sm:h-6 bg-black-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                         <span className="">Brands</span>
                       </div>
                       {mobileDropdowns.brands ? (
-                        <RiArrowUpSLine className="text-xl text-gray-500" />
+                        <RiArrowUpSLine className="text-xl text-black-500" />
                       ) : (
-                        <RiArrowDownSLine className="text-xl text-gray-500" />
+                        <RiArrowDownSLine className="text-xl text-black-500" />
                       )}
                     </button>
                     
@@ -351,7 +351,7 @@ const Navbar = ({ card }) => {
                                 key={index}
                                 to="/products"
                                 onClick={toggleMobileMenu}
-                                className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-all text-sm sm:text-base"
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-black-600 hover:text-black hover:bg-black-50 rounded-lg transition-all text-sm sm:text-base"
                               >
                               
                                 <span>{item}</span>
@@ -367,16 +367,16 @@ const Navbar = ({ card }) => {
                   <div className="mt-2">
                     <button
                       onClick={() => toggleMobileDropdown('luxe')}
-                      className="w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group text-base sm:text-lg"
+                      className="w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 text-black-800 hover:text-black hover:bg-black-100 rounded-lg transition-all group text-base sm:text-lg"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-1 h-5 sm:h-6 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="w-1 h-5 sm:h-6 bg-black-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                         <span className="font-medium">Luxe</span>
                       </div>
                       {mobileDropdowns.luxe ? (
-                        <RiArrowUpSLine className="text-xl text-gray-500" />
+                        <RiArrowUpSLine className="text-xl text-black-500" />
                       ) : (
-                        <RiArrowDownSLine className="text-xl text-gray-500" />
+                        <RiArrowDownSLine className="text-xl text-black-500" />
                       )}
                     </button>
                     
@@ -395,7 +395,7 @@ const Navbar = ({ card }) => {
                                 key={index}
                                 to="/products"
                                 onClick={toggleMobileMenu}
-                                className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-all text-sm sm:text-base"
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-black-600 hover:text-black hover:bg-black-50 rounded-lg transition-all text-sm sm:text-base"
                               >
                                
                                 <span>{item}</span>
@@ -409,13 +409,13 @@ const Navbar = ({ card }) => {
                 </div>
 
                 {/* MOBILE AUTH SECTION */}
-                <div className="pt-4 sm:pt-6 border-t border-gray-300">
+                <div className="pt-4 sm:pt-6 border-t border-black-300">
                   <button
                     onClick={() => {
                       toggleMobileMenu();
                       setShowModal(true);
                     }}
-                    className="w-full mb-2 sm:mb-3 px-3 sm:px-4 py-2.5 sm:py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all text-sm sm:text-base"
+                    className="w-full mb-2 sm:mb-3 px-3 sm:px-4 py-2.5 sm:py-3 bg-black hover:bg-black-800 text-white rounded-lg font-medium transition-all text-sm sm:text-base"
                   >
                     Sign In / Sign Up
                   </button>
@@ -444,23 +444,23 @@ const Navbar = ({ card }) => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed right-0 top-0 h-full  w-80 sm:w-96 md:w-96 lg:w-96 xl:w-96 bg-white z-50 border-l border-gray-300 shadow-lg overflow-y-auto"
+              className="fixed right-0 top-0 h-full  w-80 sm:w-96 md:w-96 lg:w-96 xl:w-96 bg-white z-50 border-l border-black-300 shadow-lg overflow-y-auto"
             >
               <div className="h-full flex flex-col">
                 {/* HEADER */}
-                <div className="p-4 sm:p-6 border-b border-gray-300">
+                <div className="p-4 sm:p-6 border-b border-black-300">
                   <div className="flex items-center justify-between">
                     <h2 className="text-xl sm:text-2xl font-bold text-black">
                       My Account
                     </h2>
                     <button
                       onClick={toggleCart}
-                      className="text-black hover:text-gray-700 transition p-1"
+                      className="text-black hover:text-black-700 transition p-1"
                     >
                       <RiCloseLine className="text-xl sm:text-2xl" />
                     </button>
                   </div>
-                  <p className="text-gray-600 text-xs sm:text-sm mt-1">
+                  <p className="text-black-600 text-xs sm:text-sm mt-1">
                     Manage your account and preferences
                   </p>
                 </div>
@@ -472,28 +472,28 @@ const Navbar = ({ card }) => {
                       key={item.name}
                       to={item.path}
                       onClick={toggleCart}
-                      className="flex items-center gap-3 sm:gap-4 px-3 sm:px-4 py-2.5 sm:py-3 text-gray-800 hover:text-black hover:bg-gray-100 rounded-lg transition-all group"
+                      className="flex items-center gap-3 sm:gap-4 px-3 sm:px-4 py-2.5 sm:py-3 text-black-800 hover:text-black hover:bg-black-100 rounded-lg transition-all group"
                     >
-                      <div className="p-1.5 sm:p-2 rounded-lg  group-hover:bg-gray-200 transition-all">
+                      <div className="p-1.5 sm:p-2 rounded-lg  group-hover:bg-black-200 transition-all">
                         {React.createElement(item.icon, { className: "text-lg sm:text-xl" })}
                       </div>
                       <span className="text-base sm:text-lg ">{item.name}</span>
                       <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-500" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-black-500" />
                       </div>
                     </Link>
                   ))}
                 </div>
 
                 {/* FOOTER SECTION */}
-                <div className="p-4 sm:p-6 border-t border-gray-300">
+                <div className="p-4 sm:p-6 border-t border-black-300">
                   <div className="space-y-2 sm:space-y-3">
                     <button
                       onClick={() => {
                         toggleCart();
                         setShowModal(true);
                       }}
-                      className="w-full flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all group text-sm sm:text-base"
+                      className="w-full flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-black hover:bg-black-800 text-white rounded-lg font-medium transition-all group text-sm sm:text-base"
                     >
                       <RiLogoutBoxRLine className="text-lg sm:text-xl group-hover:rotate-180 transition-transform" />
                       <span>Sign Out</span>

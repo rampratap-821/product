@@ -8,18 +8,18 @@
 
 
 // const Home = ({card,setCard}) => {
-  
+
 //   return (
 //     <div >
-      
+
 // <SliderImage/>  
 //  <This_Season/>  
 //  <Video /> 
 //  <Our_Product card ={card} setCard = {setCard}/> 
 //   <Get_Glowing/>
 //     <PartnerTheShin/> 
-      
-    
+
+
 //     </div>
 
 //   )
@@ -37,21 +37,25 @@ import SliderImage from "../Home/SliderImage";
 import Our_Product from "../Home/Our_Product";
 import MyOurTeam from "../About/MyOurTeam"
 import TeamMembers from "../About/TeamMembers"
+import In_The_Spotlite from "../Home/In_The_Spotlite"
+import HeroSection from "../OurProduct/HeroSection";
+import PartnerTheShin from "../Home/PartnerTheShin"
 
 const Home = ({ card, setCard }) => {
   return (
     <div>
 
-     
-      
+
+
       <SliderImage />
       <This_Season />
       <Video />
       <Our_Product card={card} setCard={setCard} />
-  <MyOurTeam/>
-  <TeamMembers/>
+      <MyOurTeam />
+      <TeamMembers />
+      {/* <PartnerTheShin /> */}
       <Get_Glowing />
-     
+
 
     </div>
   );

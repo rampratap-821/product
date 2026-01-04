@@ -35,16 +35,12 @@ const MyOurTeam = () => {
         }`}
       >
         {/* Icon */}
-        <div className="flex justify-center mb-8">
-          <div className="p-6 rounded-full bg-pink-100 shadow-lg">
-            <FaUsers className="text-6xl text-black " />
-          </div>
-        </div>
+       
 
         {/* Heading with Whisper Effect */}
         <h1
           className="relative text-6xl sm:text-4xl font-bold
-         
+         text-pink-700
         "
         >
           MY OUR TEAM

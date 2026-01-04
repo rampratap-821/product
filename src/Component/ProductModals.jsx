@@ -36,16 +36,16 @@ const ProductModals = ({ onClose, category }) => {
         className="bg-white w-full max-w-6xl rounded-3xl shadow-2xl p-5 sm:p-8 overflow-y-auto max-h-[90vh]"
       >
         {/* Header with Gradient Title */}
-        <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-6">
+        <div className="flex justify-between items-center border-b border-black-200 pb-4 mb-6">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] bg-clip-text text-transparent">
-              ✨ Product Details
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-pink-700">
+               Product Details
             </h1>
-            <p className="text-sm text-gray-500 mt-1">Explore premium features & benefits</p>
+            <p className="text-sm text-black mt-1">Explore premium features & benefits</p>
           </div>
           <TiDeleteOutline
             onClick={onClose}
-            className="text-3xl sm:text-4xl cursor-pointer text-black hover:text-gray-700 transition-all duration-300"
+            className="text-3xl sm:text-4xl cursor-pointer text-black hover:text-black-700 transition-all duration-300"
           />
         </div>
 
@@ -56,7 +56,7 @@ const ProductModals = ({ onClose, category }) => {
           <div className="space-y-6">
             {/* Main Image Container */}
             <div className="relative">
-              <div className="relative h-64 sm:h-72 md:h-80 bg-white rounded-2xl flex items-center justify-center border-2 border-gray-200">
+              <div className="relative h-64 sm:h-72 md:h-80 bg-white rounded-2xl flex items-center justify-center border-2 border-black-200">
                 <img
                   src={images[currentIndex].src}
                   alt="product"
@@ -73,7 +73,7 @@ const ProductModals = ({ onClose, category }) => {
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
                         currentIndex === index 
                           ? 'w-8 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1]' 
-                          : 'bg-gray-300'
+                          : 'bg-black-300'
                       }`}
                     />
                   ))}
@@ -90,7 +90,7 @@ const ProductModals = ({ onClose, category }) => {
                   className={`min-w-[70px] cursor-pointer rounded-xl p-1 transition-all duration-300 ${
                     currentIndex === index
                       ? 'ring-2 ring-gradient-to-r from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]'
-                      : 'ring-1 ring-gray-200 hover:ring-gray-400'
+                      : 'ring-1 ring-black-200 hover:ring-black-400'
                   }`}
                 >
                   <img 
@@ -109,7 +109,7 @@ const ProductModals = ({ onClose, category }) => {
               <div key={item.id} className="space-y-4">
                 {/* Title with Gradient */}
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] bg-clip-text text-transparent">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-pink-700">
                     {item.title}
                   </h2>
                   
@@ -119,35 +119,31 @@ const ProductModals = ({ onClose, category }) => {
                       {[1, 2, 3, 4, 5].map(i => (
                         <FaStar 
                           key={i} 
-                          className="text-black" 
-                          size={16}
+                          className="text-[#FFD700]" 
+                          size={14}
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-600 font-medium">(40k reviews)</span>
-                    <span className="ml-auto text-sm bg-black text-white px-3 py-1 rounded-full">
-                      🔥 Best Seller
-                    </span>
+                    <span className="text-sm text-black font-medium">(40k reviews)</span>
+                    
                   </div>
                 </div>
 
                 {/* Price */}
                 <div className="flex items-center gap-4">
-                  <h3 className="text-3xl sm:text-4xl font-extrabold text-black">
-                    {item.price}
+                  <h3 className="text-2xl sm:text-2xl font-md text-black">
+                    ₹{item.price}
                   </h3>
-                  <span className="bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] text-white px-4 py-1 rounded-full font-bold text-sm">
-                    100% OFF
-                  </span>
+                 
                 </div>
 
                 {/* Description */}
-                <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                <div className="bg-black-50 p-4 rounded-2xl border border-black-200">
                   <h4 className="font-bold text-lg text-black mb-2 flex items-center gap-2">
                     <span className="w-2 h-2 bg-black rounded-full"></span>
                     Description
                   </h4>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-black-700 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -155,17 +151,17 @@ const ProductModals = ({ onClose, category }) => {
                 {/* Quantity Selector */}
                 <div className="flex items-center gap-4">
                   <span className="font-semibold text-black">Quantity :</span>
-                  <div className="flex items-center gap-3 border-2 border-gray-300 rounded-2xl px-4 py-2">
+                  <div className="flex items-center gap-3 border-2 border-black-300 rounded-2xl px-4 py-2">
                     <button 
                       onClick={decreaseQuantity}
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-black hover:bg-gray-200 transition-all"
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-black-100 text-black hover:bg-black-200 transition-all"
                     >
                       −
                     </button>
                     <span className="text-xl font-bold text-black w-8 text-center">{quantity}</span>
                     <button 
                       onClick={increaseQuantity}
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-black hover:bg-gray-200 transition-all"
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-black-100 text-black hover:bg-black-200 transition-all"
                     >
                       +
                     </button>
@@ -175,13 +171,13 @@ const ProductModals = ({ onClose, category }) => {
                 {/* Action Buttons */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Link 
-                    className="group bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-2xl font-bold text-center flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="group bg-black hover:bg-black-800 text-white px-6 py-3 rounded-2xl font-bold text-center flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <FaShoppingCart className="text-white" />
                     Add to Cart & Pay
                   </Link>
                   <Link 
-                    className="group bg-white border-2 border-black hover:bg-gray-50 text-black px-6 py-3 rounded-2xl font-bold text-center flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-300"
+                    className="group bg-white border-2 border-black hover:bg-black-50 text-black px-6 py-3 rounded-2xl font-bold text-center flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-300"
                   >
                     <FaHeart className="text-black" />
                     Add to Wishlist
@@ -189,7 +185,7 @@ const ProductModals = ({ onClose, category }) => {
                 </div>
 
                 {/* Secure Payment */}
-                <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                <div className="bg-black-50 p-4 rounded-2xl border border-black-200">
                   <div className="flex items-center justify-center gap-3 font-semibold text-black">
                     <div className="p-2 rounded-full bg-black text-white">
                       <FaLock className="text-white" />
@@ -198,33 +194,10 @@ const ProductModals = ({ onClose, category }) => {
                   </div>
                 </div>
 
-                {/* Features Grid */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-gray-50 p-3 rounded-xl border border-gray-200 text-center">
-                    <div className="text-sm font-bold text-black">🚚 Free Delivery</div>
-                    <div className="text-xs text-gray-600">On orders above $50</div>
-                  </div>
-                  <div className="bg-gray-50 p-3 rounded-xl border border-gray-200 text-center">
-                    <div className="text-sm font-bold text-black">↩️ 30-Day Return</div>
-                    <div className="text-xs text-gray-600">Easy returns policy</div>
-                  </div>
-                </div>
+               
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 pt-4">
-                  <span className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm border border-gray-300">
-                    #Premium
-                  </span>
-                  <span className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm border border-gray-300">
-                    #Organic
-                  </span>
-                  <span className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm border border-gray-300">
-                    #BestSeller
-                  </span>
-                  <span className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm border border-gray-300">
-                    #NewArrival
-                  </span>
-                </div>
+              
               </div>
             ))}
           </div>

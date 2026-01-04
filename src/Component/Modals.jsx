@@ -169,7 +169,7 @@ const Modals = (props) => {
                 {[...Array(isMobile ? 10 : 20)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-1 h-1 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-full"
+                        className="absolute w-1 h-1 bg-pink-700 rounded-full"
                         initial={{ 
                             x: Math.random() * window.innerWidth,
                             y: Math.random() * window.innerHeight,
@@ -238,121 +238,20 @@ const Modals = (props) => {
                             </div>
 
                             {/* Content Overlay */}
-                            <div className="relative z-10 h-full flex flex-col justify-between p-4 md:p-6 lg:p-8">
-                                {/* Top Content */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.2 }}
-                                    className="text-center lg:text-left"
-                                >
-                                    {/* Logo/Brand */}
-                                    <div className={`${isTablet ? 'w-12 h-12' : 'w-16 h-16'} mx-auto lg:mx-0 mb-4 relative`}>
-                                        <div className="absolute inset-0 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-2xl rotate-45"></div>
-                                        <div className="absolute inset-1 bg-white/10 backdrop-blur-sm rounded-2xl rotate-45 flex items-center justify-center">
-                                            <svg className={`${isTablet ? 'w-6 h-6' : 'w-8 h-8'} text-white rotate-315`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                    <h2 className={`${isTablet ? 'text-xl' : 'text-2xl lg:text-3xl'} font-bold mb-2 text-white`}>
-                                        {isRegister ? "Join Beauty World" : "Welcome Back"}
-                                    </h2>
-                                    
-                                    <p className={`text-white/80 mb-4 ${isTablet ? 'text-xs' : 'text-sm lg:text-base'}`}>
-                                        {isRegister 
-                                            ? "Discover premium cosmetics and exclusive offers"
-                                            : "Access your beauty profile and continue shopping"
-                                        }
-                                    </p>
-
-                                    {/* Image Indicators */}
-                                    <div className="flex justify-center lg:justify-start gap-1 mb-4">
-                                        {cosmeticImages.map((_, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => setCurrentImageIndex(index)}
-                                                className={`${isTablet ? 'w-1.5 h-1.5' : 'w-2 h-2'} rounded-full transition-all duration-300 ${
-                                                    currentImageIndex === index
-                                                        ? `${isTablet ? 'w-6' : 'w-8'} bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1]`
-                                                        : "bg-white/50 hover:bg-white"
-                                                }`}
-                                            />
-                                        ))}
-                                    </div>
-
-                                    {/* Featured Products - Hidden on tablet, show on desktop */}
-                                    {!isTablet && (
-                                        <div className="hidden lg:block space-y-3">
-                                            <div className="flex items-center gap-2 p-2 bg-white/5 backdrop-blur-sm rounded-lg">
-                                                <div className="w-8 h-8 bg-gradient-to-br from-[#ff7a8a] to-[#ffb3c1] rounded-lg flex items-center justify-center">
-                                                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                    </svg>
-                                                </div>
-                                                <div>
-                                                    <div className="text-white text-xs font-semibold">Premium Collection</div>
-                                                    <div className="text-white/60 text-xs">Explore luxury beauty</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="flex items-center gap-2 p-2 bg-white/5 backdrop-blur-sm rounded-lg">
-                                                <div className="w-8 h-8 bg-gradient-to-br from-[#ff8fa3] to-[#ffb3c1] rounded-lg flex items-center justify-center">
-                                                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                                                    </svg>
-                                                </div>
-                                                <div>
-                                                    <div className="text-white text-xs font-semibold">Free Shipping</div>
-                                                    <div className="text-white/60 text-xs">Orders above $50</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-                                </motion.div>
-
-                                {/* Bottom Stats */}
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.6 }}
-                                    className="mt-4 pt-4 border-t border-white/20"
-                                >
-                                    <div className="flex justify-around">
-                                        <div className="text-center">
-                                            <div className={`${isTablet ? 'text-lg' : 'text-xl'} font-bold text-white`}>5K+</div>
-                                            <div className="text-white/60 text-xs">Products</div>
-                                        </div>
-                                        <div className="text-center">
-                                            <div className={`${isTablet ? 'text-lg' : 'text-xl'} font-bold text-white`}>100%</div>
-                                            <div className="text-white/60 text-xs">Organic</div>
-                                        </div>
-                                        <div className="text-center">
-                                            <div className={`${isTablet ? 'text-lg' : 'text-xl'} font-bold text-white`}>4.9★</div>
-                                            <div className="text-white/60 text-xs">Rating</div>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            </div>
+                           
 
                             {/* Image Navigation Arrows */}
                             <button
                                 onClick={() => setCurrentImageIndex((prev) => (prev - 1 + cosmeticImages.length) % cosmeticImages.length)}
-                                className={`absolute left-2 top-1/2 transform -translate-y-1/2 ${isTablet ? 'w-8 h-8' : 'w-10 h-10'} bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors z-20`}
+                                className={`absolute left-2 top-1/2 transform -translate-y-1/2 ${isTablet ? 'w-8 h-8' : 'w-10 h-10'}  backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors z-20`}
                             >
-                                <svg className={`${isTablet ? 'w-4 h-4' : 'w-5 h-5'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
+                               
                             </button>
                             <button
                                 onClick={() => setCurrentImageIndex((prev) => (prev + 1) % cosmeticImages.length)}
-                                className={`absolute right-2 top-1/2 transform -translate-y-1/2 ${isTablet ? 'w-8 h-8' : 'w-10 h-10'} bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors z-20`}
+                                className={`absolute right-2 top-1/2 transform -translate-y-1/2 ${isTablet ? 'w-8 h-8' : 'w-10 h-10'} backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors z-20`}
                             >
-                                <svg className={`${isTablet ? 'w-4 h-4' : 'w-5 h-5'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
+                               
                             </button>
                         </div>
                     )}
@@ -387,19 +286,7 @@ const Modals = (props) => {
                         </div>
 
                         {/* Mobile Header (only shown on mobile) */}
-                        {isMobile && (
-                            <div className="text-center mb-4">
-                                <h2 className="text-xl font-bold text-white mb-1">
-                                    {isRegister ? "Join Beauty World" : "Welcome Back"}
-                                </h2>
-                                <p className="text-gray-300 text-sm">
-                                    {isRegister 
-                                        ? "Create your account" 
-                                        : "Sign in to continue"
-                                    }
-                                </p>
-                            </div>
-                        )}
+                       
 
                         {/* Animated Form Container */}
                         <AnimatePresence mode="wait">
