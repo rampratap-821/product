@@ -21,7 +21,7 @@ const Experience = () => {
   return (
     <div
       ref={ref}
-      className="w-full py-24 relative overflow-hidden bg-white"
+      className="w-full py-24 relative overflow-hidden bg-pink-100"
     >
       {/* Soft Pink Glow */}
       <div className="absolute inset-0 "></div>
@@ -38,7 +38,7 @@ const Experience = () => {
         {/* Heading with Whisper Effect */}
         <h1
           className="relative text-5xl sm:text-6xl font-extrabold
-        text-pink-700"
+        text-black"
         >
           Ready to Experience the Difference?
         </h1>

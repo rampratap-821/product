@@ -33,7 +33,7 @@ const WhyChooseUs = () => {
         {/* Heading with Whisper Effect */}
         <h1
           className={`relative text-4xl sm:text-4xl font-extrabold
-         text-pink-700
+         text-black
           transition-all duration-700 ease-out delay-150
           ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}`}
         >

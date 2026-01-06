@@ -142,18 +142,17 @@ const Navbar = ({ card }) => {
               </Link>
             ))}
 
-            {/* DROPDOWNS - DESKTOP */}
+            {/* FIXED DROPDOWNS - DESKTOP */}
             {Object.keys(dropdowns).map((key) => (
               <li
                 key={key}
-                className="relative        
-                relative text-black  tracking-wide text-base xl:text-lg
-                 "
+                className="relative"
                 onMouseEnter={() => setActiveDropdown(key)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <span className="cursor-pointer text-black hover:text-black-800 flex items-center gap-1 text-base xl:text-lg">
                   {key.charAt(0).toUpperCase() + key.slice(1)}
+                 
                 </span>
 
                 <AnimatePresence>
@@ -164,12 +163,15 @@ const Navbar = ({ card }) => {
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
                       className="absolute top-10 left-0 w-56 xl:w-64 bg-white border border-pink-50 shadow-lg rounded-lg overflow-hidden z-50"
+                      onMouseEnter={() => setActiveDropdown(key)} // Added: Keep dropdown open when hovering over it
+                      onMouseLeave={() => setActiveDropdown(null)} // Added: Close when leaving dropdown
                     >
                       {dropdowns[key].items.map((item, index) => (
                         <Link
                           key={index}
                           to="/products"
-                          className="flex items-center gap-3 px-4 py-3 text-black-800 hover:text-black hover:bg-black-100 transition-colors"
+                          className="flex items-center gap-3 px-4 py-3 text-black-800 hover:text-black hover:bg-pink-50 transition-colors"
+                          onClick={() => setActiveDropdown(null)} // Added: Close dropdown when clicking item
                         >
                           <span className="text-sm font-medium">{item}</span>
                         </Link>
@@ -192,13 +194,13 @@ const Navbar = ({ card }) => {
               <RiSearchLine className="text-xl sm:text-2xl" />
             </button>
 
-            {/* DESKTOP SEARCH */}
+            {/* FIXED DESKTOP SEARCH */}
             <div className="hidden lg:block relative w-48 xl:w-56 2xl:w-64">
               <input
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search cosmetics..."
-                className="w-full bg-black-50 text-black text-sm pl-10 pr-4 py-2 rounded-lg border border-black-300 focus:outline-none focus:border-black-500 focus:shadow-sm transition-all"
+                className="w-full bg-black-50 text-black text-sm pl-10 pr-4 py-2 rounded-lg border border-black-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:shadow-lg transition-all"
               />
               <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-black-600" />
               {searchQuery && (
@@ -250,7 +252,7 @@ const Navbar = ({ card }) => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search cosmetics..."
-                  className="w-full bg-black-50 text-black pl-10 pr-4 py-2 sm:py-2.5 rounded-lg border border-black-300 focus:outline-none focus:border-black-500 text-sm sm:text-base"
+                  className="w-full bg-black-50 text-black pl-10 pr-4 py-2 sm:py-2.5 rounded-lg border border-black-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:shadow-lg text-sm sm:text-base"
                 />
                 <RiSearchLine className="absolute left-3 top-1/2 -translate-y-1/2 text-black-600" />
                 <button
@@ -444,7 +446,7 @@ const Navbar = ({ card }) => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed right-0 top-0 h-full  w-80 sm:w-96 md:w-96 lg:w-96 xl:w-96 bg-white z-50 border-l border-black-300 shadow-lg overflow-y-auto"
+              className="fixed right-0 top-0 h-full  w-80 sm:w-80 md:w-80 lg:w-96 xl:w-80 bg-white z-50 border-l border-black-300 shadow-lg overflow-y-auto"
             >
               <div className="h-full flex flex-col">
                 {/* HEADER */}

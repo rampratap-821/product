@@ -87,7 +87,7 @@ const MyAccount = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Header */}
         <div className='mb-8 animate-fadeIn'>
-          <h1 className='text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] bg-clip-text text-transparent'>
+          <h1 className='text-3xl md:text-4xl font-bold text-pink-700'>
             My Account
           </h1>
           <p className='text-black mt-3 max-w-3xl font-medium'>
@@ -101,7 +101,7 @@ const MyAccount = () => {
           <div className='lg:w-1/4'>
             <div className='bg-white rounded-2xl shadow-xl border border-[#ffebee] p-6'>
               <div className='flex items-center gap-3 mb-6 pb-6 border-b border-[#ffebee]'>
-                <div className='w-12 h-12 rounded-full bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] flex items-center justify-center'>
+                <div className='w-12 h-12 rounded-full bg-black flex items-center justify-center'>
                   <PiUserCircle className='text-2xl text-white' />
                 </div>
                 <div>
@@ -123,7 +123,7 @@ const MyAccount = () => {
                     onClick={() => setShow(item.id)}
                     className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all duration-300 ${
                       show === item.id 
-                        ? 'bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] text-white shadow-lg transform scale-[1.02]' 
+                        ? 'bg-pink-700 text-white shadow-lg transform scale-[1.02]' 
                         : 'text-black hover:bg-[#fff5f7] hover:shadow-md'
                     }`}
                   >
@@ -135,7 +135,7 @@ const MyAccount = () => {
                 ))}
                 
                 <button className='w-full flex items-center gap-3 p-3 rounded-xl text-black hover:bg-red-50 hover:text-red-600 transition-all duration-300 mt-4 hover:shadow-md'>
-                  <span className='text-lg text-black'><IoMdLogOut className="text-black" /></span>
+                  <span className='text-lg text-black'><IoMdLogOut className="text-pink-700" /></span>
                   <span className='font-semibold'>Logout</span>
                 </button>
               </nav>
@@ -302,7 +302,7 @@ const MyAccount = () => {
                 <div className='bg-white rounded-2xl shadow-xl border border-[#ffebee] p-6'>
                   <div className='flex justify-between items-center mb-6'>
                     <h2 className='text-2xl font-bold text-black'>Addresses</h2>
-                    <button className='flex items-center gap-2 px-5 py-3 bg-black text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold hover:scale-[1.02]'>
+                    <button className='flex items-center gap-2 px-2 py-3 bg-black text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold hover:scale-[1.02]'>
                       <FaPlus className='text-white' />
                       Add New Address
                     </button>

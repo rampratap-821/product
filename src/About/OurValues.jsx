@@ -62,7 +62,7 @@ const OurValues = () => {
         className={`text-center mb-16 transition-all duration-700 ease-out
         ${showHeading ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-16"}`}
       >
-        <h1 className="text-4xl sm:text-4xl font-extrabold text-pink-700 tracking-wide">
+        <h1 className="text-4xl sm:text-4xl font-extrabold text-black tracking-wide">
           OUR VALUES
         </h1>
       </div>
@@ -90,16 +90,16 @@ const OurValues = () => {
             `}
           >
             {/* ICON */}
-            <div className="text-4xl text-black flex-shrink-0">
+            <div className="text-4xl text-pink-700 flex-shrink-0">
               {item.icon}
             </div>
 
             {/* TEXT */}
             <div>
-              <h2 className="text-xl font-extrabold text-black">
+              <h2 className="text-xl font-extrabold text-pink-700">
                 {item.title}
               </h2>
-              <p className="text-sm text-gray-600 font-medium">
+              <p className="text-sm text-pink-700 font-medium">
                 {item.desc}
               </p>
             </div>

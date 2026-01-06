@@ -40,7 +40,7 @@ const MyOurTeam = () => {
         {/* Heading with Whisper Effect */}
         <h1
           className="relative text-6xl sm:text-4xl font-bold
-         text-pink-700
+         text-black
         "
         >
           MY OUR TEAM

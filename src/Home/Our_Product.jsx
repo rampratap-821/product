@@ -112,12 +112,14 @@ const Our_Product = ({ card, setCard }) => {
                 <h1 className="text-lg font-semibold text-black transform transition-transform duration-500 group-hover:scale-105">
                   {item.title}
                 </h1>
+                <div className="flex justify-between px-10">
                 <p className="text-yellow-500 text-sm transform transition-transform duration-500 group-hover:scale-110">
-                  ★★★★★
+                 Rating ★★★★★
                 </p>
-                <p className="text-black font-bold mt-1 transform transition-transform duration-500 group-hover:scale-110">
+                <p className="text-black font-semibold  transform transition-transform duration-500 group-hover:scale-110">
                   ₹ {item.price}
                 </p>
+                </div>
               </div>
 
               {/* ADD TO CART BUTTON - No bounce animation */}
@@ -155,6 +157,7 @@ const Our_Product = ({ card, setCard }) => {
         <ProductModals
           onClose={() => setShow(false)}
           category={category}
+          card={card} setCard={ setCard}
         />
       )}
     </>

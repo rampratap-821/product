@@ -71,16 +71,16 @@ const WhyChooseUs2 = () => {
             `}
           >
             {/* ICON */}
-            <div className="text-4xl text-black flex-shrink-0">
+            <div className="text-4xl text-pink-700 flex-shrink-0">
               {item.icon}
             </div>
 
             {/* TEXT */}
             <div>
-              <h2 className="text-xl font-extrabold text-black">
+              <h2 className="text-xl font-extrabold text-pink-700">
                 {item.title}
               </h2>
-              <p className="text-sm text-black/70 mt-1">
+              <p className="text-sm text-pink-700/70 mt-1">
                 {item.desc}
               </p>
             </div>

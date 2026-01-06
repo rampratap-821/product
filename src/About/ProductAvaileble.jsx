@@ -58,16 +58,16 @@ const ProductAvaileble = () => {
               `}
             >
               {/* ICON */}
-              <div className="text-4xl text-black flex-shrink-0">
+              <div className="text-4xl text-pink-700 flex-shrink-0">
                 {item.icon}
               </div>
 
               {/* TEXT */}
               <div>
-                <h1 className="text-3xl font-extrabold text-black leading-tight">
+                <h1 className="text-3xl font-extrabold text-pink-700 leading-tight">
                   {item.count}
                 </h1>
-                <h2 className="text-sm text-black font-semibold tracking-widest">
+                <h2 className="text-sm text-pink-700 font-semibold tracking-widest">
                   {item.label}
                 </h2>
               </div>

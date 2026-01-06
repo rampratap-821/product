@@ -336,7 +336,7 @@ const This_Season = () => {
                     </h3>
 
                     <Link
-                      to={`/category/${item.category}`}
+                      to={`/payment`}
                       className="inline-block w-full py-3 text-sm md:text-base font-bold
                       text-white bg-pink-700 rounded-lg
                       hover:bg-pink-800 transition-all duration-300
@@ -376,14 +376,33 @@ const This_Season = () => {
 
         {/* VIEW ALL BUTTON */}
         <div className="text-center mt-10">
-          <Link
-            to="/categories"
-            className="inline-block px-6 md:px-8 py-3 text-base md:text-lg font-semibold
-            text-black border-2 border-black rounded-xl
-            hover:bg-black hover:text-white  transition-all duration-300"
-          >
-            View All Categories
-          </Link>
+         <Link
+  className="
+    inline-block 
+    px-6 
+    md:px-8 
+    py-3 
+    text-base 
+    md:text-lg 
+    font-semibold
+    text-black 
+    border-2 
+    border-black 
+    rounded-xl
+    transition-all 
+    duration-500
+    ease-[cubic-bezier(0.4,0,0.2,1)]
+    hover:bg-black 
+    hover:text-white
+   
+   
+   
+   
+    active:translate-y-0
+  "
+>
+  View All Categories
+</Link>
         </div>
       </div>
     </section>

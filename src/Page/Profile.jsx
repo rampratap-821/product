@@ -3,7 +3,7 @@ import {
   FaBell, FaCamera, FaEdit, FaEye, FaLockOpen, FaPlus, FaSave, 
   FaShoppingCart, FaTractor, FaHeart, FaHome, FaPumpSoap, 
   FaHeadphones, FaWallet, FaMugHot, FaDumbbell, FaClock,
-  FaEdit as FaEditIcon, FaTrash
+  FaEdit as FaEditIcon, FaTrash, FaRegSmile, FaRegLaughSquint
 } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { SiShopify } from "react-icons/si";
@@ -11,7 +11,7 @@ import { FaCcAmazonPay, FaMoneyBill1, FaLocationDot } from "react-icons/fa6";
 import { AiFillSecurityScan } from "react-icons/ai";
 import { IoSettings, IoLogOutSharp, IoShareSocial } from "react-icons/io5";
 import { FaLock } from "react-icons/fa";
-import { MdCancel, MdEmojiEmotions } from "react-icons/md";
+import { MdCancel } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
 import { CiShop } from "react-icons/ci";
 import { MdShoppingCart } from "react-icons/md";
@@ -34,12 +34,12 @@ const Profile = () => {
     const [activeTab, setActiveTab] = useState(1)
 
     const [wishlist, setWishlist] = useState([
-        { id: 1, name: "Radiant Glow Serum", category: "Face & Skin Care", price: 1899, rating: 4.5, reviews: 128, icon: <FaPumpSoap className="text-pink-500" /> },
-        { id: 2, name: "Wireless Earbuds", category: "Electronics", price: 3499, rating: 4.7, reviews: 256, icon: <FaHeadphones className="text-blue-500" /> },
-        { id: 3, name: "Leather Wallet", category: "Accessories", price: 2499, rating: 4.8, reviews: 89, icon: <FaWallet className="text-amber-500" /> },
-        { id: 4, name: "Organic Green Tea", category: "Food", price: 499, rating: 4.3, reviews: 312, icon: <FaMugHot className="text-green-500" /> },
-        { id: 5, name: "Yoga Mat", category: "Fitness", price: 1599, rating: 4.6, reviews: 178, icon: <FaDumbbell className="text-purple-500" /> },
-        { id: 6, name: "Smart Watch", category: "Electronics", price: 8999, rating: 4.4, reviews: 432, icon: <FaClock className="text-cyan-500" /> }
+        { id: 1, name: "Radiant Glow Serum", category: "Face & Skin Care", price: 1899, rating: 4.5, reviews: 128, icon: <FaPumpSoap className="text-black" /> },
+        { id: 2, name: "Wireless Earbuds", category: "Electronics", price: 3499, rating: 4.7, reviews: 256, icon: <FaHeadphones className="text-black" /> },
+        { id: 3, name: "Leather Wallet", category: "Accessories", price: 2499, rating: 4.8, reviews: 89, icon: <FaWallet className="text-black" /> },
+        { id: 4, name: "Organic Green Tea", category: "Food", price: 499, rating: 4.3, reviews: 312, icon: <FaMugHot className="text-black" /> },
+        { id: 5, name: "Yoga Mat", category: "Fitness", price: 1599, rating: 4.6, reviews: 178, icon: <FaDumbbell className="text-black" /> },
+        { id: 6, name: "Smart Watch", category: "Electronics", price: 8999, rating: 4.4, reviews: 432, icon: <FaClock className="text-black" /> }
     ]);
 
     const [orders] = useState([
@@ -119,7 +119,7 @@ const Profile = () => {
                 <div className='flex flex-col lg:flex-row gap-6 animate-fadeIn'>
                     {/* Sidebar - Left */}
                     <div className='lg:w-1/4'>
-                        <div className='bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300'>
+                        <div className='bg-white border border-black/20 rounded-2xl p-6  hover:shadow-2xl transition-all duration-300'>
                             {/* Profile Info */}
                             <div className='flex flex-col items-center py-5 border-b border-white/30 mb-6'>
                                 <div className='relative mb-4 group'>
@@ -131,7 +131,7 @@ const Profile = () => {
                                         />
                                     </div>
                                     <button className='absolute bottom-2 right-2 bg-black text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform duration-300'>
-                                        <FaCamera size={14} />
+                                        <FaCamera size={14} className="text-white" />
                                     </button>
                                 </div>
                                 <h2 className='text-xl font-bold text-black mb-1'>{tempName}</h2>
@@ -147,13 +147,13 @@ const Profile = () => {
                             {/* Navigation */}
                             <nav className='space-y-2'>
                                 {[
-                                    { id: 1, icon: <CgProfile />, label: "Profile Info" },
-                                    { id: 2, icon: <SiShopify />, label: "My Orders" },
-                                    { id: 3, icon: <FaHeart />, label: "Wishlist" },
-                                    { id: 4, icon: <FaHome />, label: "Address" },
-                                    { id: 5, icon: <FaCcAmazonPay />, label: "Payment" },
-                                    { id: 6, icon: <AiFillSecurityScan />, label: "Security" },
-                                    { id: 7, icon: <IoSettings />, label: "Settings" }
+                                    { id: 1, icon: <CgProfile className="text-black" />, label: "Profile Info" },
+                                    { id: 2, icon: <SiShopify className="text-black" />, label: "My Orders" },
+                                    { id: 3, icon: <FaHeart className="text-black" />, label: "Wishlist" },
+                                    { id: 4, icon: <FaHome className="text-black" />, label: "Address" },
+                                    { id: 5, icon: <FaCcAmazonPay className="text-black" />, label: "Payment" },
+                                    { id: 6, icon: <AiFillSecurityScan className="text-black" />, label: "Security" },
+                                    { id: 7, icon: <IoSettings className="text-black" />, label: "Settings" }
                                 ].map((item) => (
                                     <button
                                         key={item.id}
@@ -178,7 +178,7 @@ const Profile = () => {
                                 
                                 <button className='flex items-center w-full p-3 rounded-xl text-black hover:bg-white/50 transition-all duration-300 hover:shadow-md group mt-4'>
                                     <span className='text-lg mr-3 group-hover:scale-110 transition-transform duration-300'>
-                                        <IoLogOutSharp />
+                                        <IoLogOutSharp className="text-black" />
                                     </span>
                                     <span className='font-medium'>Logout</span>
                                 </button>
@@ -194,14 +194,14 @@ const Profile = () => {
                                 {/* Stats Cards */}
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                                     {[
-                                        { icon: <FaLock className="text-black text-xl" />, value: orders.length, label: "Total Orders", color: "from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]" },
-                                        { icon: <MdEmojiEmotions className="text-black text-xl" />, value: wishlist.length, label: "Wishlist Items", color: "from-[#ff8fa3] via-[#ffa3b5] to-[#ffb3c1]" },
-                                        { icon: <FaLocationDot className="text-black text-xl" />, value: "1,250", label: "Loyalty Points", color: "from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]" },
-                                        { icon: <TbTruckDelivery className="text-black text-xl" />, value: "₹8,450", label: "Money Saved", color: "from-[#ff8fa3] via-[#ffa3b5] to-[#ffb3c1]" }
+                                        { icon: <FaLock className="text-black text-xl" />, value: orders.length, label: "Total Orders", color: "" },
+                                        { icon: <FaRegSmile className="text-black text-xl" />, value: wishlist.length, label: "Wishlist Items", color: "" },
+                                        { icon: <FaLocationDot className="text-black text-xl" />, value: "1,250", label: "Loyalty Points", color: "" },
+                                        { icon: <TbTruckDelivery className="text-black text-xl" />, value: "₹8,450", label: "Money Saved", color: "" }
                                     ].map((stat, index) => (
                                         <div 
                                             key={index} 
-                                            className={`bg-gradient-to-br ${stat.color} rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
+                                            className={`bg-gradient-to-br ${stat.color} rounded-2xl p-5 shadow-lg hover:shadow-xl border border-black/20 transition-all duration-300 hover:-translate-y-1`}
                                         >
                                             <div className="text-black mb-3 flex justify-center">{stat.icon}</div>
                                             <h3 className="text-2xl font-bold text-black mb-1 text-center">{stat.value}</h3>
@@ -219,23 +219,23 @@ const Profile = () => {
                                                 <>
                                                     <button
                                                         onClick={handleEditSave}
-                                                        className='flex items-center gap-2 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] text-black px-4 py-2.5 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'
+                                                        className='flex items-center gap-2 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 text-black px-4 py-2.5 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'
                                                     >
-                                                        <FaSave /> Save Changes
+                                                        <FaSave className="text-black" /> Save Changes
                                                     </button>
                                                     <button
                                                         onClick={handleCancel}
                                                         className='flex items-center gap-2 bg-black-200 text-black-800 px-4 py-2.5 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'
                                                     >
-                                                        <MdCancel /> Cancel
+                                                        <MdCancel className="text-black" /> Cancel
                                                     </button>
                                                 </>
                                             ) : (
                                                 <button
                                                     onClick={() => setIsEditing(true)}
-                                                    className='flex items-center gap-2 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] text-black px-4 py-2.5 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'
+                                                    className='flex items-center gap-2 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 text-black px-4 py-2.5 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'
                                                 >
-                                                    <FaEdit /> Edit Profile
+                                                    <FaEdit className="text-black" /> Edit Profile
                                                 </button>
                                             )}
                                         </div>
@@ -243,15 +243,15 @@ const Profile = () => {
 
                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-6'>
                                         {[
-                                            { label: "Full Name", value: tempName, setValue: setTempName, icon: <CgProfile className="text-black-600" /> },
-                                            { label: "Phone Number", value: tempPhone, setValue: setTempPhone, icon: <GiRotaryPhone className="text-black-600" /> },
-                                            { label: "Email Address", value: email, icon: <RiMailAddFill className="text-black-600" />, disabled: true },
-                                            { label: "Member Since", value: memberSince, icon: <SlCalender className="text-black-600" />, disabled: true }
+                                            { label: "Full Name", value: tempName, setValue: setTempName, icon: <CgProfile className="text-black" /> },
+                                            { label: "Phone Number", value: tempPhone, setValue: setTempPhone, icon: <GiRotaryPhone className="text-black" /> },
+                                            { label: "Email Address", value: email, icon: <RiMailAddFill className="text-black" />, disabled: true },
+                                            { label: "Member Since", value: memberSince, icon: <SlCalender className="text-black" />, disabled: true }
                                         ].map((field, index) => (
                                             <div key={index} className='space-y-2 transition-all duration-300 hover:scale-[1.01]'>
                                                 <label className='text-black-700 font-medium'>{field.label}</label>
                                                 <div className={`flex items-center bg-black-50 rounded-xl p-3 border ${
-                                                    isEditing && !field.disabled ? 'border-[#ff7a8a]' : 'border-black-300'
+                                                    isEditing && !field.disabled ? 'border-pink-700' : 'border-black-300'
                                                 } transition-all duration-300`}>
                                                     <span className='mr-3'>{field.icon}</span>
                                                     <input
@@ -269,7 +269,7 @@ const Profile = () => {
                                     <div className='space-y-2 transition-all duration-300 hover:scale-[1.01]'>
                                         <label className='text-black-700 font-medium'>Delivery Address</label>
                                         <div className={`bg-black-50 rounded-xl p-3 border ${
-                                            isEditing ? 'border-[#ff7a8a]' : 'border-black-300'
+                                            isEditing ? 'border-pink-700' : 'border-black-300'
                                         } transition-all duration-300`}>
                                             <Textarea
                                                 value={tempAddress}
@@ -290,19 +290,19 @@ const Profile = () => {
                                 <div className='bg-white rounded-2xl shadow-lg border border-black-200 p-6 hover:shadow-xl transition-all duration-300'>
                                     <div className='flex flex-col md:flex-row justify-between items-start md:items-center mb-6'>
                                         <h2 className='text-2xl font-bold text-black-900 mb-4 md:mb-0'>My Orders</h2>
-                                        <div className='px-4 py-2 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] rounded-full'>
+                                        <div className='px-4 py-2 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 rounded-full'>
                                             <span className='text-black font-medium'>Total Orders: {orders.length}</span>
                                         </div>
                                     </div>
 
                                     <div className='space-y-4'>
                                         {orders.map((order) => (
-                                            <div key={order.id} className='bg-black-50 rounded-xl p-5 border border-black-300 hover:border-[#ff7a8a] hover:shadow-md transition-all duration-300'>
+                                            <div key={order.id} className='bg-black-50 rounded-xl p-5 border border-black-300 hover:border-pink-700 hover:shadow-md transition-all duration-300'>
                                                 <div className='flex flex-col md:flex-row justify-between mb-4'>
                                                     <div>
                                                         <h3 className='text-lg font-bold text-black-900'>Order #{order.id.toString().padStart(6, '0')}</h3>
                                                         <p className='text-black-600 text-sm flex items-center mt-1'>
-                                                            <CiShop className='mr-2' /> Placed on {order.date}
+                                                            <CiShop className='mr-2 text-black' /> Placed on {order.date}
                                                         </p>
                                                     </div>
                                                     <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(order.status)} mt-2 md:mt-0`}>
@@ -314,8 +314,14 @@ const Profile = () => {
                                                     <h4 className='text-black-700 text-sm mb-2'>Products:</h4>
                                                     <div className='flex flex-wrap gap-2'>
                                                         {["Lipstick", "Sneakers", "T-Shirt", "Headphones", "Phone Case"].slice(0, order.items).map((item, idx) => (
-                                                            <div key={idx} className='flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-black-300 hover:border-[#ff7a8a] hover:scale-105 transition-all duration-200'>
-                                                                <span className='text-black-600'>{idx === 0 ? '💄' : idx === 1 ? '👟' : idx === 2 ? '👕' : idx === 3 ? '🎧' : '📱'}</span>
+                                                            <div key={idx} className='flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-black-300 hover:border-pink-700 hover:scale-105 transition-all duration-200'>
+                                                                <span className='text-black'>
+                                                                    {idx === 0 ? <FaRegLaughSquint className="text-black" /> : 
+                                                                     idx === 1 ? <FaShoppingCart className="text-black" /> : 
+                                                                     idx === 2 ? <FaShoppingCart className="text-black" /> : 
+                                                                     idx === 3 ? <FaHeadphones className="text-black" /> : 
+                                                                     <FaHeadphones className="text-black" />}
+                                                                </span>
                                                                 <span className='text-sm font-medium'>{item}</span>
                                                             </div>
                                                         ))}
@@ -324,19 +330,19 @@ const Profile = () => {
 
                                                 <div className='grid grid-cols-2 md:grid-cols-5 gap-4 pt-4 border-t border-black-300 text-sm'>
                                                     <div className='flex items-center text-black-700'>
-                                                        <CiShop className='mr-2' /> <span>Items: {order.items}</span>
+                                                        <CiShop className='mr-2 text-black' /> <span>Items: {order.items}</span>
                                                     </div>
                                                     <div className='flex items-center text-black-700'>
-                                                        <FaMoneyBill1 className='mr-2' /> <span>Total: ₹{order.total.toLocaleString()}</span>
+                                                        <FaMoneyBill1 className='mr-2 text-black' /> <span>Total: ₹{order.total.toLocaleString()}</span>
                                                     </div>
                                                     <div className='flex items-center text-black-700'>
-                                                        <FaTractor className='mr-2' /> <span>Track</span>
+                                                        <FaTractor className='mr-2 text-black' /> <span>Track</span>
                                                     </div>
                                                     <div className='flex items-center text-black-700'>
-                                                        <FaEye className='mr-2' /> <button className='hover:text-[#ff7a8a] transition-colors'>Details</button>
+                                                        <FaEye className='mr-2 text-black' /> <button className='hover:text-pink-700 transition-colors'>Details</button>
                                                     </div>
                                                     <div className='flex items-center text-black-700'>
-                                                        <CiShop className='mr-2' /> <button className='hover:text-[#ff7a8a] transition-colors'>Reorder</button>
+                                                        <CiShop className='mr-2 text-black' /> <button className='hover:text-pink-700 transition-colors'>Reorder</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -352,19 +358,19 @@ const Profile = () => {
                                 <div className='bg-white rounded-2xl shadow-lg border border-black-200 p-6 hover:shadow-xl transition-all duration-300'>
                                     <div className='flex flex-col md:flex-row justify-between items-start md:items-center mb-6'>
                                         <h2 className='text-2xl font-bold text-black-900 mb-4 md:mb-0'>My Wishlist</h2>
-                                        <div className='px-4 py-2 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] rounded-full'>
+                                        <div className='px-4 py-2 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 rounded-full'>
                                             <span className='text-black font-medium'>Items: {wishlist.length}</span>
                                         </div>
                                     </div>
 
                                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                                         {wishlist.map((item) => (
-                                            <div key={item.id} className='bg-white rounded-xl p-4 border border-black-300 hover:border-[#ff7a8a] hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group'>
+                                            <div key={item.id} className='bg-white rounded-xl p-4 border border-black-300 hover:border-pink-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group'>
                                                 <div className='text-center mb-4'>
                                                     <div className='flex justify-center mb-3 text-3xl'>
                                                         {item.icon}
                                                     </div>
-                                                    <h3 className='font-bold text-black-900 group-hover:text-[#ff7a8a] transition-colors duration-300'>{item.name}</h3>
+                                                    <h3 className='font-bold text-black-900 group-hover:text-pink-700 transition-colors duration-300'>{item.name}</h3>
                                                     <p className='text-black-600 text-sm mt-1'>{item.category}</p>
                                                 </div>
                                                 
@@ -385,14 +391,14 @@ const Profile = () => {
                                                         className='p-2 hover:text-red-600 transition-colors duration-300 hover:scale-110'
                                                         title='Remove from wishlist'
                                                     >
-                                                        <RiDeleteBin5Fill className='text-black-600' />
+                                                        <RiDeleteBin5Fill className='text-black' />
                                                     </button>
-                                                    <button className='flex items-center gap-2 px-3 py-2 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] rounded-lg hover:shadow-md transition-all duration-300 hover:scale-105'>
+                                                    <button className='flex items-center gap-2 px-3 py-2 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 rounded-lg hover:shadow-md transition-all duration-300 hover:scale-105'>
                                                         <MdShoppingCart className="text-black" />
                                                         <span className='text-black font-medium text-sm'>Add to Cart</span>
                                                     </button>
                                                     <button className='p-2 hover:text-blue-600 transition-colors duration-300 hover:scale-110' title='Share'>
-                                                        <IoShareSocial className='text-black-600' />
+                                                        <IoShareSocial className='text-black' />
                                                     </button>
                                                 </div>
                                             </div>
@@ -408,7 +414,7 @@ const Profile = () => {
                                 <div className='bg-white rounded-2xl shadow-lg border border-black-200 p-6 hover:shadow-xl transition-all duration-300'>
                                     <div className='flex flex-col md:flex-row justify-between items-start md:items-center mb-6'>
                                         <h2 className='text-2xl font-bold text-black-900 mb-4 md:mb-0'>My Addresses</h2>
-                                        <button className='flex items-center gap-2 px-4 py-2.5 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'>
+                                        <button className='flex items-center gap-2 px-4 py-2.5 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'>
                                             <FaPlus className="text-black" /> Add New Address
                                         </button>
                                     </div>
@@ -418,33 +424,33 @@ const Profile = () => {
                                             <div 
                                                 key={addr.id} 
                                                 className={`bg-white rounded-xl p-5 border ${
-                                                    addr.isDefault ? 'border-[#ff7a8a] shadow-md' : 'border-black-300'
-                                                } hover:border-[#ff7a8a] hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}
+                                                    addr.isDefault ? 'border-pink-700 shadow-md' : 'border-black-300'
+                                                } hover:border-pink-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}
                                             >
                                                 <div className='flex justify-between items-start mb-4'>
                                                     <div className='flex items-center gap-3'>
                                                         <div className={`p-3 rounded-lg ${
-                                                            addr.isDefault ? 'bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1]' : 'bg-black-100'
+                                                            addr.isDefault ? 'bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700' : 'bg-black-100'
                                                         } transition-all duration-300`}>
-                                                            <FaHome className={addr.isDefault ? 'text-black' : 'text-black-600'} />
+                                                            <FaHome className="text-black" />
                                                         </div>
                                                         <div>
                                                             <h3 className='font-bold text-black-900'>{addr.type}</h3>
                                                             {addr.isDefault && (
-                                                                <span className='px-3 py-1 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] text-black text-sm rounded-full mt-2 inline-block'>Default</span>
+                                                                <span className='px-3 py-1 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 text-black text-sm rounded-full mt-2 inline-block'>Default</span>
                                                             )}
                                                         </div>
                                                     </div>
                                                     <div className='flex gap-2'>
                                                         <button className='p-2 hover:text-blue-600 transition-colors duration-300 hover:scale-110' title='Edit address'>
-                                                            <FaEditIcon className="text-black-600" />
+                                                            <FaEditIcon className="text-black" />
                                                         </button>
                                                         <button 
                                                             onClick={() => deleteAddress(addr.id)}
                                                             className='p-2 hover:text-red-600 transition-colors duration-300 hover:scale-110'
                                                             title='Delete address'
                                                         >
-                                                            <FaTrash className="text-black-600" />
+                                                            <FaTrash className="text-black" />
                                                         </button>
                                                     </div>
                                                 </div>
@@ -452,7 +458,7 @@ const Profile = () => {
                                                 {!addr.isDefault && (
                                                     <button 
                                                         onClick={() => setDefaultAddress(addr.id)}
-                                                        className='mt-4 text-sm text-black-600 hover:text-[#ff7a8a] transition-colors duration-300 hover:scale-105 inline-block'
+                                                        className='mt-4 text-sm text-black-600 hover:text-pink-700 transition-colors duration-300 hover:scale-105 inline-block'
                                                     >
                                                         Set as default →
                                                     </button>
@@ -469,7 +475,7 @@ const Profile = () => {
                             <div className='animate-slideIn'>
                                 <div className='bg-white rounded-2xl shadow-lg border border-black-200 p-8 text-center hover:shadow-xl transition-all duration-300'>
                                     <div className='max-w-md mx-auto'>
-                                        <div className='w-20 h-20 rounded-full bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] flex items-center justify-center mx-auto mb-6 animate-pulse'>
+                                        <div className='w-20 h-20 rounded-full bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 flex items-center justify-center mx-auto mb-6 animate-pulse'>
                                             {show === 5 && <FaCcAmazonPay className='text-3xl text-black' />}
                                             {show === 6 && <FaLockOpen className='text-3xl text-black' />}
                                             {show === 7 && <IoSettingsSharp className='text-3xl text-black' />}
@@ -482,7 +488,7 @@ const Profile = () => {
                                         <p className='text-black-600 mb-6'>
                                             This section is under development and will be available soon with exciting features!
                                         </p>
-                                        <button className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'>
+                                        <button className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-pink-700 via-pink-700 to-pink-700 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105'>
                                             <FaBell className="text-black" />
                                             <span className='text-black font-medium'>Notify Me When Ready</span>
                                         </button>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -160,7 +159,11 @@ const Modals = (props) => {
     }, [isMobile]);
 
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center z-50 p-2 sm:p-4 md:p-6"
             onClick={handleClick}
         >
@@ -189,30 +192,17 @@ const Modals = (props) => {
                 ))}
             </div>
 
-            {/* Glowing Orbs - Smaller on mobile */}
-            <div className="absolute inset-0">
-                <motion.div
-                    className={`absolute top-1/4 left-1/4 ${isMobile ? 'w-48 h-48' : 'w-96 h-96'} rounded-full bg-gradient-to-r from-[#ff7a8a]/20 to-[#ffb3c1]/10 blur-3xl`}
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                />
-                <motion.div
-                    className={`absolute bottom-1/4 right-1/4 ${isMobile ? 'w-48 h-48' : 'w-96 h-96'} rounded-full bg-gradient-to-r from-[#ffb3c1]/20 to-[#ff7a8a]/10 blur-3xl`}
-                    animate={{ scale: [1.2, 1, 1.2] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                />
-            </div>
-
             {/* Main Modal */}
             <motion.div
                 initial={{ scale: 0, rotate: isMobile ? 0 : -180 }}
                 animate={{ scale: 1, rotate: 0 }}
+                exit={{ scale: 0, rotate: isMobile ? 0 : 180 }}
                 transition={{ type: "spring", damping: 20 }}
                 className="relative w-full max-w-4xl mx-auto"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Dual Panel Layout - Stack on mobile, side by side on tablet/desktop */}
-                <div className={`flex ${isMobile ? 'flex-col h-[90vh]' : 'flex-col lg:flex-row'} bg-black/50 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl max-h-[90vh] md:max-h-[85vh]`}>
+                <div className={`flex ${isMobile ? 'flex-col h-[90vh]' : 'flex-col lg:flex-row'} bg-black/50 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10  max-h-[90vh] md:max-h-[85vh]`}>
                     
                     {/* Left Panel - Cosmetic Image Gallery - Hidden on very small mobile, show on tablet+ */}
                     {!isMobile && (
@@ -236,23 +226,6 @@ const Modals = (props) => {
                                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
                                 </motion.div>
                             </div>
-
-                            {/* Content Overlay */}
-                           
-
-                            {/* Image Navigation Arrows */}
-                            <button
-                                onClick={() => setCurrentImageIndex((prev) => (prev - 1 + cosmeticImages.length) % cosmeticImages.length)}
-                                className={`absolute left-2 top-1/2 transform -translate-y-1/2 ${isTablet ? 'w-8 h-8' : 'w-10 h-10'}  backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors z-20`}
-                            >
-                               
-                            </button>
-                            <button
-                                onClick={() => setCurrentImageIndex((prev) => (prev + 1) % cosmeticImages.length)}
-                                className={`absolute right-2 top-1/2 transform -translate-y-1/2 ${isTablet ? 'w-8 h-8' : 'w-10 h-10'} backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors z-20`}
-                            >
-                               
-                            </button>
                         </div>
                     )}
 
@@ -276,7 +249,7 @@ const Modals = (props) => {
                                     onClick={() => setIsRegister(tab === "Register")}
                                     className={`${isMobile ? 'px-3 py-1 text-xs' : 'px-4 md:px-6 py-2 text-sm'} rounded-lg md:rounded-xl font-semibold transition-all duration-300 ${
                                         isRegister === (tab === "Register")
-                                            ? "bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] text-white shadow-lg shadow-[#ff7a8a]/20"
+                                            ? "bg-gradient-to-r from-pink-700 to-pink-700 text-white "
                                             : "text-gray-400 hover:text-white"
                                     }`}
                                 >
@@ -284,9 +257,6 @@ const Modals = (props) => {
                                 </button>
                             ))}
                         </div>
-
-                        {/* Mobile Header (only shown on mobile) */}
-                       
 
                         {/* Animated Form Container */}
                         <AnimatePresence mode="wait">
@@ -310,14 +280,14 @@ const Modals = (props) => {
                                             </div>
                                         </label>
                                         <div className="relative group">
-                                            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                                            <div className="absolute -inset-0.5  rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                                             <input
                                                 type="email"
                                                 name="email"
                                                 value={formDatas.email}
                                                 onChange={handleChanges}
                                                 placeholder="you@example.com"
-                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-[#ff7a8a] transition-colors placeholder-gray-500 pl-10 md:pl-12"
+                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-pink-700 transition-colors placeholder-gray-500 pl-10 md:pl-12"
                                                 required
                                             />
                                             <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
@@ -338,14 +308,14 @@ const Modals = (props) => {
                                             </div>
                                         </label>
                                         <div className="relative group">
-                                            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                                            <div className="absolute -inset-0.5  rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                                             <input
                                                 type={showPassword ? "text" : "password"}
                                                 name="password"
                                                 value={formDatas.password}
                                                 onChange={handleChanges}
                                                 placeholder="Enter your password"
-                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-[#ff7a8a] transition-colors placeholder-gray-500 pl-10 md:pl-12"
+                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-pink-700 transition-colors placeholder-gray-500 pl-10 md:pl-12"
                                                 required
                                             />
                                             <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
@@ -375,7 +345,7 @@ const Modals = (props) => {
                                     <button
                                         type="submit"
                                         disabled={loadings}
-                                        className="w-full group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] p-px"
+                                        className="w-full group relative overflow-hidden rounded-xl bg-gradient-to-r from-pink-700 via-pink-700 to-pink-700 p-px"
                                     >
                                         <div className="relative bg-black rounded-xl px-4 md:px-6 py-2 md:py-3 transition-all duration-300 group-hover:bg-transparent">
                                             <span className="relative text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base">
@@ -434,14 +404,14 @@ const Modals = (props) => {
                                                 </div>
                                             </label>
                                             <div className="relative group">
-                                                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                                                <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-700 to-pink-700 rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                                                 <input
                                                     type="text"
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleChange}
                                                     placeholder="John Doe"
-                                                    className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-[#ff7a8a] transition-colors placeholder-gray-500 pl-10 md:pl-12"
+                                                    className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-pink-700 transition-colors placeholder-gray-500 pl-10 md:pl-12"
                                                     required
                                                 />
                                                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
@@ -459,17 +429,17 @@ const Modals = (props) => {
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                                     </svg>
                                                     <span className={isMobile ? "text-sm" : ""}>Email Address</span>
-                                                </div>
-                                            </label>
+                                            </div>
+                                        </label>
                                             <div className="relative group">
-                                                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                                                <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-700 to-pink-700 rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                                                 <input
                                                     type="email"
                                                     name="email"
                                                     value={formData.email}
                                                     onChange={handleChange}
                                                     placeholder="you@example.com"
-                                                    className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-[#ff7a8a] transition-colors placeholder-gray-500 pl-10 md:pl-12"
+                                                    className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-pink-700 transition-colors placeholder-gray-500 pl-10 md:pl-12"
                                                     required
                                                 />
                                                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
@@ -491,12 +461,12 @@ const Modals = (props) => {
                                             </div>
                                         </label>
                                         <div className="relative group">
-                                            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                                            <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-700 to-pink-700 rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                                             <select
                                                 name="role"
                                                 value={formData.role}
                                                 onChange={handleChange}
-                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-[#ff7a8a] transition-colors appearance-none pl-10 md:pl-12"
+                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-pink-700 transition-colors appearance-none pl-10 md:pl-12"
                                                 required
                                             >
                                                 <option value="user" className="bg-gray-900">User</option>
@@ -526,14 +496,14 @@ const Modals = (props) => {
                                             </div>
                                         </label>
                                         <div className="relative group">
-                                            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                                            <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-700 to-pink-700 rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                                             <input
                                                 type={showPassword ? "text" : "password"}
                                                 name="password"
                                                 value={formData.password}
                                                 onChange={handleChange}
                                                 placeholder="Create a strong password"
-                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-[#ff7a8a] transition-colors placeholder-gray-500 pl-10 md:pl-12"
+                                                className="relative w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 md:py-3 text-white focus:outline-none focus:border-pink-700 transition-colors placeholder-gray-500 pl-10 md:pl-12"
                                                 required
                                             />
                                             <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
@@ -563,7 +533,7 @@ const Modals = (props) => {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="w-full group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] p-px"
+                                        className="w-full group relative overflow-hidden rounded-xl bg-gradient-to-r from-pink-700 via-pink-700 to-pink-700 p-px"
                                     >
                                         <div className="relative bg-black rounded-xl px-4 md:px-6 py-2 md:py-3 transition-all duration-300 group-hover:bg-transparent">
                                             <span className="relative text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base">
@@ -605,12 +575,12 @@ const Modals = (props) => {
                         </AnimatePresence>
 
                         {/* Switch link at bottom for mobile */}
-                        <div className={`text-center ${isMobile ? 'mt-4' : 'mt-6'} pt-4 border-t border-gray-200/20`}>
+                        <div className={`text-center ${isMobile ? 'mt-4' : 'mt-6'}`}>
                             <p className="text-gray-400 text-sm">
                                 {isRegister ? "Already have an account?" : "Don't have an account?"}{" "}
                                 <button
                                     onClick={() => setIsRegister(!isRegister)}
-                                    className="font-semibold text-[#ff7a8a] hover:text-[#ff6b7d] transition-colors"
+                                    className="font-semibold text-pink-700 hover:text-pink-800 transition-colors"
                                 >
                                     {isRegister ? "Sign In" : "Create Account"}
                                 </button>
@@ -618,53 +588,8 @@ const Modals = (props) => {
                         </div>
                     </div>
                 </div>
-
-                {/* Floating Switch Button - Only show on larger screens */}
-                {!isMobile && (
-                    <motion.button
-                        onClick={() => setIsRegister(!isRegister)}
-                        whileHover={{ scale: 1.1, rotate: 180 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 z-20"
-                    >
-                        <div className="relative">
-                            <div className="absolute -inset-2 bg-gradient-to-r from-[#ff7a8a] via-[#ff8fa3] to-[#ffb3c1] rounded-full blur-lg animate-pulse"></div>
-                            <div className="relative w-12 h-12 md:w-14 md:h-14 bg-black rounded-full flex items-center justify-center border-2 border-white/10 shadow-2xl">
-                                <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                                        d={isRegister ? "M10 19l-7-7m0 0l7-7m-7 7h18" : "M14 5l7 7m0 0l-7 7m7-7H3"} 
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                    </motion.button>
-                )}
-
-                {/* Mobile Toggle Button - Bottom center for mobile */}
-                {isMobile && (
-                    <button
-                        onClick={() => setIsRegister(!isRegister)}
-                        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-20 w-12 h-12 bg-gradient-to-r from-[#ff7a8a] to-[#ffb3c1] rounded-full flex items-center justify-center shadow-lg border-2 border-white/10"
-                    >
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                                d={isRegister ? "M10 19l-7-7m0 0l7-7m-7 7h18" : "M14 5l7 7m0 0l-7 7m7-7H3"} 
-                            />
-                        </svg>
-                    </button>
-                )}
             </motion.div>
-
-            {/* Decorative Corner Elements - Hidden on mobile */}
-            {!isMobile && (
-                <>
-                    <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#ff7a8a] opacity-50"></div>
-                    <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#ffb3c1] opacity-50"></div>
-                    <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-[#ff8fa3] opacity-50"></div>
-                    <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[#ff7a8a] opacity-50"></div>
-                </>
-            )}
-        </div>
+        </motion.div>
     );
 };
 

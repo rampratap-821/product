@@ -3,8 +3,26 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { FaLock, FaStar, FaShoppingCart, FaHeart } from "react-icons/fa";
 import { TiDeleteOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ProductModals = ({ onClose, category }) => {
+const ProductModals = ({ onClose, category,card, setCard }) => {
+  
+
+
+  const addToCard = (id, price, title, image) => {
+    setCard([...card, { id, price, title, image }]);
+    toast.success("Added to cart successfully", {
+      position: "top-right",
+      autoClose: 1500,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
+
+
+
+  
   const images = [
     { id: 1, src: "https://htmldemo.net/alista/alista/assets/img/product/product28.jpg" },
     { id: 2, src: "https://htmldemo.net/alista/alista/assets/img/product/product30.jpg" },
@@ -27,6 +45,10 @@ const ProductModals = ({ onClose, category }) => {
   const decreaseQuantity = () => setQuantity(prev => prev > 1 ? prev - 1 : 1);
 
   return (
+    <>
+   
+   
+      
     <div
       className="fixed inset-0 bg-black/20 flex items-center justify-center z-50 px-3 sm:px-6"
       onClick={onClose}
@@ -171,17 +193,19 @@ const ProductModals = ({ onClose, category }) => {
                 {/* Action Buttons */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Link 
+                  to={"/payment"}
                     className="group bg-black hover:bg-black-800 text-white px-6 py-3 rounded-2xl font-bold text-center flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <FaShoppingCart className="text-white" />
                     Add to Cart & Pay
                   </Link>
-                  <Link 
+                  <button 
+                  onClick={()=>addToCard(item.id,item.price,item.title,item.image)}
                     className="group bg-white border-2 border-black hover:bg-black-50 text-black px-6 py-3 rounded-2xl font-bold text-center flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-300"
                   >
                     <FaHeart className="text-black" />
                     Add to Wishlist
-                  </Link>
+                  </button>
                 </div>
 
                 {/* Secure Payment */}
@@ -204,6 +228,7 @@ const ProductModals = ({ onClose, category }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
